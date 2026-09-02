@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEDOVÝ KLID® HOLDING s.r.o. - Bankovní podkladový balíček | Komerční banka</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Outfit:wght@300;400;500;600&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --deep-forest: #0a1f18;
+            --dark-forest: #122b22;
+            --warm-honey: #c9a227;
+            --golden-amber: #d4a853;
+            --natural-wood: #5c3d2e;
+            --warm-beige: #c9b896;
+            --soft-cream: #faf6f0;
+            --white: #ffffff;
+            --text-dark: #1a1a1a;
+            --text-muted: #555;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Outfit', sans-serif; background: var(--soft-cream); color: var(--text-dark); line-height: 1.7; }
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 600; }
+
+        @media print {
+            .no-print { display: none !important; }
+            body { background: white; }
+            .cover { page-break-after: always; }
+            .section { page-break-inside: avoid; }
+            .page-break { page-break-before: always; }
+        }
+
+        .cover {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--deep-forest) 0%, var(--dark-forest) 50%, var(--deep-forest) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            padding: 60px 20px;
+        }
+        .cover::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 50% 80%, rgba(201, 162, 39, 0.1) 0%, transparent 60%);
+        }
+        .cover-content { position: relative; z-index: 2; max-width: 900px; }
+        .cover-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5rem;
+            color: var(--warm-honey);
+            margin-bottom: 1.5rem;
+            letter-spacing: 6px;
+        }
+        .cover h1 {
+            font-size: 2.6rem;
+            color: var(--warm-honey);
+            margin-bottom: 0.5rem;
+            letter-spacing: 3px;
+        }
+        .cover .subtitle {
+            font-size: 1.2rem;
+            color: var(--warm-beige);
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+        .cover-meta {
+            border-top: 2px solid var(--warm-honey);
+            padding-top: 2rem;
+            margin-top: 2rem;
+            color: var(--warm-beige);
+        }
+        .cover-meta p { margin-bottom: 0.5rem; font-size: 1rem; }
+        .cover-meta strong { color: var(--warm-honey); }
+        .cover-badge {
+            display: inline-block;
+            background: var(--warm-honey);
+            color: var(--deep-forest);
+            padding: 12px 40px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+        }
+        .cover-company {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            color: var(--golden-amber);
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+
+        .section {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 60px 40px;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 3px solid var(--warm-honey);
+        }
+        .section-header h2 {
+            font-size: 2.2rem;
+            color: var(--deep-forest);
+            margin-bottom: 0.5rem;
+        }
+        .section-header .section-num {
+            display: inline-block;
+            background: var(--warm-honey);
+            color: var(--deep-forest);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            line-height: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        .section-header p { color: var(--text-muted); font-size: 1.05rem; }
+
+        .content { line-height: 1.9; font-size: 1.05rem; }
+        .content h3 {
+            font-size: 1.5rem;
+            color: var(--dark-forest);
+            margin: 2rem 0 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(201, 162, 39, 0.3);
+        }
+        .content h4 {
+            font-size: 1.2rem;
+            color: var(--natural-wood);
+            margin: 1.5rem 0 0.8rem;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+        }
+        .content p { margin-bottom: 1rem; color: #333; }
+        .content ul { margin: 0.5rem 0 1rem 1.5rem; }
+        .content li { margin-bottom: 0.5rem; color: #444; }
+        .content strong { color: var(--deep-forest); }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(201, 162, 39, 0.08), rgba(10, 31, 24, 0.05));
+            border-left: 4px solid var(--warm-honey);
+            padding: 20px 25px;
+            margin: 1.5rem 0;
+            border-radius: 0 12px 12px 0;
+        }
+        .highlight-box strong { color: var(--warm-honey); }
+
+        .table-wrapper { overflow-x: auto; margin: 1.5rem 0; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+        }
+        table thead { background: var(--deep-forest); }
+        table th {
+            padding: 14px 18px;
+            color: var(--warm-honey);
+            font-weight: 600;
+            text-align: left;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        table td {
+            padding: 12px 18px;
+            border-bottom: 1px solid #eee;
+            font-size: 0.95rem;
+        }
+        table tr:last-child td { border-bottom: none; }
+        table tr:hover { background: rgba(201, 162, 39, 0.03); }
+        table .total-row { background: rgba(201, 162, 39, 0.1); font-weight: 700; }
+        table .total-row td { border-top: 2px solid var(--warm-honey); }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 1.5rem 0;
+        }
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            border: 1px solid rgba(201, 162, 39, 0.15);
+        }
+        .card h4 {
+            font-size: 1.1rem;
+            color: var(--deep-forest);
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .card .icon {
+            width: 40px;
+            height: 40px;
+            background: var(--deep-forest);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+        .card p { color: var(--text-muted); font-size: 0.95rem; margin: 0; }
+
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin: 2rem 0;
+        }
+        .kpi-card {
+            text-align: center;
+            padding: 25px 15px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+        }
+        .kpi-card .value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--warm-honey);
+            font-family: 'Playfair Display', serif;
+        }
+        .kpi-card .label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 5px;
+        }
+
+        .doc-footer {
+            text-align: center;
+            padding: 40px;
+            border-top: 2px solid var(--warm-honey);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        .doc-footer .brand {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            color: var(--warm-honey);
+            margin-bottom: 1rem;
+        }
+
+        .img-placeholder {
+            background: linear-gradient(135deg, var(--deep-forest), var(--dark-forest));
+            border-radius: 16px;
+            padding: 40px;
+            text-align: center;
+            color: var(--warm-beige);
+            margin: 1.5rem 0;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .img-placeholder .emoji { font-size: 3rem; margin-bottom: 1rem; }
+
+        .struct-box {
+            border: 2px solid var(--warm-honey);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+            background: white;
+        }
+        .struct-box .role { font-weight: 700; color: var(--deep-forest); font-size: 1.1rem; }
+        .struct-box .detail { color: var(--text-muted); font-size: 0.9rem; margin-top: 6px; }
+        .struct-connector { text-align: center; color: var(--warm-honey); font-size: 1.5rem; margin: 10px 0; }
+
+        @media (max-width: 768px) {
+            .cover-logo { font-size: 2.2rem; }
+            .cover h1 { font-size: 1.7rem; }
+            .section { padding: 40px 20px; }
+            .kpi-grid { grid-template-columns: 1fr 1fr; }
+            .cards-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ============================================================ -->
+<!-- COVER PAGE -->
+<!-- ============================================================ -->
+<div class="cover">
+    <div class="cover-content">
+        <div class="cover-badge">Důvěrný dokument</div>
+        <div class="cover-logo">MEDOVÝ KLID®</div>
+        <h1>Bankovní podkladový balíček</h1>
+        <p class="subtitle">Žádost o bezúčelový úvěr pro začínající společnosti</p>
+        <div class="cover-company">MEDOVÝ KLID HOLDING s.r.o.</div>
+
+        <div class="cover-meta">
+            <p><strong>Žadatel:</strong> MEDOVÝ KLID HOLDING s.r.o.</p>
+            <p><strong>IČO:</strong> 24506478</p>
+            <p><strong>Sídlo:</strong> Radimovická 1773/15, Chodov, 149 00 Praha 4</p>
+            <p><strong>Projekt:</strong> Modulární ekologické wellness domky s Apiterapií</p>
+            <p><strong>Cílová banka:</strong> Komerční banka, a.s.</p>
+            <p><strong>Kontakt:</strong> +420 774 726 995 | +420 724 283 050 | honeyedpeace@seznam.cz</p>
+            <p><strong>Datum:</strong> Září 2026</p>
+        </div>
+    </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- OBSAH DOCUMENTU -->
+<!-- ============================================================ -->
+<div class="section page-break">
+    <div class="section-header">
+        <h2>Obsah dokumentu</h2>
+    </div>
+    <div class="content">
+        <div class="table-wrapper">
+            <table>
+                <thead><tr><th>Část</th><th>Obsah</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>1</strong></td><td>Úvod a účel financování</td></tr>
+                    <tr><td><strong>2</strong></td><td>Popis projektu (technické řešení)</td></tr>
+                    <tr><td><strong>3</strong></td><td>Investiční rozpočet (1 domek)</td></tr>
+                    <tr><td><strong>4</strong></td><td>Provozní model a finanční projekce</td></tr>
+                    <tr><td><strong>5</strong></td><td>Úvěrové ukazatele a citlivostní analýza</td></tr>
+                    <tr><td><strong>6</strong></td><td>Tržní analýza a strategická pozice</td></tr>
+                    <tr><td><strong>7</strong></td><td>Růstová strategie a řízení rizik</td></tr>
+                    <tr><td><strong>8</strong></td><td>Technické podklady</td></tr>
+                    <tr><td><strong>9</strong></td><td>Vizualizace projektu</td></tr>
+                    <tr><td><strong>10</strong></td><td>Příloha — Nájemní smlouva (doplní žadatel)</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- ČÁST 1: ÚVOD A ÚČEL FINANCOVÁNÍ -->
+<!-- ============================================================ -->
+<div class="section page-break">
+    <div class="section-header">
+        <div class="section-num">1</div>
+        <h2>Úvod a účel financování</h2>
+    </div>
+
+    <div class="content">
+        <p>Předmětem žádosti je poskytnutí <strong>bezúčelového úvěru pro začínající společnosti ve výši 1 000 000 Kč na realizaci jednoho modulárního wellness domku</strong> v rámci projektu MEDOVÝ KLID®.</p>
+
+        <div class="highlight-box">
+            <strong>Financovaná částka:</strong> 1 000 000 Kč (bezúčelový úvěr na 1 modulární wellness domek)
+        </div>
+
+        <h3>1.1 Holdingová struktura</h3>
+        <p>Projekt je budován jako holdingová struktura. <strong>Každý domek je provozován samostatnou dceřinou společností (SPV)</strong> (Special Purpose Vehicle), která čerpá vlastní úvěr a samostatně splácí své závazky. Tento model umožňuje oddělení rizik jednotlivých jednotek a přehlednou kontrolu cash flow.</p>
+
+        <div style="max-width: 700px; margin: 2rem auto;">
+            <div class="struct-box">
+                <div class="role">MATEŘSKÁ SPOLEČNOST<br>MEDOVÝ KLID HOLDING s.r.o.</div>
+                <div class="detail">
+                    Vlastní ochrannou známku MEDOVÝ KLID®<br>
+                    Vlastní know-how, technologické postupy a provozní manuály<br>
+                    Zajišťuje centrální marketing a rezervační systém<br>
+                    Inkasuje franchisový poplatek 8 % z obratu franchisových jednotek
+                </div>
+            </div>
+            <div class="struct-connector">▼</div>
+            <div class="cards-grid" style="grid-template-columns: 1fr 1fr;">
+                <div class="card" style="text-align:center;">
+                    <h4 style="justify-content:center;"><span class="icon">🏡</span> Dceřiná společnost (SPV)</h4>
+                    <p>Každá provozuje jeden konkrétní domek, uzavírá licenční smlouvu s mateřskou společností, nese odpovědnost za provoz a splácení úvěru.</p>
+                </div>
+                <div class="card" style="text-align:center;">
+                    <h4 style="justify-content:center;"><span class="icon">🧩</span> SPV — oddělení rizika</h4>
+                    <p>Struktura je nastavena transparentně, s oddělením rizika každého projektu. Rizika jednotlivých jednotek se nekumulují.</p>
+                </div>
+            </div>
+        </div>
+
+        <h3>1.2 Výhody holdingového modelu</h3>
+        <ul>
+            <li><strong>Oddělení rizik</strong> — každý domek funguje jako samostatná ekonomická jednotka</li>
+            <li><strong>Přehledná kontrola cash flow</strong> — transparentní účetnictví každého SPV</li>
+            <li><strong>Škálovatelnost</strong> — snadné přidávání nových jednotek</li>
+            <li><strong>Dvě úrovně příjmu</strong> — provozní zisk SPV + franchisový poplatek (8 %) mateřské společnosti</li>
+            <li><strong>Ochrana značky a know-how</strong> — mateřská společnost vlastní ochrannou známku MEDOVÝ KLID®</li>
+        </ul>
+    </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- ČÁST 2: POPIS PROJEKTU -->
+<!-- ============================================================ -->
+<div class="section page-break">
+    <div class="section-header">
+        <div class="section-num">2</div>
+        <h2>Popis projektu</h2>
+        <p>Modulární ekologické wellness domky s Apiterapií</p>
+    </div>
+
+    <div class="content">
+        <p><strong>MEDOVÝ KLID®</strong> je koncept celoročního ekologického ubytování pro <strong>2 osoby</strong>, zaměřený na soukromí, wellness a pobyt v přírodě. Spojuje tři segmenty v jednom produktu: privátní wellness ubytování, prvky glampingu a tiny house segmentu, a apiterapii jako zdravotně orientovaný doplněk.</p>
+
+        <div class="kpi-grid">
+            <div class="kpi-card">
+                <div class="value">2</div>
+                <div class="label">Osoby / domek</div>
+            </div>
+            <div class="kpi-card">
+                <div class="value">3,6×8,4</div>
+                <div class="label">m (modul)</div>
+            </div>
+            <div class="kpi-card">
+                <div class="value">4+4</div>
+                <div class="label">Úly / včelstva</div>
+            </div>
+            <div class="kpi-card">
+                <div class="value">2 kWp</div>
+                <div class="label">Fotovoltaika</div>
+            </div>
+        </div>
+
+        <h3>2.1 Technické řešení</h3>
+        <div class="cards-grid">
+            <div class="card">
+                <h4><span class="icon">🏗️</span> Konstrukce</h4>
+                <p>Modulární konstrukce 3,6 × 8,4 m, přírodní materiály (slaměné panely)</p>
+            </div>
+            <div class="card">
+                <h4><span class="icon">🛏️</span> Ložnice</h4>
+                <p>Ložnice s velkoformátovým prosklením</p>
+            </div>
+            <div class="card">
+                <h4><span class="icon">🔥</span> Sauna</h4>
+                <p>Privátní sauna</p>
+            </div>
+            <div class="card">
+                <h4><span class="icon">🛁</span> Koupací sud</h4>
+                <p>Koupací sud na dřevo</p>
+            </div>
+            <div class="card">
+                <h4><span class="icon">🐝</span> Apiterapie</h4>
+                <p>4 úly, 4 včelstva</p>
+            </div>
+            <div class="card">
+                <h4><span class="icon">☀️</span> Fotovoltaika</h4>
+                <p>FV systém 2 kWp + bateriové úložiště</p>
+            </div>
+            <div class="card">
+                <h4><span class="icon">💧</span> Voda</h4>
+                <p>Využití dešťové vody s filtrací</p>
+            </div>
+            <div class="card">
+                <h4><span class="icon">🌳</span> Exteriér</h4>
+                <p>Terasa, pergola, ohniště</p>
+            </div>
+        </div>
+
+        <div class="highlight-box">
+            <strong>Energetická soběstačnost:</strong> Provoz je energeticky soběstačný a minimalizuje provozní náklady i závislost na externí infrastruktuře.
+        </div>
+    </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- ČÁST 3: INVESTIČNÍ ROZPOČET -->
+<!-- ============================================================ -->
+<div class="section page-break">
+    <div class="section-header">
+        <div class="section-num">3</div>
+        <h2>Investiční rozpočet (1 domek)</h2>
+    </div>
+
+    <div class="content">
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr><th>Položka</th><th>Částka (Kč)</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Stavba a interiér</td><td>330 000</td></tr>
+                    <tr><td>Sauna + sud</td><td>57 000</td></tr>
+                    <tr><td>Apiterapie</td><td>56 000</td></tr>
+                    <tr><td>Kamna + TUV (teplá užitková voda)</td><td>44 000</td></tr>
+                    <tr><td>Fotovoltaika + baterie</td><td>73 000</td></tr>
+                    <tr><td>Voda + filtrace</td><td>29 000</td></tr>
+                    <tr><td>Terasa + exteriér</td><td>30 000</td></tr>
+                    <tr><td>Rezerva a montáž</td><td>71 000</td></tr>
+                    <tr class="total-row"><td><strong>Celková investice</strong></td><td><strong>700 000 Kč</strong></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="highlight-box">
+            <strong>Využití úvěru 1 000 000 Kč:</strong><br>
+            Požadovaný úvěr 1 000 000 Kč vytváří rezervu cca <strong>300 000 Kč</strong> na provozní kapitál, marketing a splátkové položky.
+        </div>
+
+        <div class="kpi-grid">
+            <div class="kpi-card">
+                <div class="value">700 tis.</div>
+                <div class="label">Celková investice</div>
+            </div>
+            <div class="kpi-card">
+                <div class="value">1,0 mil.</div>
+                <div class="label">Požadovaný úvěr</div>
+            </div>
+            <div class="kpi-card">
+                <div class="value">300 tis.</div>
+                <div class="label">Provozní kapitál</div>
+            </div>
+            <div class="kpi-card">
+                <div class="value">~650 tis.</div>
+                <div class="label">Hodnota majetku</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- ČÁST 4: PROVOZNÍ MODEL A FINANČNÍ PROJEKCE -->
+<!-- ============================================================ -->
+<div class="section page-break">
+    <div class="section-header">
+        <div class="section-num">4</div>
+        <h2>Provozní model a finanční projekce</h2>
+    </div>
+
+    <div class="content">
+        <h3>4.1 Provozní model</h3>
+        <div class="table-wrapper">
+            <table>
+                <thead><tr><th>Parametr</th><th>Hodnota</th></tr></thead>
+                <tbody>
+                    <tr><td>Průměrná cena / noc</td><td><strong>3 300 Kč</strong></td></tr>
+                    <tr><td>Modelová roční obsazenost</td><td><strong>60 %</strong></td></tr>
+                    <tr><td>Roční tržby z ubytování a doplňkových služeb</td><td><strong>cca 780 000 Kč</strong></td></tr>
+                    <tr><td>Roční provozní náklady</td><td><strong>cca 145 000 Kč</strong></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>4.2 Finanční projekce (1 domek)</h3>
+        <div class="table-wrapper">
+            <table>
+                <thead><tr><th>Ukazatel</th><th>Hodnota</th></tr></thead>
+                <tbody>
+                    <tr><td>EBITDA</td><td>cca 635 000 Kč</td></tr>
+                    <tr><td>Roční splátky úvěru (5 let, 4,7 %)</td><td>cca 225 600 Kč</td></tr>
+                    <tr class="total-row"><td><strong>Čisté roční cash flow po splátkách</strong></td><td><strong>cca 409 000 Kč</strong></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>4.3 Měsíční cash flow — 1. rok</h3>
+        <div class="highlight-box">
+            Projekt vykazuje <strong>kladné cash flow v každém měsíci roku</strong>. Sezónnost je vyrovnána vyššími letními výnosy. Po odečtení provozních nákladů a splátky úvěru zůstává každý měsíc pozitivní hotovostní zůstatek. Roční čistý přebytek hotovosti činí cca <strong>409 000 Kč</strong>.
+        </div>
+
+        <h3>4.4 Predikce tržeb (model OTA trh)</h3>
+        <div class="table-wrapper">
+            <table>
+                <thead><tr><th>Položka</th><th>Hodnota</th></tr></thead>
+                <tbody>
+                    <tr><td>Základní výpočet (365 × 0,60 × 3 300 Kč)</td><td>722 700 Kč</td></tr>
+                    <tr><td>Doplňkové příjmy (procedury, balíčky, tematické pobyty, med)</td><td>57 300 – 177 300 Kč</td></tr>
+                    <tr class="total-row"><td><strong>Odhad celkových ročních tržeb</strong></td><td><strong>780 000 – 900 000 Kč</strong></td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p style="font-size:0.95rem; color: var(--text-muted);"><em>Model je nastaven konzervativně a nepočítá s cenovým navýšením v hlavní sezóně ani s dynamickým pricingem.</em></p>
+    </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- ČÁST 5: ÚVĚROVÉ UKAZATELE A CITLIVOSTNÍ ANALÝZA -->
+<!-- ============================================================ -->
+<div class="section page-break">
+    <div class="section-header">
+        <div class="section-num">5</div>
+        <h2>Úvěrové ukazatele a citlivostní analýza</h2>
+    </div>
+
+    <div class="content">
+        <h3>5.1 DSCR (Debt Service Coverage Ratio)</h3>
+        <div class="highlight-box">
+            <strong>DSCR = EBITDA / roční splátka = 635 000 / 225 600 = 2,81</strong><br>
+            Projekt generuje <strong>téměř trojnásobek</strong> potřebné částky na splácení úvěru.
+        </div>
+
+        <h3>5.2 Bod zvratu</h3>
+        <p>Schopnost splácet úvěr je dosažena při obsazenosti cca <strong>36–38 %</strong>.</p>
+
+        <h3>5.3 Citlivostní analýza — pokles obsazenosti</h3>
+        <div class="table-wrapper">
+            <table>
+                <thead><tr><th>Obsazenost</th><th>Čisté roční cash flow</th></tr></thead>
+                <tbody>
+                    <tr><td>60 %</td><td>cca 409 000 Kč</td></tr>
+                    <tr><td>50 %</td><td>cca 245 000 Kč</td></tr>
+                    <tr><td>40 %</td><td>cca 102 000 Kč</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p><strong>Projekt zůstává splatitelný i při významném poklesu výkonnosti.</strong></p>
+
+        <h3>5.4 Další citlivostní scénáře</h3>
+        <div class="cards-grid">
+            <div class="card">
+                <h4><span class="icon">📈</span> Zvýšení úrokové sazby</h4>
+                <p>I při navýšení úrokové sazby na <strong>8–10 %</strong> zůstává DSCR nad hodnotou <strong>2</strong>.</p>
+            </div>
+            <div class="card">
+                <h4><span class="icon">📉</span> Růst nákladů</h4>
+                <p>Navýšení provozních nákladů o <strong>30 %</strong> nemá zásadní vliv na schopnost splácet úvěr.</p>
+            </div>
+            <div class="card">
+                <h4><span class="icon">🏠</span> LTV a hodnota projektu</h4>
+                <p>Investiční hodnota majetku: <strong>650 000 Kč</strong>; úvěr 1 000 000 Kč. Formální LTV vůči hmotnému majetku je vyšší, projekt je však koncipován jako <strong>cash-flow based financování</strong>. Při zohlednění generovaného cash flow za první 3 roky je ekonomická hodnota projektu násobně vyšší než výše úvěru.</p>
+            </div>
+        </div>
+
+        <div class="highlight-box">
+            <strong>Závěr pro úvěrový výbor:</strong> Projekt zůstává splatitelný i při poklesu obsazenosti na 40 % (čisté CF 102 000 Kč), při zvýšení úrokové sazby na 8–10 % (DSCR &gt; 2) i při růstu provozních nákladů o 30 %.
+        </div>
+    </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- ČÁST 6: TRŽNÍ ANALÝZA -->
+<!-- ============================================================ -->
+<div class="section page-break">
+    <div class="section-header">
+        <div class="section-num">6</div>
+        <h2>Tržní analýza a strategická pozice</h2>
+    </div>
+
+    <div class="content">
+        <h3>6.1 Postavení projektu na trhu</h3>
+        <p>Projekt MEDOVÝ KLID® představuje integrovaný koncept spojující privátní wellness ubytování, prvky glampingu a tiny house segmentu, a apiterapii. Na českém trhu jsou tyto segmenty běžně realizovány samostatně. <strong>Kombinace všech tří prvků v jednom produktu vytváří jasnou konkurenční diferenciaci a posouvá projekt do prémiového zážitkového segmentu.</strong></p>
+
+        <h3>6.2 Odhad potenciální obsazenosti v regionech ČR</h3>
+        <p>Regiony s nejvyšším potenciálem: Beskydy/Moravskoslezský kraj, Sudety, Kokořínsko, Šumava, Jižní Morava (vinařské oblasti).</p>
+        <div class="table-wrapper">
+            <table>
+                <thead><tr><th>Období</th><th>Odhad obsazenosti</th></tr></thead>
+                <tbody>
+                    <tr><td>Červen – září</td><td>75 – 85 %</td></tr>
+                    <tr><td>Prosinec (svátky, Silvestr)</td><td>80 – 95 %</td></tr>
+                    <tr><td>Březen – květen</td><td>50 – 65 %</td></tr>
+                    <tr><td>Říjen – únor (mimo svátky)</td><td>40 – 55 %</td></tr>
+                    <tr class="total-row"><td><strong>Roční průměr</strong></td><td><strong>55 – 65 %</strong></td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p>Pro finanční model je používán konzervativní průměr <strong>60 %</strong>. Tato hodnota je v segmentu privátních wellness objektů dosažitelná při kvalitním marketingu, vysokém hodnocení hostů a správně nastavené cenové politice.</p>
+
+        <h3>6.3 Cenové srovnání trhu</h3>
+        <div class="table-wrapper">
+            <table>
+                <thead><tr><th>Typ produktu</th><th>Cena / noc</th></tr></thead>
+                <tbody>
+                    <tr><td>Tiny house bez wellness</td><td>2 500 – 3 500 Kč</td></tr>
+                    <tr><td>Glamping s wellness</td><td>3 500 – 5 000 Kč</td></tr>
+                    <tr><td>Prémiový wellness glamping</td><td>4 000 – 5 900 Kč</td></tr>
+                    <tr class="total-row"><td><strong>Projekt MEDOVÝ KLID®</strong></td><td><strong>3 300 – 3 900 Kč / noc</strong></td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p>Cenová pozice: výše než standardní tiny house, pod cenou exkluzivních luxusních lodge, s vyšší přidanou hodnotou díky apiterapii. Toto umístění zvyšuje konkurenceschopnost a současně zachovává zdravou marži.</p>
+
+        <h3>6.4 Analýza cílového zákazníka</h3>
+        <div class="cards-grid">
+            <div class="card">
+                <h4><span class="icon">👫</span> Primární cílová skupina</h4>
+                <p>Páry 25–65 let, střední a vyšší příjem, zájem o soukromí a kvalitní zážitek, hledají krátkodobý únik z městského prostředí.</p>
+            </div>
+            <div class="card">
+                <h4><span class="icon">🧠</span> Zájem o duševní zdraví</h4>
+                <p>Manažeři a podnikatelé, vysoká pracovní vytíženost, preference klidového a zdravotního benefitu, ochota zaplatit za kvalitu a soukromí.</p>
+            </div>
+            <div class="card">
+                <h4><span class="icon">🌱</span> Zdravý životní styl</h4>
+                <p>Orientace na prevenci, zájem o alternativní a podpůrné terapie, ekologické a přírodní hodnoty.</p>
+            </div>
+            <div class="card">
+                <h4><span class="icon">🎁</span> Sekundární segment</h4>
+                <p>Výroční a dárkové pobyty, svatební a romantické balíčky, krátké pobyty přes pracovní týden, podnikové benefity, rybáři/houbaři/cyklisti/turistika.</p>
+            </div>
+        </div>
+
+        <h3>6.5 SWOT analýza</h3>
+        <div class="table-wrapper">
+            <table>
+                <thead><tr><th>Silné stránky</th><th>Příležitosti</th></tr></thead>
+                <tbody>
+                    <tr>
+                        <td>Kombinace wellness + ubytování + apiterapie</td>
+                        <td>Rostoucí poptávka po soukromém wellness</td>
+                    </tr>
+                    <tr>
+                        <td>Evropská ochranná známka MEDOVÝ KLID®</td>
+                        <td>Trend zážitkové turistiky</td>
+                    </tr>
+                    <tr>
+                        <td>Nízké provozní náklady</td>
+                        <td>Růst segmentu "zdraví a prevence"</td>
+                    </tr>
+                    <tr>
+                        <td>Prémiový positioning</td>
+                        <td>Možnost expanze do dalších lokalit</td>
+                    </tr>
+                    <tr>
+                        <td>Možnost škálování konceptu</td>
+                        <td>Franchisový model rozvoje</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>6.6 Konkurenční výhoda</h3>
+        <p>Na trhu existují samostatné tiny houses, samostatné wellness glamping objekty i samostatná apiterapeutická zařízení. <strong>Projekt MEDOVÝ KLID® tyto segmenty propojuje.</strong> Kombinace soukromí, wellness, zdravotního benefitu a zážitku v přírodě vytváří vyšší vnímanou hodnotu a snižuje přímou cenovou srovnatelnost. Registrace evropské ochranné známky posiluje dlouhodobou ochranu značky a podporuje budování hodnoty projektu.</p>
+
+        <h3>6.7 Cenová politika a optimalizace obsazenosti</h3>
+        <div class="table-wrapper">
+            <table>
+                <thead><tr><th>Období</th><th>Cena / noc</th></tr></thead>
+                <tbody>
+                    <tr><td>Nízká sezóna</td><td>2 900 – 3 200 Kč</td></tr>
+                    <tr><td>Střední sezóna</td><td>3 300 – 3 600 Kč</td></tr>
+                    <tr><td>Hlavní sezóna</td><td>3 900 – 4 500 Kč</td></tr>
+                    <tr><td>Silvestr a svátky</td><td>individuální cenotvorba</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p>Nástroje optimalizace: dynamická cenotvorba (víkendové příplatky, balíčky, last minute v nízké sezóně, minimální délka pobytu o víkendech), kombinace přímých rezervací a OTA platforem, důraz na hodnocení hostů.</p>
+    </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- ČÁST 7: RŮSTOVÁ STRATEGIE A ŘÍZENÍ RIZIK -->
+<!-- ============================================================ -->
+<div class="section page-break">
+    <div class="section-header">
+        <div class="section-num">7</div>
+        <h2>Růstová strategie a řízení rizik</h2>
+    </div>
+
+    <div class="content">
+        <h3>7.1 Růstová strategie</h3>
+        <p>Cíl v ČR do 5 let:</p>
+        <div class="kpi-grid">
+            <div class="kpi-card">
+                <div class="value">54</div>
+                <div class="label">Domků celkem</div>
+            </div>
+            <div class="kpi-card">
+                <div class="value">10</div>
+                <div class="label">Pod vlastní správou</div>
+            </div>
+            <div class="kpi-card">
+                <div class="value">44</div>
+                <div class="label">Franchisových</div>
+            </div>
+            <div class="kpi-card">
+                <div class="value">8 %</div>
+                <div class="label">Franchisový poplatek</div>
+            </div>
+        </div>
+
+        <p>Franchisový model generuje <strong>8 % z obratu každé jednotky</strong> jako příjem mateřské společnosti.</p>
+        <div class="table-wrapper">
+            <table>
+                <thead><tr><th>Fáze rozvoje</th><th>Přínos pro holding</th></tr></thead>
+                <tbody>
+                    <tr><td>Při plném rozvoji sítě</td><td>Roční příjem z franchis cca <strong>2,7 mil. Kč</strong> bez přímé provozní zátěže</td></tr>
+                    <tr><td>Celkový očekávaný roční cash flow holdingu (ČR)</td><td>Přesahuje <strong>6 mil. Kč</strong></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>7.2 Řízení rizik</h3>
+        <ul>
+            <li><strong>Oddělení projektů do samostatných SPV</strong> — rizika jednotlivých domků se nekumulují</li>
+            <li><strong>Nízký bod zvratu</strong> — 36–38 % obsazenosti</li>
+            <li><strong>Energetická soběstačnost</strong> — nízká závislost na infrastruktuře a energiích</li>
+            <li><strong>Diverzifikace mezi více lokalit</strong> — rozložení tržního rizika</li>
+            <li><strong>Standardizovaný provozní systém</strong> — opakovatelnost a kontrola kvality</li>
+        </ul>
+    </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- ČÁST 8: TECHNICKÉ PODKLADY -->
+<!-- ============================================================ -->
+<div class="section page-break">
+    <div class="section-header">
+        <div class="section-num">8</div>
+        <h2>Technické podklady</h2>
+    </div>
+
+    <div class="content">
+        <h3>8.1 Modulární konstrukce</h3>
+        <div class="cards-grid">
+            <div class="card">
+                <h4><span class="icon">📐</span> Rozměry modulu</h4>
+                <p>3,6 × 8,4 m<br>Slaměné panely, přírodní materiály</p>
+            </div>
+            <div class="card">
+                <h4><span class="icon">🛏️</span> Ložnice</h4>
+                <p>Velkoformátové prosklení, výhled do přírody</p>
+            </div>
+            <div class="card">
+                <h4><span class="icon">🔥</span> Wellness</h4>
+                <p>Privátní sauna, koupací sud na dřevo</p>
+            </div>
+        </div>
+
+        <h3>8.2 Energetický a vodní systém</h3>
+        <div class="table-wrapper">
+            <table>
+                <thead><tr><th>Systém</th><th>Parametry</th><th>Investice</th></tr></thead>
+                <tbody>
+                    <tr><td>Fotovoltaický systém + bateriové úložiště</td><td>2 kWp + baterie</td><td>73 000 Kč</td></tr>
+                    <tr><td>Kamna + TUV</td><td>Vytápění a ohřev užitkové vody</td><td>44 000 Kč</td></tr>
+                    <tr><td>Voda + filtrace</td><td>Využití dešťové vody s filtrací</td><td>29 000 Kč</td></tr>
+                    <tr><td>Sauna + sud</td><td>Privátní wellness</td><td>57 000 Kč</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>8.3 Apiterapie modul</h3>
+        <p>Součástí projektu je <strong>apiterapie — 4 úly, 4 včelstva</strong>, poskytující zdravotně orientovaný doplněk pro hosty (vzduch z úlu, propolis, med, mateří kašička, včelí pyl) jako ojedinělá konkurenční výhoda projektu.</p>
+
+        <h3>8.4 Bezkontaktní provoz</h3>
+        <ul>
+            <li><strong>Online rezervace</strong> přes vlastní rezervační systém a OTA platformy</li>
+            <li><strong>Bezkontaktní check-in</strong> — zjednodušení provozu</li>
+            <li><strong>Minimální personální náročnost</strong> — nízké provozní náklady (145 000 Kč/rok)</li>
+        </ul>
+    </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- ČÁST 9: VIZUALIZACE -->
+<!-- ============================================================ -->
+<div class="section page-break">
+    <div class="section-header">
+        <div class="section-num">9</div>
+        <h2>Vizualizace projektu</h2>
+    </div>
+
+    <div class="content">
+        <p>Níže jsou zobrazeny vizualizace a grafické podklady k projektu MEDOVÝ KLID®. Plné rozlišení obrázků je přiloženo v příloze e-mailu a je součástí podkladové složky „Banka".</p>
+
+        <h3>9.1 Logo a brand identita</h3>
+        <div>
+            <img src="images/logo.png" alt="Logo MEDOVÝ KLID®" style="max-width:440px;height:auto;border-radius:10px;box-shadow:0 2px 14px rgba(0,0,0,0.15);border:2px solid rgba(201,162,39,0.4);display:block;margin:0 auto;">
+        </div>
+
+        <h3>9.2 Vizualizace konstrukce domku</h3>
+        <div>
+            <img src="images/konstrukce.png" alt="Vizualizace konstrukce domku" style="max-width:100%;height:auto;border-radius:10px;box-shadow:0 2px 14px rgba(0,0,0,0.15);border:2px solid rgba(201,162,39,0.4);">
+        </div>
+
+        <h3>9.3 Design — 4 roční období</h3>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;">
+            <img src="images/rocni_obdobi.png" alt="Vizualizace 4 roční období — varianta 1" style="max-width:100%;flex:1;min-width:280px;height:auto;border-radius:10px;box-shadow:0 2px 14px rgba(0,0,0,0.15);border:2px solid rgba(201,162,39,0.4);">
+            <img src="images/rocni_obdobi_2.png" alt="Vizualizace 4 roční období — varianta 2" style="max-width:100%;flex:1;min-width:280px;height:auto;border-radius:10px;box-shadow:0 2px 14px rgba(0,0,0,0.15);border:2px solid rgba(201,162,39,0.4);">
+        </div>
+
+        <h3>9.4 Vizitky a marketingové materiály</h3>
+        <div class="cards-grid">
+            <div><img src="images/vizitka_1.png" alt="Vizitka — varianta 1" style="width:100%;height:auto;border-radius:10px;box-shadow:0 2px 14px rgba(0,0,0,0.15);border:2px solid rgba(201,162,39,0.4);"></div>
+            <div><img src="images/vizitka_2.png" alt="Vizitka — varianta 2" style="width:100%;height:auto;border-radius:10px;box-shadow:0 2px 14px rgba(0,0,0,0.15);border:2px solid rgba(201,162,39,0.4);"></div>
+            <div><img src="images/vizitka_3.png" alt="Vizitka — varianta 3" style="width:100%;height:auto;border-radius:10px;box-shadow:0 2px 14px rgba(0,0,0,0.15);border:2px solid rgba(201,162,39,0.4);"></div>
+        </div>
+
+        <div class="highlight-box">
+            <strong>Přílohy k tomuto dokumentu:</strong> Kompletní set grafických podkladů (29 obrázků PNG) je přiložen ve složce „Banka". Dále fotodokumentace nájemních smluv (IMG_4444–4449.jpeg, 6 snímků) — zobrazená v části 10.
+        </div>
+    </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- ČÁST 10: PŘÍLOHA — NÁJEMNÍ SMLOUVA -->
+<!-- ============================================================ -->
+<div class="section page-break">
+    <div class="section-header">
+        <div class="section-num">10</div>
+        <h2>Příloha — Nájemní smlouva</h2>
+        <p>Doklad o právním vztahu k pozemkům pro umístění domků</p>
+    </div>
+
+    <div class="content">
+        <h3>10.1 Přehled nájemních smluv</h3>
+        <p>Pro zajištění právního podkladu umístění a provozu wellness domků byly uzavřeny nájemní smlouvy k pozemkům. Detaily nájemních smluv je třeba doplnit dle skutečných dokladů.</p>
+
+        <div class="highlight-box">
+            <strong>Poznámka:</strong> Kompletní znění nájemních smluv je přiloženo ve formě fotodokumentace (IMG_4444.jpeg – IMG_4449.jpeg). Údaje v tabulkách níže prosím doplňte podle skutečných smluv.
+        </div>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Lokalita</th>
+                        <th>Pronajímatel</th>
+                        <th>Pozemek / parcela</th>
+                        <th>Výměra</th>
+                        <th>Měsíční nájem</th>
+                        <th>Doba nájmu</th>
+                        <th>Účel</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>[Lokalita]</strong></td>
+                        <td style="background:rgba(201,162,39,0.05);color:#999;font-style:italic;">[doplní se]</td>
+                        <td style="background:rgba(201,162,39,0.05);color:#999;font-style:italic;">[doplní se]</td>
+                        <td style="background:rgba(201,162,39,0.05);color:#999;font-style:italic;">[doplní se]</td>
+                        <td style="background:rgba(201,162,39,0.05);color:#999;font-style:italic;">[doplní se]</td>
+                        <td style="background:rgba(201,162,39,0.05);color:#999;font-style:italic;">[doplní se]</td>
+                        <td style="background:rgba(201,162,39,0.05);color:#999;font-style:italic;">[doplní se]</td>
+                    </tr>
+                    <tr>
+                        <td><strong>[Lokalita]</strong></td>
+                        <td style="background:rgba(201,162,39,0.05);color:#999;font-style:italic;">[doplní se]</td>
+                        <td style="background:rgba(201,162,39,0.05);color:#999;font-style:italic;">[doplní se]</td>
+                        <td style="background:rgba(201,162,39,0.05);color:#999;font-style:italic;">[doplní se]</td>
+                        <td style="background:rgba(201,162,39,0.05);color:#999;font-style:italic;">[doplní se]</td>
+                        <td style="background:rgba(201,162,39,0.05);color:#999;font-style:italic;">[doplní se]</td>
+                        <td style="background:rgba(201,162,39,0.05);color:#999;font-style:italic;">[doplní se]</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>10.2 Fotodokumentace smluv</h3>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;">
+            <div><img src="images/IMG_4444.jpeg" alt="Nájemní smlouva — strana 1" style="width:100%;height:auto;border-radius:8px;border:1px solid rgba(201,162,39,0.4);box-shadow:0 2px 10px rgba(0,0,0,0.12);"><p style="font-size:0.82rem;color:#666;margin-top:4px;">IMG_4444 — Nájemní smlouva, strana 1</p></div>
+            <div><img src="images/IMG_4445.jpeg" alt="Nájemní smlouva — strana 2" style="width:100%;height:auto;border-radius:8px;border:1px solid rgba(201,162,39,0.4);box-shadow:0 2px 10px rgba(0,0,0,0.12);"><p style="font-size:0.82rem;color:#666;margin-top:4px;">IMG_4445 — Nájemní smlouva, strana 2</p></div>
+            <div><img src="images/IMG_4446.jpeg" alt="Nájemní smlouva — strana 3" style="width:100%;height:auto;border-radius:8px;border:1px solid rgba(201,162,39,0.4);box-shadow:0 2px 10px rgba(0,0,0,0.12);"><p style="font-size:0.82rem;color:#666;margin-top:4px;">IMG_4446 — Nájemní smlouva, strana 3</p></div>
+            <div><img src="images/IMG_4447.jpeg" alt="Nájemní smlouva — strana 4" style="width:100%;height:auto;border-radius:8px;border:1px solid rgba(201,162,39,0.4);box-shadow:0 2px 10px rgba(0,0,0,0.12);"><p style="font-size:0.82rem;color:#666;margin-top:4px;">IMG_4447 — Nájemní smlouva, strana 4</p></div>
+            <div><img src="images/IMG_4448.jpeg" alt="Nájemní smlouva — strana 5" style="width:100%;height:auto;border-radius:8px;border:1px solid rgba(201,162,39,0.4);box-shadow:0 2px 10px rgba(0,0,0,0.12);"><p style="font-size:0.82rem;color:#666;margin-top:4px;">IMG_4448 — Nájemní smlouva, strana 5</p></div>
+            <div><img src="images/IMG_4449.jpeg" alt="Nájemní smlouva — strana 6" style="width:100%;height:auto;border-radius:8px;border:1px solid rgba(201,162,39,0.4);box-shadow:0 2px 10px rgba(0,0,0,0.12);"><p style="font-size:0.82rem;color:#666;margin-top:4px;">IMG_4449 — Nájemní smlouva, strana 6 (přílohy/podpisy)</p></div>
+        </div>
+        <div class="table-wrapper" style="margin-top:14px;">
+            <table>
+                <thead><tr><th>Soubor</th><th>Obsah</th></tr></thead>
+                <tbody>
+                    <tr><td>IMG_4444.jpeg</td><td>Nájemní smlouva — strana 1</td></tr>
+                    <tr><td>IMG_4445.jpeg</td><td>Nájemní smlouva — strana 2</td></tr>
+                    <tr><td>IMG_4446.jpeg</td><td>Nájemní smlouva — strana 3</td></tr>
+                    <tr><td>IMG_4447.jpeg</td><td>Nájemní smlouva — strana 4</td></tr>
+                    <tr><td>IMG_4448.jpeg</td><td>Nájemní smlouva — strana 5</td></tr>
+                    <tr><td>IMG_4449.jpeg</td><td>Nájemní smlouva — strana 6 (přílohy/podpisy)</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- ZÁVĚR -->
+<!-- ============================================================ -->
+<div class="section page-break">
+    <div class="section-header">
+        <h2>Závěr pro úvěrový výbor</h2>
+    </div>
+
+    <div class="content">
+        <p>Projekt <strong>MEDOVÝ KLID®</strong>:</p>
+        <ul>
+            <li>vykazuje stabilní a předvídatelné cash flow</li>
+            <li>má nadstandardní krytí splátek (DSCR = 2,81)</li>
+            <li>je odolný vůči poklesu obsazenosti i růstu nákladů</li>
+            <li>umožňuje kontrolovaný růst s oddělením rizika</li>
+            <li>kombinuje provozní a licenční příjem</li>
+        </ul>
+
+        <div class="highlight-box">
+            <strong>Požadovaný bezúčelový úvěr pro začínající společnosti ve výši 1 000 000 Kč na jednu jednotku</strong> je z hlediska schopnosti splácení bezpečný a dlouhodobě udržitelný.
+        </div>
+
+        <h3>Kontaktní údaje žadatele</h3>
+        <div class="table-wrapper">
+            <table>
+                <thead><tr><th>Položka</th><th>Hodnota</th></tr></thead>
+                <tbody>
+                    <tr><td>Společnost</td><td>MEDOVÝ KLID HOLDING s.r.o.</td></tr>
+                    <tr><td>IČO</td><td>24506478</td></tr>
+                    <tr><td>Sídlo</td><td>Radimovická 1773/15, Chodov, 149 00 Praha 4</td></tr>
+                    <tr><td>E-mail</td><td>honeyedpeace@seznam.cz</td></tr>
+                    <tr><td>Telefon 1</td><td>+420 774 726 995</td></tr>
+                    <tr><td>Telefon 2</td><td>+420 724 283 050</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<div class="doc-footer">
+    <div class="brand">MEDOVÝ KLID®</div>
+    <p>MEDOVÝ KLID HOLDING s.r.o. | IČO: 24506478</p>
+    <p>Bankovní podkladový balíček — Září 2026</p>
+    <p style="margin-top: 15px; font-size: 0.8rem; color: #999;">
+        © 2026 MEDOVÝ KLID® — Všechna práva vyhrazena
+    </p>
+</div>
+
+</body>
+</html>
