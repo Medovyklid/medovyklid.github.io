@@ -430,12 +430,8 @@ fbrand .fbrand{font-family:var(--serif);font-size:1.4rem;letter-spacing:3px;colo
       <div class="r-form rv">
         <div class="f-group">
           <label data-i18n="fLoc">Lokalita</label>
-          <select id="loc">
-            <option value="Czech Forest" data-i18n="opt1">České lesy</option>
-            <option value="Alps Austria">Alps Austria</option>
-            <option value="Nordic Lakes Sweden">Nordic Lakes Sweden</option>
-            <option value="Ontario Canada">Ontario Canada</option>
-          </select>
+          <div style="padding:.8rem 1rem;border:1px solid #ddd2bc;border-radius:4px;font-size:.95rem;background:var(--forest);color:var(--honey-soft);letter-spacing:1px;font-weight:500" data-i18n="fLocVal">Ústecký kraj</div>
+          <input type="hidden" id="loc" value="Ústecký kraj">
         </div>
         <div class="f-group">
           <label data-i18n="fDate">Datum příjezdu</label>
@@ -458,11 +454,7 @@ fbrand .fbrand{font-family:var(--serif);font-size:1.4rem;letter-spacing:3px;colo
         <p class="r-note" data-i18n="fNote">Základní cena ubytování 3 300 CZK / noc. Rezervaci odešlete přes WhatsApp nebo e-mail — odpovíme zpravidla do 12 hodin.</p>
       </div>
       <div class="r-side">
-        <div class="loc rv"><div class="pin">🌲</div><div><b data-i18n="l1t">České lesy</b><span data-i18n="l1d">Skryto v bukových a smrkových lesích Čech</span></div></div>
-        <div class="loc rv"><div class="pin">🏔️</div><div><b data-i18n="l2t">Alpy · Rakousko</b><span data-i18n="l2d">Horský klid s výhledy</span></div></div>
-        <div class="loc rv"><div class="pin">🌊</div><div><b data-i18n="l3t">Severní lesy · Švédsko</b><span data-i18n="l3d">Divoká severanská příroda</span></div></div>
-        <div class="loc rv"><div class="pin">🍁</div><div><b data-i18n="l4t">Kanada · Ontario</b><span data-i18n="l4d">Javorové lesy a jezera</span></div></div>
-        <div class="r-note" style="background:#fff;border:1px solid var(--line);border-radius:8px;padding:1.2rem 1.6rem" data-i18n="locNote">Více lokalit se otevírá postupně. Každá stojí samostatně na vlastním pozemku.</div>
+        <div class="loc rv"><div class="pin">🌲</div><div><b data-i18n="l1t">Ústecký kraj</b><span data-i18n="l1d">Horské lesy na pomezí Čech a Německa</span></div></div>
       </div>
     </div>
   </div>
@@ -585,7 +577,7 @@ var EN = {
   bookTitle:"Begin your journey to stillness",
   bookLead:"Contactless check-in, fully automated booking and payment. Choose your dates and we'll send you the access code a day ahead.",
   fLoc:"Location",
-  opt1:"Czech Forest",
+  fLocVal:"Ústecký kraj",
   fDate:"Arrival date",
   fNights:"Nights",
   fPack:"Optional packages",
@@ -595,15 +587,8 @@ var EN = {
   fTotal:"Total",
   fSend:"Send booking",
   fNote:"Base rate 3,300 CZK / night. The booking is sent via WhatsApp or e-mail — we usually reply within 12 hours.",
-  l1t:"Czech Forest",
-  l1d:"Hidden in the beech and spruce forests of Bohemia",
-  l2t:"Alps · Austria",
-  l2d:"Mountain serenity with views",
-  l3t:"Nordic Lakes · Sweden",
-  l3d:"Wild Nordic nature",
-  l4t:"Ontario · Canada",
-  l4d:"Maple forests and lakes",
-  locNote:"More locations open gradually. Each cabin stands alone on its own land.",
+  l1t:"Ústecký kraj",
+  l1d:"Mountain forests on the border of Bohemia and Germany",
   q1:"\"The best reset of my life. Pure silence, nature and peace — after two nights I slept better everywhere.\"",
   q1w:"Guest from Germany",
   ctaT:"Your silence is waiting.",
