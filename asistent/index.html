@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEDOVÝ KLID Assistant</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Outfit:wght@300;400;500;600&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        :root {
+            --deep-forest: #0a1f18;
+            --dark-forest: #122b22;
+            --midnight-green: #1a3d30;
+            --warm-honey: #c9a227;
+            --golden-amber: #d4a853;
+            --honey-glow: #e8c565;
+            --natural-wood: #5c3d2e;
+            --walnut: #4a3222;
+            --warm-beige: #c9b896;
+            --soft-cream: #faf6f0;
+            --white: #ffffff;
+            --text-dark: #1a1a1a;
+            --text-light: #faf6f0;
+            --text-muted: #666666;
+            --shadow: 0 4px 20px rgba(0,0,0,0.1);
+            --shadow-hover: 0 8px 40px rgba(0,0,0,0.15);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--soft-cream);
+            color: var(--text-dark);
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 600; }
+
+        .app-container { display: flex; height: 100vh; }
+
+        .sidebar {
+            width: 260px;
+            background: var(--deep-forest);
+            color: var(--text-light);
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--warm-honey);
+            padding: 20px 0;
+            text-align: center;
+            border-bottom: 1px solid rgba(201, 162, 39, 0.2);
+            margin-bottom: 20px;
+        }
+
+        .nav-item {
+            padding: 12px 16px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 8px;
+            color: var(--text-light);
+            text-decoration: none;
+        }
+
+        .nav-item:hover { background: rgba(201, 162, 39, 0.1); }
+
+        .nav-item.active { background: var(--warm-honey); color: var(--deep-forest); }
+
+        .nav-item svg { width: 20px; height: 20px; }
+
+        .main-content { flex: 1; overflow-y: auto; padding: 30px; }
+
+        .page { display: none; }
+        .page.active { display: block; }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: var(--shadow);
+        }
+
+        .stat-card h3 {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 500;
+        }
+
+        .stat-card .value {
+            font-size: 2rem;
+            color: var(--warm-honey);
+            font-weight: 600;
+        }
+
+        .quick-actions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .action-btn {
+            background: var(--white);
+            border: 2px solid var(--warm-honey);
+            border-radius: 12px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .action-btn:hover {
+            background: var(--warm-honey);
+            transform: translateY(-3px);
+        }
+
+        .action-btn svg {
+            width: 32px;
+            height: 32px;
+            margin-bottom: 10px;
+            color: var(--warm-honey);
+        }
+
+        .action-btn:hover svg { color: var(--deep-forest); }
+
+        .chat-container {
+            display: flex;
+            flex-direction: column;
+            height: calc(100vh - 100px);
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            background: linear-gradient(180deg, #faf6f0 0%, #ffffff 100%);
+        }
+
+        .message { margin-bottom: 20px; max-width: 80%; }
+        .message.user { margin-left: auto; }
+
+        .message-content {
+            padding: 15px 20px;
+            border-radius: 20px;
+            line-height: 1.5;
+        }
+
+        .message.ai .message-content {
+            background: var(--white);
+            border: 1px solid rgba(201, 162, 39, 0.2);
+            color: var(--text-dark);
+        }
+
+        .message.user .message-content {
+            background: var(--warm-honey);
+            color: var(--deep-forest);
+        }
+
+        .chat-input {
+            padding: 20px;
+            background: var(--white);
+            border-top: 1px solid rgba(201, 162, 39, 0.2);
+            display: flex;
+            gap: 10px;
+        }
+
+        .chat-input input {
+            flex: 1;
+            padding: 15px 20px;
+            border: 2px solid rgba(201, 162, 39, 0.3);
+            border-radius: 30px;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .chat-input input:focus { border-color: var(--warm-honey); }
+
+        .chat-input button {
+            padding: 15px 30px;
+            background: var(--warm-honey);
+            border: none;
+            border-radius: 30px;
+            color: var(--deep-forest);
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .documents-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .document-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: var(--shadow);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .document-card:hover { transform: translateY(-5px); }
+
+        .document-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--warm-honey), var(--golden-amber));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .document-card h4 { font-size: 1.1rem; margin-bottom: 8px; }
+        .document-card p { font-size: 0.9rem; color: var(--text-muted); }
+
+        .form-group { margin-bottom: 20px; }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid rgba(201, 162, 39, 0.3);
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--warm-honey);
+        }
+
+        .btn {
+            padding: 12px 24px;
+            background: var(--warm-honey);
+            border: none;
+            border-radius: 10px;
+            color: var(--deep-forest);
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--warm-honey);
+            color: var(--warm-honey);
+        }
+
+        .btn-outline:hover { background: var(--warm-honey); color: var(--deep-forest); }
+
+        .calculator-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .calculator-section {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+        }
+
+        .calculator-result {
+            margin-top: 20px;
+            padding: 20px;
+            background: linear-gradient(135deg, var(--deep-forest), var(--dark-forest));
+            border-radius: 12px;
+            color: var(--text-light);
+        }
+
+        .calculator-result .value {
+            font-size: 2rem;
+            color: var(--warm-honey);
+            font-weight: 700;
+        }
+
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .page-header h1 { font-size: 2rem; color: var(--deep-forest); }
+
+        input[type="range"] {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 8px;
+            background: rgba(201, 162, 39, 0.3);
+            border-radius: 4px;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            background: var(--warm-honey);
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .score-display {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            background: var(--warm-honey);
+            color: var(--deep-forest);
+            border-radius: 50%;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .sidebar { width: 80px; padding: 10px; }
+            .nav-item span { display: none; }
+            .nav-item { justify-content: center; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .page.active { animation: fadeIn 0.5s ease; }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: rgba(201, 162, 39, 0.1); }
+        ::-webkit-scrollbar-thumb { background: var(--warm-honey); border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="logo">🐝 MEDOVÝ KLID</div>
+            <div style="padding: 10px 15px; margin-bottom: 10px;">
+                <select id="appLang" onchange="changeLanguage(this.value)" style="width: 100%; padding: 8px; border-radius: 8px; background: rgba(201, 162, 39, 0.2); border: 1px solid var(--warm-honey); color: var(--text-light);">
+                    <option value="cs">🇨🇿 Česky</option>
+                    <option value="en">🇬🇧 English</option>
+                    <option value="de">🇩🇪 Deutsch</option>
+                </select>
+            </div>
+            <nav>
+                <a class="nav-item active" data-page="dashboard">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg>
+                    <span>Dashboard</span>
+                </a>
+                <a class="nav-item" data-page="chat">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
+                    <span>AI Chat</span>
+                </a>
+                <a class="nav-item" data-page="documents">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+                    <span>Dokumenty</span>
+                </a>
+                <a class="nav-item" data-page="marketing">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 11v2h4v-2h-4zm-2 6.61c.96.71 2.21 1.65 3.2 2.39.4-.53.8-1.07 1.2-1.6-.99-.74-2.24-1.68-3.2-2.4-.4.54-.8 1.08-1.2 1.61z"/></svg>
+                    <span>Marketing</span>
+                </a>
+                <a class="nav-item" data-page="calculator">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14h-2v-4H8v-2h4V7h2v4h4v2h-4v4z"/></svg>
+                    <span>Kalkulačky</span>
+                </a>
+                <a class="nav-item" data-page="builder">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 9V7h-2V5c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-2h2v-2h-2v-2h2v-2h-2V9h2zm-4 10H4V5h14v14zM6 13h5v4H6zm6-6h4v3h-4zM6 7h5v5H6zm6 4h4v6h-4z"/></svg>
+                    <span>Projekt Builder</span>
+                </a>
+                <a class="nav-item" data-page="locations">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    <span>Lokace</span>
+                </a>
+                <a class="nav-item" data-page="files">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"/></svg>
+                    <span>Soubory</span>
+                </a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <!-- Dashboard -->
+            <div class="page active" id="dashboard">
+                <div class="page-header">
+                    <h1>Dashboard</h1>
+                </div>
+                <div class="dashboard-grid">
+                    <div class="stat-card">
+                        <h3>Nové lokace</h3>
+                        <div class="value" id="statLocations">0</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Investoři</h3>
+                        <div class="value">0</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>ROI</h3>
+                        <div class="value">0%</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Dotace</h3>
+                        <div class="value">0 Kč</div>
+                    </div>
+                </div>
+                <h2 style="margin-bottom: 20px;">Rychlé akce</h2>
+                <div class="quick-actions">
+                    <div class="action-btn" onclick="navigateTo('chat')">
+                        <div>Chat s AI</div>
+                    </div>
+                    <div class="action-btn" onclick="navigateTo('builder')">
+                        <div>Nový projekt</div>
+                    </div>
+                    <div class="action-btn" onclick="navigateTo('calculator')">
+                        <div>ROI kalkulačka</div>
+                    </div>
+                    <div class="action-btn" onclick="navigateTo('marketing')">
+                        <div>Marketing text</div>
+                    </div>
+                    <div class="action-btn" onclick="navigateTo('locations')">
+                        <div>Hodnocení lokací</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chat -->
+            <div class="page" id="chat">
+                <div class="page-header">
+                    <h1>AI Chat Assistant</h1>
+                </div>
+                <div class="chat-container">
+                    <div class="chat-messages" id="chatMessages">
+                        <div class="message ai">
+                            <div class="message-content">
+                                Ahoj! Jsem tvůj AI asistent pro Medovy Klid. Mohu ti pomoci s:<br><br>
+                                • 📊 Analýzou a ROI kalkulacemi<br>
+                                • 📝 Marketingovými texty<br>
+                                • 📑 Investičními dokumenty<br>
+                                • 🏗️ Plánováním nových lokací<br>
+                                • 💰 Dotacemi<br><br>
+                                Jak ti mohu dnes pomoci?
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chat-input">
+                        <input type="text" id="chatInput" placeholder="Napiš zprávu..." onkeypress="if(event.key==='Enter')sendMessage()">
+                        <button onclick="sendMessage()">Odeslat</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Documents -->
+            <div class="page" id="documents">
+                <div class="page-header">
+                    <h1>Dokumenty</h1>
+                    <button class="btn" onclick="exportProject()">📦 Export projektu</button>
+                </div>
+                <div class="documents-grid">
+                    <div class="document-card" onclick="showProjectIntent()">
+                        <div class="document-icon">📋</div>
+                        <h4>Projektový záměr</h4>
+                        <p>Oficiální dokumentace</p>
+                    </div>
+                    <div class="document-card" onclick="showTechSpecs()">
+                        <div class="document-icon">🔧</div>
+                        <h4>Technické specifikace</h4>
+                        <p>Konstrukce, rozměry, cena</p>
+                    </div>
+                    <div class="document-card" onclick="showBusinessPlan()">
+                        <div class="document-icon">💼</div>
+                        <h4>Business Plan</h4>
+                        <p>Podnikatelský plán</p>
+                    </div>
+                    <div class="document-card" onclick="showBrandSystem()">
+                        <div class="document-icon">🎨</div>
+                        <h4>Brand System</h4>
+                        <p>Brand guidelines</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Marketing -->
+            <div class="page" id="marketing">
+                <div class="page-header">
+                    <h1>Marketing</h1>
+                </div>
+                <div class="calculator-grid">
+                    <div class="calculator-section">
+                        <h3>Generátor textů</h3>
+                        <div class="form-group">
+                            <label>Typ textu</label>
+                            <select id="marketingType">
+                                <option value="social">Sociální sítě</option>
+                                <option value="web">Webové stránky</option>
+                                <option value="email">E-mail</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Téma</label>
+                            <select id="marketingTopic">
+                                <option value="apitherapy">🐝 Apiterapie</option>
+                                <option value="wellness">🌿 Wellness</option>
+                                <option value="romantic">💕 Romantický pobyt</option>
+                                <option value="detox">📵 Digital detox</option>
+                                <option value="ecofriendly">🌱 Eco friendly</option>
+                                <option value="forest">🌲 Lesní relax</option>
+                                <option value="sleep">😴 Zdravý spánek</option>
+                                <option value=" couples">👫 Páry</option>
+                                <option value="anniversary">🎉 Výročí</option>
+                                <option value="weekend">🗓️ Víkendový únik</option>
+                                <option value="gift">🎁 Dárkový poukaz</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Jazyk</label>
+                            <select id="marketingLang">
+                                <option value="cs">🇨🇿 Čeština</option>
+                                <option value="en">🇬🇧 English</option>
+                                <option value="de">🇩🇪 Deutsch</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Platforma</label>
+                            <select id="marketingPlatform">
+                                <option value="instagram">📸 Instagram</option>
+                                <option value="facebook">📘 Facebook</option>
+                                <option value="web">🌐 Web</option>
+                                <option value="email">📧 E-mail</option>
+                                <option value="booking">🏨 Booking</option>
+                            </select>
+                        </div>
+                        <button class="btn" onclick="generateMarketingText()">Generovat text</button>
+                        <div id="marketingResult" style="margin-top: 20px; padding: 15px; background: #f5f5f5; border-radius: 10px; display: none; white-space: pre-wrap; line-height: 1.6;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Calculator -->
+            <div class="page" id="calculator">
+                <div class="page-header">
+                    <h1>Kalkulačky</h1>
+                </div>
+                <div class="calculator-grid">
+                    <div class="calculator-section">
+                        <h3>ROI Kalkulačka</h3>
+                        <div class="form-group">
+                            <label>Počáteční investice (Kč)</label>
+                            <input type="number" id="initialInvestment" value="5000000">
+                        </div>
+                        <div class="form-group">
+                            <label>Roční tržby (Kč)</label>
+                            <input type="number" id="annualRevenue" value="1800000">
+                        </div>
+                        <div class="form-group">
+                            <label>Roční provozní náklady (Kč)</label>
+                            <input type="number" id="annualCosts" value="600000">
+                        </div>
+                        <button class="btn" onclick="calculateROI()">Spočítat ROI</button>
+                        <div class="calculator-result" id="roiResult" style="display: none;">
+                            <div>ROI: <span class="value" id="roiValue">0%</span></div>
+                            <div style="margin-top: 10px;">Doba návratnosti: <span id="paybackPeriod">0 let</span></div>
+                        </div>
+                    </div>
+                    <div class="calculator-section">
+                        <h3>Cenová kalkulačka</h3>
+                        <div class="form-group">
+                            <label>Počet nocí</label>
+                            <input type="number" id="nightsCount" value="2">
+                        </div>
+                        <div class="form-group">
+                            <label>Sezóna</label>
+                            <select id="season">
+                                <option value="low">Nízká (3 500 Kč/noc)</option>
+                                <option value="high">Vysoká (4 200 Kč/noc)</option>
+                            </select>
+                        </div>
+                        <button class="btn" onclick="calculatePrice()">Spočítat cenu</button>
+                        <div class="calculator-result" id="priceResult" style="display: none;">
+                            <div>Celková cena: <span class="value" id="priceValue">0 Kč</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Builder -->
+            <div class="page" id="builder">
+                <div class="page-header">
+                    <h1>Projekt Builder</h1>
+                    <button class="btn" onclick="saveProject()">💾 Uložit projekt</button>
+                </div>
+                <div class="calculator-grid">
+                    <div class="calculator-section">
+                        <h3>Nová lokace</h3>
+                        <div class="form-group">
+                            <label>Název lokace</label>
+                            <input type="text" id="locationName" placeholder="např. Czech Forest">
+                        </div>
+                        <div class="form-group">
+                            <label>Země</label>
+                            <select id="locationCountry">
+                                <option value="cz">🇨🇿 Česká republika</option>
+                                <option value="sk">🇸🇰 Slovensko</option>
+                                <option value="at">🇦🇹 Rakousko</option>
+                                <option value="de">🇩🇪 Německo</option>
+                                <option value="pl">🇵🇱 Polsko</option>
+                                <option value="si">🇸🇮 Slovinsko</option>
+                                <option value="hr">🇭🇷 Chorvatsko</option>
+                                <option value="hu">🇭🇺 Maďarsko</option>
+                                <option value="ch">🇨🇭 Švýcarsko</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Velikost pozemku (m²)</label>
+                            <input type="number" id="landSize" placeholder="např. 5000">
+                        </div>
+                    </div>
+                    <div class="calculator-section">
+                        <h3>Specifikace kabiny</h3>
+                        <div class="form-group">
+                            <label>Rozměr</label>
+                            <select id="cabinSize">
+                                <option>3.6 × 8.4 m (~42 m²) - 796 000 Kč</option>
+                                <option>4.0 × 10.0 m (55 m²) - 1 150 000 Kč</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Konstrukce</label>
+                            <select id="constructionType">
+                                <option>Dřevo + slaměné balíky + hliněné omítky</option>
+                                <option>CLT panely</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Energie</label>
+                            <select id="energySystem">
+                                <option>Solární 2kWp + baterie 5kWh + kamna</option>
+                                <option>Solární 5kWp + baterie</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Locations -->
+            <div class="page" id="locations">
+                <div class="page-header">
+                    <h1>Hodnocení lokací</h1>
+                    <button class="btn" onclick="saveLocation()">💾 Uložit</button>
+                </div>
+                <div class="calculator-grid">
+                    <div class="calculator-section">
+                        <h3>📍 Nová lokalita</h3>
+                        <div class="form-group">
+                            <label>Název lokality</label>
+                            <input type="text" id="locName" placeholder="např. Šumava">
+                        </div>
+                        <div class="form-group">
+                            <label>Region / Země</label>
+                            <select id="locRegion">
+                                <optgroup label="ČESKÁ REPUBLIKA">
+                                    <option value="sumava">Šumava</option>
+                                    <option value="jizni-cechy">Jižní Čechy</option>
+                                    <option value="jizni-morava">Jižní Morava</option>
+                                    <option value="moravsky-kras">Moravský kras</option>
+                                    <option value="kralovedvorsko">Kralovehradecko</option>
+                                    <option value="vysocina">Vysočina</option>
+                                    <option value="plzensko">Plzeňsko</option>
+                                    <option value="stredni-cechy">Střední Čechy</option>
+                                    <option value="jihomoravsky-kraj">Jihomoravský kraj</option>
+                                    <option value="zlinsky-kraj">Zlínský kraj</option>
+                                    <option value="olomoucky-kraj">Olomoucký kraj</option>
+                                    <option value="moravskoslezsky-kraj">Moravskoslezský kraj</option>
+                                    <option value="pardubicky-kraj">Pardubický kraj</option>
+                                    <option value="karlovarsky-kraj">Karlovarský kraj</option>
+                                    <option value="ustecky-kraj">Ústecký kraj</option>
+                                    <option value="liberecky-kraj">Liberecký kraj</option>
+                                    <option value="krkonose">Krkonoše</option>
+                                    <option value="ceske-svycarsko">České Švýcarsko</option>
+                                    <option value="posumavi">Pošumaví</option>
+                                    <option value="breslavsko">Březovsko</option>
+                                    <option value="slapanicko">Slapsko</option>
+                                </optgroup>
+                                <optgroup label="NĚMECKO (Deutschland)">
+                                    <option value="bayern">Bayern (Bavorsko)</option>
+                                    <option value="sachsen">Sasko</option>
+                                    <option value="thuringen">Durynsko</option>
+                                    <option value="baden-wurttemberg">Bádensko-Württembersko</option>
+                                </optgroup>
+                                <optgroup label="RAKOUSKO (Österreich)">
+                                    <option value="oberosterreich">Oberösterreich (Horní Rakousy)</option>
+                                    <option value="salzburg">Salzburg</option>
+                                    <option value="tirol">Tyrolsko</option>
+                                    <option value="steiermark">Štýrsko</option>
+                                    <option value="niederosterreich">Dolní Rakousy</option>
+                                    <option value="kaernten">Korutany</option>
+                                </optgroup>
+                                <optgroup label="SLOVENSKO">
+                                    <option value="vysoke-tatry">Vysoké Tatry</option>
+                                    <option value="nizke-tatry">Nízké Tatry</option>
+                                    <option value="slovensky-raj">Slovenský ráj</option>
+                                    <option value="malá-fatra">Malá Fatra</option>
+                                    <option value="zilina-kraj">Žilinský kraj</option>
+                                    <option value="banska-bystrica">Banskobystrický kraj</option>
+                                    <option value="kosice-kraj">Košický kraj</option>
+                                    <option value="bratislava-kraj">Bratislavský kraj</option>
+                                </optgroup>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Velikost pozemku (m²)</label>
+                            <input type="number" id="locSize" placeholder="např. 5000">
+                        </div>
+                    </div>
+                    <div class="calculator-section">
+                        <h3>⭐ Hodnocení (1-10)</h3>
+                        <div class="form-group">
+                            <label>Vizuální atraktivita: <span id="scoreVisualVal" class="score-display">5</span></label>
+                            <input type="range" id="scoreVisual" min="1" max="10" value="5" oninput="updateScore('scoreVisual','scoreVisualVal')">
+                        </div>
+                        <div class="form-group">
+                            <label>Soukromí: <span id="scorePrivacyVal" class="score-display">5</span></label>
+                            <input type="range" id="scorePrivacy" min="1" max="10" value="5" oninput="updateScore('scorePrivacy','scorePrivacyVal')">
+                        </div>
+                        <div class="form-group">
+                            <label>Dostupnost: <span id="scoreAccessVal" class="score-display">5</span></label>
+                            <input type="range" id="scoreAccess" min="1" max="10" value="5" oninput="updateScore('scoreAccess','scoreAccessVal')">
+                        </div>
+                        <div class="form-group">
+                            <label>Turistický potenciál: <span id="scoreTourismVal" class="score-display">5</span></label>
+                            <input type="range" id="scoreTourism" min="1" max="10" value="5" oninput="updateScore('scoreTourism','scoreTourismVal')">
+                        </div>
+                        <div class="form-group">
+                            <label>Wellness atmosféra: <span id="scoreWellnessVal" class="score-display">5</span></label>
+                            <input type="range" id="scoreWellness" min="1" max="10" value="5" oninput="updateScore('scoreWellness','scoreWellnessVal')">
+                        </div>
+                        <div class="form-group">
+                            <label>Stavební praktičnost: <span id="scoreConstructionVal" class="score-display">5</span></label>
+                            <input type="range" id="scoreConstruction" min="1" max="10" value="5" oninput="updateScore('scoreConstruction','scoreConstructionVal')">
+                        </div>
+                        <div class="form-group">
+                            <label>Shoda s brandem: <span id="scoreBrandVal" class="score-display">5</span></label>
+                            <input type="range" id="scoreBrand" min="1" max="10" value="5" oninput="updateScore('scoreBrand','scoreBrandVal')">
+                        </div>
+                        <div class="form-group">
+                            <label>Expanzní potenciál: <span id="scoreExpansionVal" class="score-display">5</span></label>
+                            <input type="range" id="scoreExpansion" min="1" max="10" value="5" oninput="updateScore('scoreExpansion','scoreExpansionVal')">
+                        </div>
+                        <button class="btn" onclick="calculateLocationScore()">Spočítat skóre</button>
+                    </div>
+                </div>
+                <div class="calculator-result" id="locationResult" style="display: none; margin-top: 30px;">
+                    <h3 style="margin-bottom: 15px;">📊 Výsledek: <span id="totalScore">0</span>/80</h3>
+                    <div id="locRecommendation" style="font-size: 1.2rem;"></div>
+                </div>
+                <div style="margin-top: 30px;">
+                    <h3>Uložené lokality</h3>
+                    <div id="savedLocations" class="documents-grid" style="margin-top: 15px;"></div>
+                </div>
+            </div>
+
+            <!-- Files -->
+            <div class="page" id="files">
+                <div class="page-header">
+                    <h1>Soubory a dokumenty</h1>
+                </div>
+                <div class="calculator-section" style="margin-bottom: 30px;">
+                    <h3>📤 Nahrát fotografie a dokumenty</h3>
+                    <label class="btn" style="display: inline-block; margin-top: 15px; cursor: pointer;">
+                        📂 Vybrat soubory
+                        <input type="file" id="fileUpload" multiple onchange="handleFileUpload()" style="display: none;">
+                    </label>
+                </div>
+                <div id="fileList" class="documents-grid">
+                    <p style="color: var(--text-muted);">Žádné soubory.</p>
+                </div>
+                <div style="margin-top: 30px;">
+                    <button class="btn" onclick="exportAllData()">📦 Exportovat data</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Navigation
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.addEventListener('click', function() {
+                navigateTo(this.dataset.page);
+            });
+        });
+
+        function navigateTo(page) {
+            document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+            document.querySelector(`.nav-item[data-page="${page}"]`).classList.add('active');
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.getElementById(page).classList.add('active');
+        }
+
+        // Language
+        const translations = {
+            cs: { dashboard: "Dashboard", chat: "AI Chat", documents: "Dokumenty", marketing: "Marketing", calculator: "Kalkulačky", builder: "Projekt Builder", locations: "Lokace", files: "Soubory" },
+            en: { dashboard: "Dashboard", chat: "AI Chat", documents: "Documents", marketing: "Marketing", calculator: "Calculators", builder: "Project Builder", locations: "Locations", files: "Files" },
+            de: { dashboard: "Dashboard", chat: "AI Chat", documents: "Dokumente", marketing: "Marketing", calculator: "Rechner", builder: "Projekt Builder", locations: "Standorte", files: "Dateien" }
+        };
+
+        function changeLanguage(lang) {
+            localStorage.setItem('medovyLang', lang);
+            const t = translations[lang];
+            if (t) {
+                document.querySelectorAll('.nav-item span').forEach((el, i) => {
+                    const keys = ['dashboard','chat','documents','marketing','calculator','builder','locations','files'];
+                    if (t[keys[i]]) el.textContent = t[keys[i]];
+                });
+            }
+        }
+
+        // Chat
+        function sendMessage() {
+            const input = document.getElementById('chatInput');
+            const msg = input.value.trim();
+            if (!msg) return;
+            
+            addMessage(msg, 'user');
+            input.value = '';
+            
+            setTimeout(() => {
+                addMessage(generateAIResponse(msg), 'ai');
+            }, 1000);
+        }
+
+        function addMessage(text, sender) {
+            const container = document.getElementById('chatMessages');
+            const div = document.createElement('div');
+            div.className = 'message ' + sender;
+            div.innerHTML = '<div class="message-content">' + text + '</div>';
+            container.appendChild(div);
+            container.scrollTop = container.scrollHeight;
+        }
+
+        function generateAIResponse(msg) {
+            msg = msg.toLowerCase();
+            if (msg.includes('roi') || msg.includes('návratnost')) return 'Pro výpočet ROI použij sekci "Kalkulačky"!';
+            if (msg.includes('marketing') || msg.includes('text')) return 'Použij sekci "Marketing" pro generování textů.';
+            if (msg.includes('lokace')) return 'Jdi do sekce "Lokace" pro hodnocení pozemků.';
+            if (msg.includes('cena') || msg.includes('kabina')) return 'Cena standardní kabiny: 796 000 Kč (42m²).';
+            return 'Rozumím! Použij menu pro navigaci nebo se zeptej na konkrétní téma.';
+        }
+
+        // ROI Calculator
+        function calculateROI() {
+            const investment = parseFloat(document.getElementById('initialInvestment').value);
+            const revenue = parseFloat(document.getElementById('annualRevenue').value);
+            const costs = parseFloat(document.getElementById('annualCosts').value);
+            
+            const profit = revenue - costs;
+            const roi = ((profit / investment) * 100).toFixed(1);
+            const payback = (investment / profit).toFixed(1);
+            
+            document.getElementById('roiResult').style.display = 'block';
+            document.getElementById('roiValue').textContent = roi + '%';
+            document.getElementById('paybackPeriod').textContent = payback + ' let';
+        }
+
+        // Price Calculator
+        function calculatePrice() {
+            const nights = parseInt(document.getElementById('nightsCount').value);
+            const rate = document.getElementById('season').value === 'low' ? 3500 : 4200;
+            const total = nights * rate;
+            
+            document.getElementById('priceResult').style.display = 'block';
+            document.getElementById('priceValue').textContent = total.toLocaleString('cs-CZ') + ' Kč';
+        }
+
+        // Marketing
+        function generateMarketingText() {
+            const topic = document.getElementById('marketingTopic').value;
+            const lang = document.getElementById('marketingLang').value;
+            const platform = document.getElementById('marketingPlatform').value;
+            
+            const texts = {
+                cs: {
+                    apitherapy: {
+                        instagram: "🐝 OBJEVTE LÉČIVOU SÍLU VČEL\n\nNad včelími úly spíte jako princové a princezny. Vzduch plný propolisu, pylu a medu vám dodá energii, kterou žádné wellness nedá.\n\nVzduch z úlu = přírodní antibiotikum\nPropolis = posílení imunity\nMed = sladký spánek\n\n📍 Medovy Klid - kde se příroda setkává s modernou\n\n#apiterapie #medovyklid #wellness #nature #health",
+                        facebook: "Nad včelími úly spíte jako v pohádce. Vzduch plný propolisu a pylu má léčivé účinky - posiluje imunitu, pomáhá s dýcháním a navozuje hluboký relax. Zkuste apiterapii v Medovy Klid!",
+                        web: "Apiterapie je древняя metoda léčby využívající produkty včel - med, propolis, pyl, mateří kašička a vzduch z úlu. V Medovy Klid spíte přímo nad včelími úly a vdechujete léčivý vzduch. Ideální pro posílení imunity, regeneraci dýchacích cest a hluboký relax.",
+                        email: "Objevte léčivou sílu včel 🐝\n\nVáženýhoste,\n\nNad včelími úly v Medovy Klid spíte jako v pohádce. Vzduch plný propolisu a pylu má unikátní léčivé účinky..."
+                    },
+                    wellness: {
+                        instagram: "🌿 VÁŠ UNIKÁTNÍ WELLNESS RETREAT\n\n3.6 × 8.4 metru (~42m²) čistého ráje.\nSauna 🔥 Vířivka 💦 Ticho lesa 🌲\n\nVše, co potřebujete pro total reset.\n\n📍 Medovy Klid\n#wellness #medovyklid #nature #relax #forest",
+                        facebook: "Náš eco wellness domek v srdci lesa nabízí vše pro váš relax - finskou saunu, koupací sud pod hvězdami a naprostý klid. 42m² přírody jen pro vás.",
+                        web: "Medovy Klid je unikátní wellness kabina v lese s finskou saunou, koupacím sudem a naprostým tichem. Ideální pro detox od stresu, romantický víkend nebo zdravotní retreat.",
+                        email: "Váš unikátní wellness retreat 🌿\n\nNáš eco wellness domek v srdci lesa nabízí..."
+                    },
+                    romantic: {
+                        instagram: "💕 ROMANTIKA, NA KTEROU NIKDY NEZAPOMENETE\n\nVířivka pod hvězdami 🍷\nVíno na terase ✨\nTicho lesa kolem vás 🌲\n\nJen vy dva.\n\n📍 medovyklid.cz\n#romantic #medovyklid #couples #love",
+                        facebook: "Romantický víkend pro dva v Medovy Klid? Vířivka pod hvězdami, víno na terase a ticho lesa. Přesně takhle vypadá dokonalý únik od reality.",
+                        web: "Romantický pobyt v Medovy Klid = vířivka pod hvězdami, láhev vína na terase a naprosté soukromí v srdci lesa. Ideální pro páry hledající romantiku a intimnost.",
+                        email: "Romantika, na kterou nikdy nezapomenete 💕\n\nPřipravte si svého partnera na nezapomenutelný zážitek..."
+                    },
+                    detox: {
+                        instagram: "📵 ODPOJTE SE. PŘIPOJTE SE K SOBĚ\n\nŽádné WiFi 📵\nŽádné notifikace 📵\nJen vy, příroda a ticho.\n\nPo kterém toužíte.\n\nMedovy Klid - kde nacházíte sebe.\n\n#detox #digitaldetox #medovyklid #mindfulness",
+                        facebook: "Vypněte telefon. Zapněte se na přítomnost. V Medovy Klid není WiFi - je jen vy, les a ticho. Nejlepší digital detox, jaký jste kdy zažili.",
+                        web: "Digital detox v Medovy Klid = žádné WiFi, žádné notifikace, jen vy a příroda. Ideální pro ty, kdo chtějí uniknout technologickému stresu a najít vnitřní klid.",
+                        email: "Odpojte se. Připojte se k sobě 📵\n\nV dnešní době jsme neustále online. Je čas na pauzu..."
+                    },
+                    ecofriendly: {
+                        instagram: "🌱 EKOLOGICKÝ LUXUS\n\nOff-grid kabina ~42m² v srdci lesa.\nSolární energie ☀️\nČistá voda 💧\nMinimální stopa 🌿\n\nLuxus, který neškodí planetě.\n\n#ecofriendly #sustainableluxury #medovyklid #green",
+                        facebook: "Naše kabiny jsou 100% off-grid - solární energie, vlastní voda, kompostovací toaleta. Užijte si luxus a přitom chraňte planetu.",
+                        web: "Medovy Klid = ekologický luxus. Naše kabiny jsou energeticky soběstačné, využívají dešťovou vodu a kompostovací toalety. Užijte si premium wellness bez ekologické stopy.",
+                        email: "Ekologický luxus, na který můžete být hrdí 🌱\n\nV Medovy Klid věříme..."
+                    },
+                    forest: {
+                        instagram: "🌲 V SÍDLI LESŮ\n\nPřímo v srdci šumavských lesů.\nČerstvý vzduch 🌬️\nZvuky přírody 🎵\nNaprosté ticho 🤫\n\nNadechněte se.\n\n#forest #medovyklid #nature #peace",
+                        facebook: "Ponořte se do zeleně. Náš domek je přímo v lese - uslyšíte jen vítr ve větvích, zpěv ptáků a vlastní dech. Nejlepší únik z města.",
+                        web: "Lesní wellness v Medovy Klid = žijte uprostřed přírody. Zvuky lesa, vůně jehličí a čerstvý vzduch. Ideální pro ty, kdo hledají klid a spojení s přírodou.",
+                        email: "V srdci lesa 🌲\n\nPředstavte si, že se probudíte..."
+                    },
+                    sleep: {
+                        instagram: "😴 SPÁNEK, JAKÝ JSTE NIKDY NEMĚLI\n\nPostel 2×2m s výhledem na hvězdy\nVzduch plný propolisu\nAbsolutní ticho\n\nVyspíte se jako nikdy předtím.\n\n#sleep #wellness #medovyklid #rest",
+                        facebook: "Postel king-size s výhledem na noční oblohu, vzduch plný léčivého propolisu a absolutní ticho. Takový spánek vám nikdo jiný nenabídne.",
+                        web: "Hluboký regenerační spánek v Medovy Klid. Speciální postel 2×2m, propolisový vzduch z úlu a žádný hluk. Vyspíte se a odpočinete jako nikdy předtím.",
+                        email: "Objevte tajemství zdravého spánku 😴\n\nV Medovy Klid vám nabízíme..."
+                    },
+                    couples: {
+                        instagram: "👫 ČAS SPOLU\n\nZapomeňte na svět.\nJen vy dva.\nSauna 💛 Vířivka 💛 Ticho\n\nVytvořte si vzpomínky.\n\n#couples #medovyklid #together #love",
+                        facebook: "Nejlepší dárek pro váš vztah? Společný čas v Medovy Klid. Sauna, vířivka a 42m² jen pro vás dva.",
+                        web: "Wellness pro páry v Medovy Klid = společná sauna, vířivka pod hvězdami a romantická večeře na terase. Posilte váš vztah v naprostém soukromí.",
+                        email: "Čas jen pro vás dva 👫\n\nVytvořte si společné vzpomínky..."
+                    },
+                    anniversary: {
+                        instagram: "🎉 VÝROČÍ, KTERÉ SI ZAPAMATUJETE\n\nSpeciální balíček pro vaše výročí.\nSauna 🍾 Vířivka 🥂 Degustační menu\n\nOslavte lásku v Medovy Klid.\n\n#anniversary #celebration #medovyklid",
+                        facebook: "Hledáte místo pro oslavu výročí? Medovy Klid nabízí speciální romantický balíček s degustačním menu, saunou a vířivkou.",
+                        web: "Výroční balíček v Medovy Klid = romantická večeře, sauna, vířivka a láhev šampaňského. Nejlepší způsob, jak oslavit vaši lásku.",
+                        email: "🎉 Výročí v Medovy Klid\n\nChcete své výročí oslavit něčím speciálním?..."
+                    },
+                    weekend: {
+                        instagram: "🗓️ VÍKENDOVÝ ÚNIK\n\nČtvrtek - Neděle\n3 noci = 2 wellness procedury\nSauna + Vířivka ZADARMO\n\nStačí sbalit kufry.\n\n#weekend #medovyklid #getaway",
+                        facebook: "3 noci, 2 dny, 1 zážitek. Rezervujte víkendový pobyt a získejte wellness procedury v ceně.",
+                        web: "Víkendový pobyt v Medovy Klid = 3 noci, 2 wellness procedury, sauna a vířivka v ceně. Ideální pro rychlý ale kvalitní odpočinek.",
+                        email: "🗓️ Víkendový únik\n\nPotřebujete rychle načerpat energii?..."
+                    },
+                    gift: {
+                        instagram: "🎁 DÁRKOVÝ POUKAZ\n\nNechte někoho zažít\nNezapomenutelný wellness zážitek.\n\nPlatnost 1 rok\nMožnost osobního přání\n\n🎁 medovyklid.cz/gift",
+                        facebook: "Hledáte ten pravý dárek? Dárkový poukaz na wellness pobyt v Medovy Klid. Platnost 1 rok, možnost personalizace.",
+                        web: "Dárkový poukaz Medovy Klid = ideální dárek pro každou příležitost. 1 rok platnosti, možnost vlastního přání.",
+                        email: "🎁 Dárkový poukaz\n\nDarujte nezapomenutelný zážitek..."
+                    }
+                },
+                en: {
+                    apitherapy: "🐝 DISCOVER THE HEALING POWER OF BEES\n\nSleep above bee hives like royalty. Air full of propolis, pollen and honey gives you energy no wellness can.\n\n📍 Medovy Klid - where nature meets modern\n\n#apitherapy #medovyklid #wellness",
+                    wellness: "🌿 YOUR UNIQUE WELLNESS RETREAT\n\n3.6 × 8.4 meters (~42m²) of pure paradise.\nSauna 🔥 Hot tub 💦 Forest silence 🌲\n\nEverything you need for a total reset.\n\n#wellness #medovyklid #nature",
+                    romantic: "💕 ROMANCE YOU'LL NEVER FORGET\n\nHot tub under the stars 🍷\nWine on the terrace ✨\nForest silence around you 🌲\n\nJust the two of you.\n\n📍 medovyklid.cz\n#romantic #medovyklid #couples",
+                    detox: "📵 DISCONNECT. RECONNECT WITH YOURSELF\n\nNo WiFi 📵\nNo notifications 📵\nJust you, nature and silence.\n\nThe silence you crave.\n\n#detox #digitaldetox #medovyklid",
+                    ecofriendly: "🌱 ECO-FRIENDLY LUXURY\n\nOff-grid cabin ~42m² in the forest heart.\nSolar power ☀️\nClean water 💧\nMinimal footprint 🌿\n\nLuxury that doesn't harm the planet.\n\n#ecofriendly #sustainableluxury",
+                    forest: "🌲 IN THE HEART OF THE FOREST\n\nDeep in the Šumava forests.\nFresh air 🌬️\nNature sounds 🎵\nAbsolute silence 🤫\n\nBreathe in.\n\n#forest #medovyklid #nature",
+                    sleep: "😴 SLEEP YOU'VE NEVER HAD\n\nKing-size bed with stargazing\nAir full of propolis\nAbsolute silence\n\nYou'll sleep like never before.\n\n#sleep #wellness #medovyklid",
+                    couples: "👫 TIME TOGETHER\n\nForget the world.\nJust the two of you.\nSauna 💛 Hot tub 💛 Silence\n\nCreate memories.\n\n#couples #medovyklid #together",
+                    anniversary: "🎉 AN ANNIVERSARY TO REMEMBER\n\nSpecial anniversary package.\nSauna 🍾 Hot tub 🥂 Tasting menu\n\nCelebrate love at Medovy Klid.\n\n#anniversary #celebration",
+                    weekend: "🗓️ WEEKEND GETAWAY\n\nThursday - Sunday\n3 nights = 2 wellness treatments\nSauna + Hot tub FREE\n\nJust pack your bags.\n\n#weekend #medovyklid #getaway",
+                    gift: "🎁 GIFT VOUCHER\n\nLet someone experience\nAn unforgettable wellness stay.\n\nValid for 1 year\nPersonal message option\n\n🎁 medovyklid.cz/gift"
+                },
+                de: {
+                    apitherapy: "🐝 ENTDECKEN SIE DIE HEILENDE KRAFT DER BIENEN\n\nSchlafen Sie über Bienenstöcken wie Könige. Luft voll von Propolis, Pollen und Honig gibt Ihnen Energie.\n\n📍 Medovy Klid - wo Natur auf Moderne trifft",
+                    wellness: "🌿 IHR EINZIGARTIGER WELLNESS-RÜCKZUGSORT\n\n3.6 × 8.4 Meter (~42m²) reinstes Paradies.\nSauna 🔥 Whirlpool 💦 Waldstille 🌲\n\nAlles was Sie für einen Reset brauchen.\n\n#wellness #medovyklid",
+                    romantic: "💕 ROMANTIK, AN DIE SIE SICH IMMER ERINNERN WERDEN\n\nWhirlpool unter Sternen 🍷\nWein auf der Terrasse ✨\nWaldstille um Sie herum 🌲\n\nNur Sie beide.\n\n#romantic #medovyklid #couples",
+                    detox: "📵 TRENNEN SIE SICH. VERBINDEN SIE SICH MIT SICH SELBST\n\nKein WiFi 📵\nKeine Benachrichtigungen 📵\nNur Sie, Natur und Stille.\n\nDie Stille, nach der Sie sich sehnen.\n\n#detox #digitaldetox",
+                    ecofriendly: "🌱 ÖKOLOGISCHER LUXUS\n\nOff-Grid Kabine ~42m² im Herzen des Waldes.\nSonnenenergie ☀️\nSauberes Wasser 💧\nMinimaler Fußabdruck 🌿\n\nLuxus, der dem Planeten nicht schadet.\n\n#ecofriendly #sustainableluxury",
+                    forest: "🌲 IM HERZEN DES WALDES\n\nMitten im Böhmerwald.\nFrische Luft 🌬️\nNaturgeräusche 🎵\nAbsolute Stille 🤫\n\nAtmen Sie ein.\n\n#forest #medovyklid #nature",
+                    sleep: "😴 SCHLAF, DEN SIE NOCH NIE HATTEN\n\nKingsize-Bett mit Sternenblick\nLuft voll von Propolis\nAbsolute Stille\n\nSie werden schlafen wie nie zuvor.\n\n#sleep #wellness #medovyklid",
+                    couples: "👫 GEMEINSAME ZEIT\n\nVergessen Sie die Welt.\nNur Sie beide.\nSauna 💛 Whirlpool 💛 Stille\n\nErinnerungen schaffen.\n\n#couples #medovyklid #together",
+                    anniversary: "🎉 EIN JUBILÄUM, DAS SIE SICH MERKEN WERDEN\n\nSpezielles Jubiläums-Paket.\nSauna 🍾 Whirlpool 🥂 Verkostungsmenü\n\nFeiern Sie Liebe bei Medovy Klid.\n\n#anniversary #celebration",
+                    weekend: "🗓️ WOCHENENDAUSFLUG\n\nDonnerstag - Sonntag\n3 Nächte = 2 Wellness-Behandlungen\nSauna + Whirlpool KOSTENLOS\n\nPacken Sie einfach Ihre Koffer.\n\n#weekend #medovyklid #getaway",
+                    gift: "🎁 GUTSCHEIN\n\nLassen Sie jemanden erleben\nEin unvergesslicher Wellness-Aufenthalt.\n\nGültig für 1 Jahr\nPersönliche Nachricht möglich\n\n🎁 medovyklid.cz/gift"
+                }
+            };
+            
+            // Get text based on topic, language and platform
+            let text = '';
+            const topicTexts = texts[lang]?.[topic];
+            
+            if (topicTexts && typeof topicTexts === 'object') {
+                text = topicTexts[platform] || topicTexts.instagram;
+            } else {
+                text = texts[lang]?.[topic] || texts.cs[topic] || texts.cs.wellness;
+            }
+            
+            const result = document.getElementById('marketingResult');
+            result.style.display = 'block';
+            result.textContent = text;
+        }
+
+        // Location Scoring
+        function updateScore(inputId, displayId) {
+            document.getElementById(displayId).textContent = document.getElementById(inputId).value;
+        }
+
+        let savedLocations = [];
+
+        function calculateLocationScore() {
+            const total = parseInt(document.getElementById('scoreVisual').value) +
+                         parseInt(document.getElementById('scorePrivacy').value) +
+                         parseInt(document.getElementById('scoreAccess').value) +
+                         parseInt(document.getElementById('scoreTourism').value) +
+                         parseInt(document.getElementById('scoreWellness').value) +
+                         parseInt(document.getElementById('scoreConstruction').value) +
+                         parseInt(document.getElementById('scoreBrand').value) +
+                         parseInt(document.getElementById('scoreExpansion').value);
+            
+            document.getElementById('totalScore').textContent = total;
+            
+            let rec = total >= 68 ? '🌟 Výborné' : total >= 56 ? '✅ Doporučeno' : total >= 44 ? '⚠️ Podmínečně' : '❌ Nepodporuje';
+            document.getElementById('locRecommendation').textContent = rec;
+            document.getElementById('locationResult').style.display = 'block';
+        }
+
+        function saveLocation() {
+            const name = document.getElementById('locName').value || 'Bez názvu';
+            const total = parseInt(document.getElementById('scoreVisual').value) + parseInt(document.getElementById('scorePrivacy').value) + parseInt(document.getElementById('scoreAccess').value) + parseInt(document.getElementById('scoreTourism').value) + parseInt(document.getElementById('scoreWellness').value) + parseInt(document.getElementById('scoreConstruction').value) + parseInt(document.getElementById('scoreBrand').value) + parseInt(document.getElementById('scoreExpansion').value);
+            
+            savedLocations.push({ name, score: total });
+            document.getElementById('statLocations').textContent = savedLocations.length;
+            
+            const div = document.createElement('div');
+            div.className = 'document-card';
+            div.innerHTML = '<div class="document-icon">📍</div><h4>' + name + '</h4><p>' + (document.getElementById('locRegion').value) + '</p><div style="margin-top:10px;font-size:1.2rem;color:var(--warm-honey)">' + total + '/80</div>';
+            document.getElementById('savedLocations').appendChild(div);
+            alert('Lokalita uložena!');
+        }
+
+        // Files
+        let allFiles = [];
+
+        function handleFileUpload() {
+            const files = document.getElementById('fileUpload').files;
+            if (!files.length) return;
+
+            Array.from(files).forEach((file, i) => {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    allFiles.push({ id: Date.now()+i, name: file.name, type: file.type.startsWith('image/')?'image':'doc', data: e.target.result, size: (file.size/1024/1024).toFixed(2) });
+                    renderFiles();
+                };
+                reader.readAsDataURL(file);
+            });
+        }
+
+        function renderFiles() {
+            const list = document.getElementById('fileList');
+            if (!allFiles.length) {
+                list.innerHTML = '<p style="color:var(--text-muted)">Žádné soubory.</p>';
+                return;
+            }
+            list.innerHTML = allFiles.map(f => '<div class="document-card"><div class="document-icon">' + (f.type==='image'?'📷':'📄') + '</div><h4>' + f.name + '</h4><p>' + f.size + ' MB</p></div>').join('');
+        }
+
+        // Documents
+        function showProjectIntent() {
+            alert('PROJEKTOVÝ ZÁMĚR\n\nMEDOVÝ KLID® - Ekologický wellness domek s apiterapií\n\nProjekt představuje koncept malého ekologického wellness domku v přírodním prostředí pro odpočinek a regeneraci. Malokapacitní objekt pro 2 osoby, princip tichého turismu.\n\nRozměr: 3,6 × 8,4m (~42m²)\nCena: 796 000 Kč');
+        }
+
+        function showTechSpecs() {
+            alert('TECHNICKÉ SPECIFIKACE\n\nRozměry: 3,6 × 8,4m, výška 3,4m\nKonstrukce: Modulární panely, slaměné stěny 24cm\n\nMístnosti:\n- Ložnice 4×3,6m (postel 2×2m)\n- Apiterapie 2,4×3,6m\n- Koupelna s mlhovou sprchou\n- Kompostovací WC\n\nEnergie: Solár 2kWp, Baterie 5kWh, Kamna, Tepelné úložiště 200l\nVoda: 1000l podzemní, 3-stupňová filtrace, UV\n\nCENA: 796 000 Kč (cca 32 000 €)');
+        }
+
+        function showBusinessPlan() {
+            alert('BUSINESS PLAN\n\nInvestice: 796 000 Kč\nOčekávané tržby: 1 800 000 Kč/rok\nNáklady: 600 000 Kč/rok\nČistý zisk: 1 200 000 Kč/rok\nROI: 150%\nDoba návratnosti: 8 měsíců');
+        }
+
+        function showBrandSystem() {
+            alert('BRAND SYSTEM\n\nBrand Essence: "Bee-Guided Serenity"\nMission: Obnovit lidské spojení - k tichu, přírodě a sobě.\n\nSlogan: "Where bees bless your sleep."\n\nBrand pillars:\n- Apitherapie\n- Silent Luxury\n- Ecological Excellence\n- Intentional Design');
+        }
+
+        function saveProject() {
+            alert('Projekt uložen! Exportujte data pro sdílení.');
+        }
+
+        function exportAllData() {
+            const data = { locations: savedLocations, files: allFiles, exportDate: new Date().toISOString() };
+            const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'medovy-klid-export.json';
+            a.click();
+        }
+
+        function exportProject() {
+            const content = `
+MEDOVÝ KLID® - Projekt
+====================
+
+PROJEKTOVÝ ZÁMĚR
+- Ekologický wellness domek s apiterapií
+- Malokapacitní (2 osoby)
+- Princip tichého turismu
+
+TECHNICKÉ SPECIFIKACE
+- Rozměr: 3,6 × 8,4m (~42m²)
+- Konstrukce: Dřevo + slaměné balíky + hliněné omítky
+- Energie: Solár 2kWp + baterie 5kWh + kamna
+- Voda: 1000l podzemní + filtrace + UV
+- Cena: 796 000 Kč
+
+BISNUES MODEL
+- Investice: 796 000 Kč
+- Roční tržby: 1 800 000 Kč
+- Roční náklady: 600 000 Kč
+- Čistý zisk: 1 200 000 Kč/rok
+- ROI: 150%
+            `;
+            const blob = new Blob([content], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'medovy-klid-projekt.txt';
+            a.click();
+        }
+
+        // Initialize
+        window.onload = function() {
+            const savedLang = localStorage.getItem('medovyLang');
+            if (savedLang) document.getElementById('appLang').value = savedLang;
+        };
+    </script>
+</body>
+</html>

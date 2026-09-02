@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedoKlid - Romantické pobyty v lese</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Outfit', sans-serif; background: #0a1f18; }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; }
+        
+        /* Header */
+        header {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+            background: rgba(10, 31, 24, 0.95); backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(201, 162, 39, 0.2);
+            padding: 16px 24px;
+        }
+        nav { max-width: 1280px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo strong { font-family: 'Playfair Display', serif; color: #c9a227; font-size: 20px; }
+        .logo span.r { 
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 18px; height: 18px; background: #c9a227; color: #0a1f18; 
+            border-radius: 50%; font-size: 11px; font-weight: bold; margin: 0 2px;
+        }
+        .nav-links { display: flex; gap: 32px; }
+        .nav-links a { color: #faf6f0; text-decoration: none; font-weight: 500; transition: color 0.3s; }
+        .nav-links a:hover { color: #c9a227; }
+        .nav-buttons { display: flex; gap: 12px; }
+        .btn-outline { padding: 8px 16px; color: #c9a227; border: 1px solid #c9a227; border-radius: 6px; text-decoration: none; font-weight: 500; transition: all 0.3s; }
+        .btn-outline:hover { background: #c9a227; color: #0a1f18; }
+        .btn-primary { padding: 8px 16px; background: #c9a227; color: #0a1f18; border-radius: 6px; text-decoration: none; font-weight: 600; transition: all 0.3s; }
+        .btn-primary:hover { background: #d4a853; }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh; position: relative; display: flex; align-items: center; justify-content: center;
+            background: url('images/vizualizace%20domku.png') center/cover;
+        }
+        .hero::after {
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(to bottom, rgba(10,31,24,0.6), rgba(10,31,24,0.4), #0a1f18);
+        }
+        .hero-content { position: relative; z-index: 10; text-align: center; padding: 24px; }
+        .hero h1 { font-size: 72px; color: white; margin-bottom: 16px; letter-spacing: 2px; }
+        .hero p { font-size: 28px; color: #c9a227; letter-spacing: 4px; font-weight: 300; }
+        .scroll-hint { position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%); z-index: 10; animation: bounce 2s infinite; }
+        @keyframes bounce { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(10px); } }
+
+        /* Sections */
+        section { padding: 96px 24px; }
+        .container { max-width: 1152px; margin: 0 auto; }
+        .section-title { text-align: center; margin-bottom: 64px; }
+        .section-title h2 { font-size: 48px; color: #c9a227; margin-bottom: 16px; }
+        .section-title .line { width: 96px; height: 3px; background: #c9a227; margin: 0 auto; }
+
+        /* O nás */
+        .about { background: #0a1f18; }
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+        .about-text { color: #faf6f0; }
+        .about-text p { font-size: 18px; line-height: 1.8; margin-bottom: 24px; }
+        .about-text .highlight { color: #c9a227; font-weight: 600; }
+        .about-image { height: 384px; border-radius: 16px; overflow: hidden; }
+        .about-image img { width: 100%; height: 100%; object-fit: cover; }
+        .btn-reserve { display: inline-block; margin-top: 24px; padding: 16px 32px; background: #c9a227; color: #0a1f18; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 18px; transition: all 0.3s; }
+        .btn-reserve:hover { background: #d4a853; }
+
+        /* Apiterapie */
+        .apiterapie { background: linear-gradient(to bottom, #0a1f18, #122b22); }
+        .apiterapie-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-bottom: 48px; }
+        .apiterapie-card { background: rgba(10, 31, 24, 0.5); border-radius: 16px; padding: 32px; border: 1px solid rgba(201, 162, 39, 0.2); }
+        .apiterapie-card-icon { font-size: 48px; margin-bottom: 16px; }
+        .apiterapie-card h3 { font-size: 20px; color: #c9a227; margin-bottom: 12px; }
+        .apiterapie-card p { color: rgba(250, 246, 240, 0.8); line-height: 1.6; }
+        .apiterapie-quote { background: rgba(201, 162, 39, 0.1); border-radius: 16px; padding: 32px 48px; text-align: center; border: 1px solid rgba(201, 162, 39, 0.3); }
+        .apiterapie-quote-icon { font-size: 40px; margin-bottom: 16px; }
+        .apiterapie-quote blockquote { font-size: 20px; font-family: 'Playfair Display', serif; color: #faf6f0; font-style: italic; margin-bottom: 16px; }
+        .apiterapie-quote cite { color: #c9a227; }
+
+        /* Galerie */
+        .gallery { background: #faf6f0; }
+        .gallery-title h2 { color: #0a1f18; }
+        .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .gallery-item { height: 320px; border-radius: 12px; overflow: hidden; position: relative; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+        .gallery-item:hover img { transform: scale(1.1); }
+        .gallery-overlay { position: absolute; inset: 0; background: rgba(10, 31, 24, 0); transition: background 0.3s; display: flex; align-items: flex-end; }
+        .gallery-item:hover .gallery-overlay { background: rgba(10, 31, 24, 0.5); }
+        .gallery-label { padding: 16px; color: white; font-weight: 500; opacity: 0; transition: opacity 0.3s; }
+        .gallery-item:hover .gallery-label { opacity: 1; }
+        .gallery-cta { text-align: center; margin-top: 48px; }
+        .btn-secondary { display: inline-block; padding: 16px 32px; background: #0a1f18; color: #c9a227; border: 2px solid #c9a227; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 18px; transition: all 0.3s; }
+        .btn-secondary:hover { background: #122b22; }
+
+        /* Služby */
+        .services { background: #0a1f18; }
+        .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+        .service-card { background: #122b22; border-radius: 16px; padding: 32px; text-align: center; border: 1px solid rgba(201, 162, 39, 0.2); transition: all 0.3s; }
+        .service-card:hover { border-color: rgba(201, 162, 39, 0.5); }
+        .service-icon { font-size: 64px; margin-bottom: 16px; }
+        .service-card h3 { font-size: 24px; color: #c9a227; margin-bottom: 16px; }
+        .service-card p { color: #faf6f0; margin-bottom: 24px; line-height: 1.6; }
+        .service-price { color: #c9a227; font-weight: bold; font-size: 20px; }
+        .services-cta { text-align: center; margin-top: 48px; }
+
+        /* Footer */
+        footer { background: #051610; color: #faf6f0; padding: 64px 24px; }
+        .footer-grid { max-width: 1152px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px; margin-bottom: 48px; }
+        .footer-brand .logo { margin-bottom: 24px; }
+        .footer-brand p { color: #c9b896; }
+        .footer-section h4 { color: #c9a227; font-weight: 600; margin-bottom: 16px; }
+        .footer-section p { color: #c9b896; margin-bottom: 12px; }
+        .footer-links a { display: block; color: #c9b896; text-decoration: none; margin-bottom: 12px; transition: color 0.3s; }
+        .footer-links a:hover { color: #c9a227; }
+        .footer-bottom { max-width: 1152px; margin: 0 auto; padding-top: 32px; border-top: 1px solid rgba(201, 162, 39, 0.2); display: flex; justify-content: space-between; align-items: center; }
+        .footer-bottom p { color: #c9b896; font-size: 14px; }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 42px; }
+            .hero p { font-size: 18px; }
+            .about-grid, .gallery-grid, .services-grid, .apiterapie-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; text-align: center; }
+            .footer-bottom { flex-direction: column; gap: 16px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <strong>Medo<span class="r">r</span> Klid</strong>
+            </div>
+            <div class="nav-links">
+                <a href="#domu">DOMŮ</a>
+                <a href="#o-nas">O NÁS</a>
+                <a href="#apiterapie">APITERAPIE</a>
+                <a href="#galerie">GALERIE</a>
+                <a href="#kontakt">KONTAKT</a>
+            </div>
+            <div class="nav-buttons">
+                <a href="#" class="btn-outline">Přihlásit</a>
+                <a href="#" class="btn-primary">Rezervace</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero" id="domu">
+        <div class="hero-content">
+            <h1>MEDO<span class="r" style="font-size:0.5em;vertical-align:middle;margin-left:4px;">r</span> KLID</h1>
+            <p>Romantické pobyty v lese</p>
+        </div>
+        <div class="scroll-hint">
+            <svg width="32" height="32" fill="none" stroke="#c9a227" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- O nás -->
+    <section class="about" id="o-nas">
+        <div class="container">
+            <div class="section-title">
+                <h2>O NÁS</h2>
+                <div class="line"></div>
+            </div>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>Vítejte v <span class="highlight">Medovém Klidu</span> – unikátním místě, kde se setkává moderní komfort s přírodou v její nejpůvodnější podobě.</p>
+                    <p>Naše ekologické lesní kabiny nabízejí dokonalý únik z shonu každodenního života. Dopřejte si romantický pobyt, apiterapii nebo prostě jen ticho lesa.</p>
+                    <p><span class="highlight">100% soběstačnost</span> – solární energie, sběr dešťové vody, přírodní materiály. Tak jak to má být.</p>
+                    <a href="#" class="btn-reserve">Rezervovat pobyt</a>
+                </div>
+                <div class="about-image">
+                    <img src="images/vizualizace%20domku2.png" alt="Lesní domeček">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Apiterapie -->
+    <section class="apiterapie" id="apiterapie">
+        <div class="container">
+            <div class="section-title">
+                <h2>Síla včel & Duševní zdraví</h2>
+                <div class="line"></div>
+                <p style="color: #faf6f0; font-size: 18px; max-width: 768px; margin: 24px auto 0;">
+                    Včely jsou symbolem úžasného uspořádání, spolupráce a harmonie. 
+                    Jejich přítomnost a produkty nám pomáhají nalézt vnitřní klid a rovnováhu.
+                </p>
+            </div>
+            
+            <div class="apiterapie-grid">
+                <div class="apiterapie-card">
+                    <div class="apiterapie-card-icon">🧠</div>
+                    <h3>Mentální wellbeing</h3>
+                    <p>Ticho lesa, vůně včelího vosku a medu, zpěv ptáků. Odpojení od technologií = návrat k sobě samému.</p>
+                </div>
+                <div class="apiterapie-card">
+                    <div class="apiterapie-card-icon">🐝</div>
+                    <h3>Apiterapie</h3>
+                    <p>Propolis, mateří kašička, včelí jed. Přírodní léčba, která posiluje imunitu a uklidňuje mysl.</p>
+                </div>
+                <div class="apiterapie-card">
+                    <div class="apiterapie-card-icon">🌿</div>
+                    <h3>Lesní terapie</h3>
+                    <p>Shinrin-yoku neboli "koupel v lese". Prokázané účinky na snížení stresu a kortizolu.</p>
+                </div>
+                <div class="apiterapie-card">
+                    <div class="apiterapie-card-icon">🌙</div>
+                    <h3>Digitální detox</h3>
+                    <p>Žádné Wi-Fi, žádné notifikace. Čas jen pro vás dva. Obnovte vazby a komunikaci.</p>
+                </div>
+                <div class="apiterapie-card">
+                    <div class="apiterapie-card-icon">❤️</div>
+                    <h3>Romantika & intimita</h3>
+                    <p>Soukromí, hvězdná obloha, teplo krbu. Ideální prostředí pro posílení vztahu.</p>
+                </div>
+                <div class="apiterapie-card">
+                    <div class="apiterapie-card-icon">✨</div>
+                    <h3>Energie & vitalita</h3>
+                    <p>Čerstvý vzduch, přírodní zdroje, relaxace. Dobijte baterky a najděte svou energii zpět.</p>
+                </div>
+            </div>
+            
+            <div class="apiterapie-quote">
+                <div class="apiterapie-quote-icon">🐝</div>
+                <blockquote>"Včely nevyrábějí med – vyrábějí civilizaci."</blockquote>
+                <cite>— Stephan A. Schwartz</cite>
+            </div>
+            
+            <div style="text-align: center; margin-top: 48px;">
+                <a href="#" class="btn-reserve">Dopřejte si healing pobyt</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galerie -->
+    <section class="gallery" id="galerie">
+        <div class="container">
+            <div class="section-title gallery-title">
+                <h2>GALERIE</h2>
+                <div class="line"></div>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="images/vizualizace%20domku.png" alt="Náš domek">
+                    <div class="gallery-overlay"><div class="gallery-label">Náš domek</div></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/vizualizace%20romanticky%20bali%C4%8Dek.png" alt="Romantický balíček">
+                    <div class="gallery-overlay"><div class="gallery-label">Romantický balíček</div></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/vizualizace%20loznice.png" alt="Ložnice">
+                    <div class="gallery-overlay"><div class="gallery-label">Ložnice</div></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/koupelna.png" alt="Koupelna">
+                    <div class="gallery-overlay"><div class="gallery-label">Koupelna</div></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/vizualizace%20api%20mistnost.png" alt="Apiterapie">
+                    <div class="gallery-overlay"><div class="gallery-label">Apiterapie</div></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/vizualizace%20koupelna%20r%20balicek.png" alt="Wellness">
+                    <div class="gallery-overlay"><div class="gallery-label">Wellness</div></div>
+                </div>
+            </div>
+            <div class="gallery-cta">
+                <a href="#" class="btn-secondary">Zobrazit více & Rezervovat</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Služby -->
+    <section class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>SLUŽBY</h2>
+                <div class="line"></div>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🐝</div>
+                    <h3>Apiterapie</h3>
+                    <p>Léčivé účinky včelích produktů v harmonii lesního prostředí. Pro posílení imunity a celkovou regeneraci.</p>
+                    <div class="service-price">+1 500 Kč</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💕</div>
+                    <h3>Romantický pobyt</h3>
+                    <p>Soukromí, svíčky a romantika pod hvězdami. Ideální pro páry hledající unikátní zážitek.</p>
+                    <div class="service-price">+2 500 Kč</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">✨</div>
+                    <h3>All Inclusive</h3>
+                    <p>Kompletní wellness zážitek bez starostí. Vše co potřebujete pro dokonalý relax.</p>
+                    <div class="service-price">+5 500 Kč</div>
+                </div>
+            </div>
+            <div class="services-cta">
+                <a href="#" class="btn-reserve">Rezervovat</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="kontakt">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="logo">
+                    <strong style="color: #c9a227; font-family: 'Playfair Display', serif; font-size: 24px;">Medo<span class="r" style="font-size:0.7em;vertical-align:middle;margin:0 2px;">r</span> Klid</strong>
+                </div>
+                <p>Romantické pobyty v lese.<br>Odpočiňte si od světa.</p>
+            </div>
+            <div class="footer-section">
+                <h4>KONTAKT</h4>
+                <p>📧 info@medovyklid.cz</p>
+                <p>📞 +420 123 456 789</p>
+                <p>📍 Česká republika</p>
+            </div>
+            <div class="footer-section footer-links">
+                <h4>RYCHLÉ ODKAZY</h4>
+                <a href="#">Rezervace</a>
+                <a href="#o-nas">O nás</a>
+                <a href="#apiterapie">Apiterapie</a>
+                <a href="#galerie">Galerie</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 MedoKlid. Všechna práva vyhrazena.</p>
+        </div>
+    </footer>
+</body>
+</html>
