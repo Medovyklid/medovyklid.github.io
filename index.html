@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEDOVÝ KLID® HOLDING s.r.o. — Investiční prezentace pro Komerční banku</title>
+    <meta name="description" content="MEDOVÝ KLID® HOLDING s.r.o. — Modulární ekologické wellness domky s Apiterapií. Investiční prezentace pro financování začínajících podnikatelů.">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --deep-forest: #0a1f18;
+            --dark-forest: #122b22;
+            --midnight-green: #1a3d30;
+            --warm-honey: #c9a227;
+            --golden-amber: #d4a853;
+            --honey-glow: #e8c565;
+            --natural-wood: #5c3d2e;
+            --warm-beige: #c9b896;
+            --soft-cream: #faf6f0;
+            --white: #ffffff;
+            --text-dark: #1a1a1a;
+            --text-muted: #6b6b6b;
+            --gold-gradient: linear-gradient(135deg, #c9a227 0%, #e8c565 50%, #b8963d 100%);
+            --dark-gradient: linear-gradient(180deg, #0a1f18 0%, #122b22 50%, #1a3d30 100%);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--soft-cream);
+            color: var(--text-dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Playfair Display', serif; font-weight: 600; }
+
+        ::selection { background: var(--warm-honey); color: var(--deep-forest); }
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: var(--deep-forest); }
+        ::-webkit-scrollbar-thumb { background: var(--warm-honey); border-radius: 5px; }
+
+        /* ===== NAVIGATION ===== */
+        .navbar {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 1.2rem 5%; transition: all 0.4s ease;
+            background: transparent;
+        }
+        .navbar.scrolled {
+            background: rgba(10, 31, 24, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 0.9rem 5%;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.3);
+        }
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem; font-weight: 600;
+            color: var(--warm-honey); text-decoration: none; letter-spacing: 2px;
+            display: flex; align-items: center; gap: 10px;
+        }
+        .logo .bee-icon { font-size: 1.4rem; animation: beeFloat 3s ease-in-out infinite; }
+        @keyframes beeFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-4px)} }
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+        .nav-links a {
+            color: var(--warm-beige); text-decoration: none;
+            font-size: 0.85rem; font-weight: 500; letter-spacing: 1px;
+            text-transform: uppercase; transition: color 0.3s; position: relative;
+        }
+        .nav-links a::after {
+            content: ''; position: absolute; bottom: -5px; left: 0;
+            width: 0; height: 2px; background: var(--warm-honey); transition: width 0.3s;
+        }
+        .nav-links a:hover, .nav-links a.active { color: var(--warm-honey); }
+        .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+        .nav-cta {
+            padding: 0.7rem 1.8rem; background: var(--gold-gradient); color: var(--deep-forest);
+            border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 0.85rem;
+            letter-spacing: 1px; text-transform: uppercase; transition: all 0.3s;
+        }
+        .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(201,162,39,0.4); }
+        .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; z-index: 1001; }
+        .hamburger span { width: 26px; height: 3px; background: var(--warm-honey); border-radius: 3px; transition: all 0.3s; }
+
+        /* ===== HERO ===== */
+        .hero {
+            min-height: 100vh; position: relative; display: flex; align-items: center; justify-content: center;
+            text-align: center; overflow: hidden;
+            background: var(--dark-gradient);
+        }
+        .hero-forest {
+            position: absolute; inset: 0;
+            background: url('https://images.unsplash.com/photo-1448375240586-882707db888b?w=1920&q=80') center/cover no-repeat;
+            opacity: 0.35;
+        }
+        .hero-overlay {
+            position: absolute; inset: 0;
+            background: radial-gradient(ellipse at 50% 100%, rgba(201,162,39,0.12) 0%, transparent 60%),
+                        linear-gradient(180deg, rgba(10,31,24,0.85) 0%, rgba(10,31,24,0.7) 100%);
+        }
+        .hero-content { position: relative; z-index: 2; max-width: 950px; padding: 0 2rem; }
+        .hero-badge {
+            display: inline-block; background: var(--gold-gradient); color: var(--deep-forest);
+            padding: 10px 28px; border-radius: 50px; font-weight: 600; font-size: 0.85rem;
+            letter-spacing: 2px; text-transform: uppercase; margin-bottom: 2rem;
+            box-shadow: 0 0 40px rgba(201,162,39,0.3);
+        }
+        .hero h1 {
+            font-size: clamp(2.5rem, 7vw, 4.5rem); color: var(--honey-glow);
+            margin-bottom: 1rem; letter-spacing: 2px; line-height: 1.15;
+        }
+        .hero h1 .r { color: var(--warm-honey); }
+        .hero .company {
+            font-family: 'Cormorant Garamond', serif; font-size: 1.4rem;
+            color: var(--golden-amber); letter-spacing: 3px; margin-bottom: 1.5rem;
+        }
+        .hero .tagline {
+            font-size: 1.2rem; color: var(--warm-beige); font-weight: 300;
+            letter-spacing: 3px; text-transform: uppercase; margin-bottom: 1.5rem;
+        }
+        .hero .sub { font-size: 1.1rem; color: rgba(232,220,200,0.85); max-width: 650px; margin: 0 auto 2.5rem; font-style: italic; }
+        .hero-buttons { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; }
+        .btn {
+            padding: 1rem 2.5rem; border-radius: 50px; text-decoration: none;
+            font-weight: 600; font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase;
+            transition: all 0.4s; cursor: pointer; border: 2px solid transparent; display: inline-block;
+        }
+        .btn-primary { background: var(--gold-gradient); color: var(--deep-forest); }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(201,162,39,0.45); }
+        .btn-outline { background: transparent; color: var(--warm-honey); border: 2px solid var(--warm-honey); }
+        .btn-outline:hover { background: var(--warm-honey); color: var(--deep-forest); transform: translateY(-3px); }
+        .hero-scroll {
+            position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);
+            z-index: 5; color: var(--warm-honey); font-size: 1.8rem; animation: scrollBounce 2s infinite;
+        }
+        @keyframes scrollBounce { 0%,100%{transform:translate(-50%,0)} 50%{transform:translate(-50%,10px)} }
+
+        /* ===== GOLDEN DIVIDER ===== */
+        .divider {
+            height: 6px; background: var(--gold-gradient); position: relative;
+        }
+
+        /* ===== SECTIONS COMMON ===== */
+        section { padding: 6rem 5%; position: relative; }
+        .section-tag {
+            text-align: center; font-size: 0.85rem; letter-spacing: 3px; text-transform: uppercase;
+            color: var(--warm-honey); font-weight: 500; margin-bottom: 0.8rem;
+        }
+        .section-title {
+            text-align: center; font-size: clamp(2rem, 5vw, 3rem);
+            color: var(--deep-forest); margin-bottom: 1rem; position: relative;
+        }
+        .section-title::after {
+            content: ''; display: block; width: 70px; height: 3px;
+            background: var(--gold-gradient); margin: 1.2rem auto;
+        }
+        .section-sub { text-align: center; color: var(--text-muted); max-width: 700px; margin: 0 auto 3.5rem; }
+        .container { max-width: 1200px; margin: 0 auto; }
+
+        /* ===== OVERVIEW / STATS ===== */
+        .overview { background: var(--white); }
+        .overview .section-title { color: var(--deep-forest); }
+        .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin: 2rem 0 3rem; }
+        .stat-box {
+            text-align: center; padding: 2rem 1rem; background: var(--soft-cream);
+            border-radius: 16px; border: 1px solid rgba(201,162,39,0.2); transition: all 0.4s;
+        }
+        .stat-box:hover { transform: translateY(-6px); box-shadow: 0 15px 40px rgba(0,0,0,0.08); border-color: var(--warm-honey); }
+        .stat-box .num {
+            font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 700;
+            color: var(--deep-forest); background: var(--gold-gradient);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .stat-box .label { color: var(--text-muted); font-size: 0.9rem; margin-top: 0.3rem; }
+        .overview-desc { max-width: 800px; margin: 0 auto; text-align: center; color: #444; font-size: 1.1rem; }
+
+        /* ===== HOLDING STRUCTURE ===== */
+        .structure { background: var(--dark-gradient); color: var(--warm-beige); }
+        .structure .section-title { color: var(--honey-glow); }
+        .structure .section-title::after { background: var(--gold-gradient); }
+        .structure-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; max-width: 800px; margin: 0 auto; }
+        .struct-parent {
+            background: rgba(255,255,255,0.06); border: 2px solid var(--warm-honey);
+            border-radius: 16px; padding: 2rem; text-align: center;
+        }
+        .struct-parent h3 { color: var(--honey-glow); font-size: 1.6rem; margin-bottom: 1rem; }
+        .struct-parent ul { list-style: none; text-align: left; max-width: 380px; margin: 0 auto; }
+        .struct-parent li { padding: 0.4rem 0; color: var(--warm-beige); font-size: 0.95rem; display: flex; gap: 10px; align-items: center; }
+        .struct-parent li i { color: var(--warm-honey); }
+        .struct-arrow { text-align: center; font-size: 2rem; color: var(--warm-honey); padding: 0.5rem; }
+        .struct-children { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+        .struct-child {
+            background: rgba(255,255,255,0.04); border: 1px solid rgba(201,162,39,0.3);
+            border-radius: 12px; padding: 1.5rem; text-align: center;
+        }
+        .struct-child h4 { color: var(--golden-amber); margin-bottom: 0.6rem; font-size: 1.1rem; }
+        .struct-child p { color: var(--warm-beige); font-size: 0.9rem; }
+
+        /* ===== FEATURES ===== */
+        .features { background: var(--white); }
+        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem; }
+        .feature-card {
+            background: var(--soft-cream); border-radius: 16px; padding: 2rem;
+            border: 1px solid rgba(201,162,39,0.2); transition: all 0.4s; text-align: center;
+        }
+        .feature-card:hover { transform: translateY(-8px); border-color: var(--warm-honey); box-shadow: 0 20px 50px rgba(0,0,0,0.08); }
+        .feature-icon {
+            width: 70px; height: 70px; margin: 0 auto 1.2rem; border-radius: 50%;
+            background: var(--gold-gradient); display: flex; align-items: center; justify-content: center;
+            font-size: 1.8rem; color: var(--deep-forest); box-shadow: 0 8px 25px rgba(201,162,39,0.3);
+        }
+        .feature-card h3 { font-size: 1.2rem; color: var(--deep-forest); margin-bottom: 0.7rem; }
+        .feature-card p { color: var(--text-muted); font-size: 0.95rem; }
+
+        /* ===== TECH / SPECS ===== */
+        .tech { background: var(--soft-cream); }
+        .tech-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+        .tech-card { background: var(--white); border-radius: 16px; padding: 2rem; box-shadow: 0 4px 20px rgba(0,0,0,0.05); border: 1px solid #eee; }
+        .tech-card h3 { color: var(--deep-forest); font-size: 1.2rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 10px; }
+        .tech-card h3 i { color: var(--warm-honey); }
+        .tech-card ul { list-style: none; }
+        .tech-card li { padding: 0.5rem 0; color: #555; font-size: 0.95rem; border-bottom: 1px dashed #eee; display: flex; justify-content: space-between; }
+        .tech-card li:last-child { border: none; }
+        .tech-card li strong { color: var(--deep-forest); }
+
+        /* ===== FINANCE ===== */
+        .finance { background: var(--dark-gradient); color: var(--warm-beige); }
+        .finance .section-title { color: var(--honey-glow); }
+        .finance .section-title::after { background: var(--gold-gradient); }
+        .finance .section-sub { color: rgba(232,220,200,0.7); }
+        .finance-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .finance-card {
+            background: rgba(255,255,255,0.05); border: 1px solid rgba(201,162,39,0.25);
+            border-radius: 16px; padding: 2rem;
+        }
+        .finance-card h3 { color: var(--golden-amber); margin-bottom: 1.2rem; font-size: 1.2rem; display: flex; align-items: center; gap: 10px; }
+        .finance-card h3 i { color: var(--warm-honey); }
+        .finance-table { width: 100%; border-collapse: collapse; }
+        .finance-table td { padding: 0.6rem 0; color: var(--warm-beige); font-size: 0.95rem; border-bottom: 1px dashed rgba(232,220,200,0.15); }
+        .finance-table th { padding: 0.5rem 0; color: var(--honey-glow); font-size: 0.8rem; text-align: left; text-transform: uppercase; letter-spacing: 1px; border-bottom: 2px solid var(--warm-honey); }
+        .finance-table .total td { color: var(--honey-glow); font-weight: 700; font-size: 1.05rem; border-top: 2px solid var(--warm-honey); }
+        .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 2.5rem; }
+        .kpi {
+            text-align: center; background: rgba(255,255,255,0.06); padding: 1.8rem 1rem;
+            border-radius: 12px; border: 1px solid rgba(201,162,39,0.2);
+        }
+        .kpi .val { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: var(--honey-glow); }
+        .kpi .lbl { font-size: 0.85rem; color: var(--warm-beige); margin-top: 0.3rem; }
+        .highlight { color: var(--honey-glow); }
+
+        /* ===== GROWTH ===== */
+        .growth { background: var(--white); }
+        .growth-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; max-width: 900px; margin: 0 auto; }
+        .growth-box { text-align: center; padding: 2rem; }
+        .growth-box .num { font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 700; color: var(--deep-forest); background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .growth-box .lbl { color: var(--text-muted); font-size: 0.95rem; margin-top: 0.3rem; }
+        .growth-note { text-align: center; max-width: 700px; margin: 2rem auto 0; color: #555; }
+
+        /* ===== SWOT ===== */
+        .swot { background: var(--soft-cream); }
+        .swot-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+        .swot-col { display: flex; flex-direction: column; gap: 1.5rem; }
+        .swot-box { background: var(--white); border-radius: 16px; padding: 1.8rem 2rem; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
+        .swot-box h3 { font-size: 1.1rem; margin-bottom: 0.8rem; display: flex; align-items: center; gap: 10px; }
+        .swot-box.s-strong h3 i { color: #2e7d32; } .swot-box.s-weak h3 i { color: #c62828; }
+        .swot-box.s-opp h3 i { color: #1565c0; } .swot-box.s-threat h3 i { color: #e65100; }
+        .swot-box ul { list-style: disc; padding-left: 1.2rem; }
+        .swot-box li { color: #555; font-size: 0.95rem; padding: 0.25rem 0; }
+
+        /* ===== CONTACT ===== */
+        .contact-band { background: var(--gold-gradient); color: var(--deep-forest); text-align: center; padding: 4rem 5%; position: relative; overflow: hidden; }
+        .contact-band h2 { font-size: 2rem; margin-bottom: 1rem; }
+        .contact-band p { font-size: 1.15rem; opacity: 0.9; margin-bottom: 1.5rem; }
+        .contact-buttons { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; }
+        .contact-btn {
+            padding: 0.9rem 2.2rem; background: var(--deep-forest); color: var(--warm-honey);
+            border-radius: 50px; text-decoration: none; font-weight: 600; transition: all 0.3s;
+            display: inline-flex; align-items: center; gap: 10px;
+        }
+        .contact-btn:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(0,0,0,0.3); }
+
+        /* ===== FOOTER ===== */
+        footer { background: var(--deep-forest); color: var(--warm-beige); padding: 3rem 5%; text-align: center; }
+        footer .f-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; color: var(--warm-honey); margin-bottom: 0.8rem; }
+        footer .f-desc { color: rgba(201,184,150,0.7); font-size: 0.9rem; max-width: 500px; margin: 0 auto 1.5rem; }
+        footer .f-contact { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; font-size: 0.9rem; margin-bottom: 1.5rem; }
+        footer .f-contact a { color: var(--golden-amber); text-decoration: none; }
+        footer .f-contact a:hover { color: var(--honey-glow); }
+        footer .f-bottom { border-top: 1px solid rgba(201,162,39,0.2); padding-top: 1.5rem; font-size: 0.8rem; color: rgba(201,184,150,0.5); }
+        footer .f-company { font-size: 0.9rem; color: var(--golden-amber); margin-bottom: 0.5rem; }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 900px) {
+            .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--dark-forest); flex-direction: column; padding: 2rem; gap: 1.5rem; text-align: center; }
+            .nav-links.open { display: flex; }
+            .nav-cta { display: none; }
+            .hamburger { display: flex; }
+            .stats-grid { grid-template-columns: 1fr 1fr; }
+            .kpi-grid { grid-template-columns: 1fr 1fr; }
+            .growth-grid { grid-template-columns: 1fr; }
+            .swot-grid { grid-template-columns: 1fr; }
+            .struct-children { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 500px) {
+            .stats-grid { grid-template-columns: 1fr; }
+            .kpi-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        /* Scroll reveal */
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.5,0,0,1); }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav class="navbar" id="navbar">
+    <a href="#uvod" class="logo"><span class="bee-icon">🐝</span> MEDOVÝ KLID<span style="color:var(--golden-amber)">®</span></a>
+    <ul class="nav-links" id="navLinks">
+        <li><a href="#uvod">Úvod</a></li>
+        <li><a href="#projekt">Projekt</a></li>
+        <li><a href="#struktura">Struktura</a></li>
+        <li><a href="#finance">Finance</a></li>
+        <li><a href="#rust">Růst</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+    </ul>
+    <a href="#kontakt" class="nav-cta">Žádost o úvěr</a>
+    <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="uvod">
+    <div class="hero-forest"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <div class="hero-badge">Investiční prezentace</div>
+        <h1>MEDOVÝ <span class="r">KLID</span><span style="color:var(--golden-amber);font-size:0.6em;vertical-align:middle;">®</span></h1>
+        <div class="company">MEDOVÝ KLID HOLDING s.r.o. · IČO 24506478</div>
+        <p class="tagline">Modulární ekologické wellness domky s Apiterapií</p>
+        <p class="sub">Celoroční ekologické ubytování pro 2 osoby s privátním wellness a apiterapií — koncept spojující soukromí, zdraví a přírodu.</p>
+        <div class="hero-buttons">
+            <a href="#finance" class="btn btn-primary">Finanční přehled</a>
+            <a href="#kontakt" class="btn btn-outline">Kontakt</a>
+        </div>
+    </div>
+    <div class="hero-scroll"><i class="fas fa-chevron-down"></i></div>
+</section>
+
+<div class="divider"></div>
+
+<!-- OVERVIEW / STATS -->
+<section class="overview" id="projekt">
+    <div class="container">
+        <div class="section-tag">O projektu</div>
+        <h2 class="section-title">Unikátní wellness koncept</h2>
+        <p class="section-sub">MEDOVÝ KLID® spojuje tři rostoucí tržní segmenty: privátní wellness ubytování, glamping a tiny house, a apiterapii — vše v jednom energeticky soběstačném modulárním domku pro páry.</p>
+
+        <div class="stats-grid">
+            <div class="stat-box reveal"><div class="num">700 tis.</div><div class="label">Kč investice / domek</div></div>
+            <div class="stat-box reveal"><div class="num">3 300</div><div class="label">Kč / noc (průměr)</div></div>
+            <div class="stat-box reveal"><div class="num">60 %</div><div class="label">Roční obsazenost</div></div>
+            <div class="stat-box reveal"><div class="num">2,81</div><div class="label">DSCR krytí splátek</div></div>
+        </div>
+
+        <p class="overview-desc reveal">Každý modulární domek (3,6 × 8,4 m) je plně energeticky soběstačný — solární systém 2 kWp s bateriovým úložištěm, využití dešťové vody s filtrací, kamna a ohřev TUV. Provoz je minimalizovaný a nezávislý na externí infrastruktuře, což drží extrémně nízké provozní náklady (cca 145 000 Kč/rok).</p>
+    </div>
+</section>
+
+<!-- STRUCTURE -->
+<section class="structure" id="struktura">
+    <div class="container">
+        <div class="section-tag">Firemní struktura</div>
+        <h2 class="section-title">Holdingová struktura</h2>
+        <p class="section-sub">Projekt je budován jako holding — každý domek provozuje samostatná dceřiná společnost (SPV), která čerpá vlastní úvěr a samostatně splácí závazky. Tento model zajišťuje oddělení rizik jednotlivých jednotek a přehlednou kontrolu cash flow.</p>
+
+        <div class="structure-grid">
+            <div class="struct-parent reveal">
+                <h3>MATEŘSKÁ SPOLEČNOST<br><span style="font-size:1.1rem; color:var(--golden-amber);">MEDOVÝ KLID HOLDING s.r.o.</span></h3>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> Vlastní ochrannou známku MEDOVÝ KLID®</li>
+                    <li><i class="fas fa-check-circle"></i> Know-how, technologické postupy, provozní manuály</li>
+                    <li><i class="fas fa-check-circle"></i> Centrální marketing a rezervační systém</li>
+                    <li><i class="fas fa-check-circle"></i> Franchisový poplatek 8 % z obratu</li>
+                </ul>
+            </div>
+            <div class="struct-arrow">▼</div>
+            <div class="struct-children">
+                <div class="struct-child reveal">
+                    <h4>Dceřiná společnost (SPV)</h4>
+                    <p>Každá provozuje jeden konkrétní domek, uzavírá licenční smlouvu s mateřskou společností, nese odpovědnost za provoz a splácení úvěru.</p>
+                </div>
+                <div class="struct-child reveal">
+                    <h4>Oddělení rizika</h4>
+                    <p>Transparentní struktura s oddělením rizika každého projektu — rizika jednotlivých jednotek se nekumulují.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features">
+    <div class="container">
+        <div class="section-tag">Technické řešení</div>
+        <h2 class="section-title">Co domek nabízí</h2>
+        <p class="section-sub">Dokonalá kombinace wellness, přírodních materiálů a energetické soběstačnosti pro maximální komfort s minimálními náklady.</p>
+
+        <div class="feature-grid">
+            <div class="feature-card reveal">
+                <div class="feature-icon"><i class="fas fa-home"></i></div>
+                <h3>Modulární konstrukce</h3>
+                <p>3,6 × 8,4 m z přírodních materiálů — slaměné panely, dřevo, hliněné omítky.</p>
+            </div>
+            <div class="feature-card reveal">
+                <div class="feature-icon"><i class="fas fa-bed"></i></div>
+                <h3>Ložnice s prosklením</h3>
+                <p>Velkoformátové prosklení s výhledem do přírody pro maximální zážitek z pobytu.</p>
+            </div>
+            <div class="feature-card reveal">
+                <div class="feature-icon"><i class="fas fa-fire"></i></div>
+                <h3>Privátní sauna</h3>
+                <p>Vlastní wellness zóna přímo u domku pro intimní zážitek páru.</p>
+            </div>
+            <div class="feature-card reveal">
+                <div class="feature-icon"><i class="fas fa-hot-tub"></i></div>
+                <h3>Koupací sud</h3>
+                <p>Dřevěný koupací sud na dřevo pod širým nebem.</p>
+            </div>
+            <div class="feature-card reveal">
+                <div class="feature-icon"><i class="fas fa-bug"></i></div>
+                <h3>Apiterapie</h3>
+                <p>4 úly, 4 včelstva — léčení včelími produkty pro zdraví a relaxaci.</p>
+            </div>
+            <div class="feature-card reveal">
+                <div class="feature-icon"><i class="fas fa-sun"></i></div>
+                <h3>Solární energie</h3>
+                <p>FV systém 2 kWp + bateriové úložiště, plná energetická soběstačnost.</p>
+            </div>
+            <div class="feature-card reveal">
+                <div class="feature-icon"><i class="fas fa-water"></i></div>
+                <h3>Dešťová voda</h3>
+                <p>Využití dešťové vody s filtrací a UV pro minimalizaci provozních nákladů.</p>
+            </div>
+            <div class="feature-card reveal">
+                <div class="feature-icon"><i class="fas fa-tree"></i></div>
+                <h3>Terasa & pergola</h3>
+                <p>Venkovní prostor s pergolou a ohništěm pro celoroční pobyt.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FINANCE -->
+<section class="finance" id="finance">
+    <div class="container">
+        <div class="section-tag">Financování</div>
+        <h2 class="section-title">Investiční rozpočet a finanční projekce</h2>
+        <p class="section-sub">Žádost o bezúčelový úvěr pro začínající společnosti ve výši 1 000 000 Kč na realizaci jednoho modulárního wellness domku.</p>
+
+        <div class="finance-grid">
+            <div class="finance-card reveal">
+                <h3><i class="fas fa-receipt"></i> Investiční rozpočet (1 domek)</h3>
+                <table class="finance-table">
+                    <thead><tr><th>Položka</th><th style="text-align:right;">Kč</th></tr></thead>
+                    <tbody>
+                        <tr><td>Stavba a interiér</td><td style="text-align:right;">330 000</td></tr>
+                        <tr><td>Sauna + sud</td><td style="text-align:right;">57 000</td></tr>
+                        <tr><td>Apiterapie</td><td style="text-align:right;">56 000</td></tr>
+                        <tr><td>Kamna + TUV</td><td style="text-align:right;">44 000</td></tr>
+                        <tr><td>Fotovoltaika + baterie</td><td style="text-align:right;">73 000</td></tr>
+                        <tr><td>Voda + filtrace</td><td style="text-align:right;">29 000</td></tr>
+                        <tr><td>Terasa + exteriér</td><td style="text-align:right;">30 000</td></tr>
+                        <tr><td>Rezerva a montáž</td><td style="text-align:right;">71 000</td></tr>
+                        <tr class="total"><td>Celková investice</td><td style="text-align:right;">700 000 Kč</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="finance-card reveal">
+                <h3><i class="fas fa-chart-line"></i> Finanční projekce (1 domek)</h3>
+                <table class="finance-table">
+                    <thead><tr><th>Ukazatel</th><th style="text-align:right;">Hodnota</th></tr></thead>
+                    <tbody>
+                        <tr><td>Průměrná cena / noc</td><td style="text-align:right;">3 300 Kč</td></tr>
+                        <tr><td>Modelová obsazenost</td><td style="text-align:right;">60 %</td></tr>
+                        <tr><td>Roční tržby</td><td style="text-align:right;">~780 000 Kč</td></tr>
+                        <tr><td>Roční provoz. náklady</td><td style="text-align:right;">~145 000 Kč</td></tr>
+                        <tr><td>EBITDA</td><td style="text-align:right;">~635 000 Kč</td></tr>
+                        <tr><td>Roční splátka (5 let, 4,7 %)</td><td style="text-align:right;">~225 600 Kč</td></tr>
+                        <tr class="total"><td>Čisté cash flow / rok</td><td style="text-align:right;">~409 000 Kč</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="kpi-grid">
+            <div class="kpi reveal"><div class="val">2,81</div><div class="lbl">DSCR</div></div>
+            <div class="kpi reveal"><div class="val">36–38 %</div><div class="lbl">Bod zvratu</div></div>
+            <div class="kpi reveal"><div class="val">~650 tis.</div><div class="lbl">Kč hodnota majetku</div></div>
+            <div class="kpi reveal"><div class="val">8–10 %</div><div class="lbl">Odolnost na úrok</div></div>
+        </div>
+
+        <div style="text-align:center; margin-top:2rem;">
+            <p style="color:var(--warm-beige); max-width:750px; margin:0 auto;">
+                Požadovaný úvěr 1 000 000 Kč vytváří rezervu cca <span class="highlight">300 000 Kč</span> na provozní kapitál, marketing a splátkové položky. Projekt <span class="highlight">vykazuje kladné cash flow v každém měsíci</span> a je odolný vůči poklesu obsazenosti i růstu nákladů.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- GROWTH -->
+<section class="growth" id="rust">
+    <div class="container">
+        <div class="section-tag">Růstová strategie</div>
+        <h2 class="section-title">Cíl v ČR do 5 let</h2>
+        <p class="section-sub">Franchisový model rozvoje umožňuje kontrolovaný růst s kombinací provozního a licenčního příjmu.</p>
+
+        <div class="growth-grid">
+            <div class="growth-box reveal"><div class="num">54</div><div class="lbl">Domků celkem</div></div>
+            <div class="growth-box reveal"><div class="num">10</div><div class="lbl">Vlastní správa</div></div>
+            <div class="growth-box reveal"><div class="num">44</div><div class="lbl">Franchisových</div></div>
+        </div>
+
+        <div class="growth-note reveal">
+            <p>Franchisový poplatek <strong>8 % z obratu</strong> každé jednotky plyne mateřské společnosti. Při plném rozvoji sítě činí roční příjem z franchis cca <strong>2,7 mil. Kč</strong> bez přímé provozní zátěže, celkový očekávaný roční cash flow holdingu přesahuje <strong>6 mil. Kč</strong>.</p>
+        </div>
+    </div>
+</section>
+
+<!-- SWOT -->
+<section class="swot">
+    <div class="container">
+        <div class="section-tag">Analýza</div>
+        <h2 class="section-title">SWOT analýza</h2>
+        <p class="section-sub">Konkurenční postavení projektu na trhu wellness ubytování.</p>
+
+        <div class="swot-grid">
+            <div class="swot-col">
+                <div class="swot-box s-strong reveal"><h3><i class="fas fa-plus-circle"></i> Silné stránky</h3>
+                    <ul>
+                        <li>Kombinace wellness + ubytování + apiterapie</li>
+                        <li>Evropská ochranná známka MEDOVÝ KLID®</li>
+                        <li>Nízké provozní náklady</li>
+                        <li>Prémiový positioning</li>
+                    </ul>
+                </div>
+                <div class="swot-box s-opp reveal"><h3><i class="fas fa-arrow-up"></i> Příležitosti</h3>
+                    <ul>
+                        <li>Rostoucí poptávka po soukromém wellness</li>
+                        <li>Trend zážitkové turistiky</li>
+                        <li>Růst segmentu zdraví a prevence</li>
+                        <li>Expanze do dalších lokalit</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="swot-col">
+                <div class="swot-box s-weak reveal"><h3><i class="fas fa-minus-circle"></i> Slabé stránky</h3>
+                    <ul>
+                        <li>Začínající společnost bez historie</li>
+                        <li>Závislost na sezónní poptávce</li>
+                    </ul>
+                </div>
+                <div class="swot-box s-threat reveal"><h3><i class="fas fa-exclamation-triangle"></i> Hrozby</h3>
+                    <ul>
+                        <li>Konkurence v segmentu glampingu</li>
+                        <li>Možný pokles turistické poptávky</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT BAND -->
+<div class="contact-band" id="kontakt">
+    <h2>Rádi se sejdeme osobně</h2>
+    <p>Po obdržení podkladů bychom rádi detailně prošli financování projektu.</p>
+    <div class="contact-buttons">
+        <a href="tel:+420774726995" class="contact-btn"><i class="fas fa-phone"></i> +420 774 726 995</a>
+        <a href="mailto:honeyedpeace@seznam.cz" class="contact-btn"><i class="fas fa-envelope"></i> honeyedpeace@seznam.cz</a>
+        <a href="https://wa.me/420724283050" class="contact-btn" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <div class="f-logo">🐝 MEDOVÝ KLID®</div>
+    <div class="f-company">MEDOVÝ KLID HOLDING s.r.o. · IČO: 24506478</div>
+    <p class="f-desc">Modulární ekologické wellness domky s Apiterapií. Celoroční ubytování pro 2 osoby se soukromým wellness, energetickou soběstačností a léčením včelími produkty.</p>
+    <div class="f-contact">
+        <a href="tel:+420774726995"><i class="fas fa-phone"></i> +420 774 726 995</a>
+        <a href="tel:+420724283050"><i class="fas fa-phone"></i> +420 724 283 050</a>
+        <a href="mailto:honeyedpeace@seznam.cz"><i class="fas fa-envelope"></i> honeyedpeace@seznam.cz</a>
+        <span><i class="fas fa-map-marker-alt"></i> Radimovická 1773/15, Chodov, 149 00 Praha 4</span>
+    </div>
+    <div class="f-bottom">© 2026 MEDOVÝ KLID® — Všechna práva vyhrazena. Investiční prezentace pro Komerční banku, a.s.</div>
+</footer>
+
+<script>
+    // Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) navbar.classList.add('scrolled');
+        else navbar.classList.remove('scrolled');
+    });
+
+    // Mobile menu
+    function toggleMenu() {
+        document.getElementById('navLinks').classList.toggle('open');
+    }
+
+    // Active nav link on scroll (active section)
+    const sections = document.querySelectorAll('section, .contact-band');
+    const navAnchors = document.querySelectorAll('.nav-links a');
+
+    // Scroll reveal
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // Close mobile menu on link click
+    document.querySelectorAll('.nav-links a').forEach(a => {
+        a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));
+    });
+
+    // Active link highlighting
+    function setActiveLink() {
+        let current = '';
+        const scrollPos = window.scrollY + 100;
+        const map = { '#uvod': 0, '#projekt': 1, '#struktura': 2, '#finance': 3, '#rust': 4, '#kontakt': 5 };
+        // simplified - check by section offsets
+        const secs = [document.getElementById('uvod'), document.getElementById('struktura'), document.getElementById('finance'), document.getElementById('rust')];
+        secs.forEach(sec => { if (sec && scrollPos >= sec.offsetTop) current = '#'+sec.id; });
+        if (document.getElementById('kontakt') && scrollPos >= document.getElementById('kontakt').offsetTop - 100) current = '#kontakt';
+
+        navAnchors.forEach(a => a.classList.remove('active'));
+        if (current) {
+            document.querySelectorAll('.nav-links a').forEach(a => { if (a.getAttribute('href') === current) a.classList.add('active'); });
+        }
+    }
+    window.addEventListener('scroll', setActiveLink);
+</script>
+
+</body>
+</html>
