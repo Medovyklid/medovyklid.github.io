@@ -157,8 +157,7 @@ h2.title em{font-style:italic}
 
 /* ---------- RESERVE ---------- */
 .reserve{background:var(--ivory)}
-.r-grid{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;margin-top:3rem;align-items:start}
-.r-form{background:#fff;border:1px solid var(--line);border-radius:8px;padding:2.4rem;box-shadow:0 20px 60px rgba(11,31,22,.08)}
+.r-grid{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;margin-top:3rem;align-items:start}.r-form{background:#fff;border:1px solid var(--line);border-radius:8px;padding:2.4rem;box-shadow:0 20px 60px rgba(11,31,22,.08)}
 .f-group{margin-bottom:1.4rem}
 .f-group label{display:block;font-size:.68rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:.5rem}
 .f-group select,.f-group input{width:100%;padding:.8rem 1rem;border:1px solid #ddd2bc;border-radius:4px;font-family:var(--sans);font-size:.95rem;background:var(--ivory);color:var(--ink)}
@@ -198,6 +197,67 @@ footer{background:var(--forest);color:var(--sand);padding:4.5rem 5vw 2rem;border
 .f-grid p{font-size:.9rem}
 fbrand .fbrand{font-family:var(--serif);font-size:1.4rem;letter-spacing:3px;color:var(--honey-soft)}
 .f-bottom{border-top:1px solid rgba(244,239,229,.1);margin-top:3rem;padding-top:1.8rem;text-align:center;font-size:.74rem;letter-spacing:2px;text-transform:uppercase;color:rgba(244,239,229,.4)}
+
+/* ---------- GALLERY FILTER ---------- */
+.gal-filters{display:flex;justify-content:center;flex-wrap:wrap;gap:.6rem;margin:2rem 0 2.6rem}
+.gal-filters button{background:none;border:1px solid var(--line);color:var(--muted);font-family:var(--sans);font-size:.7rem;letter-spacing:2px;text-transform:uppercase;padding:.6rem 1.4rem;border-radius:99px;cursor:pointer;transition:.3s}
+.gal-filters button:hover{color:var(--forest);border-color:var(--honey)}
+.gal-filters button.active{background:var(--forest);color:var(--honey-soft);border-color:var(--forest)}
+.gal-grid .g{transition:opacity .5s, transform .5s}
+.gal-grid .g.hide{display:none;opacity:0}
+
+/* ---------- FAQ ---------- */
+.faq{background:var(--ivory)}
+.faq-list{max-width:820px;margin:3rem auto 0}
+.faq-item{border-bottom:1px solid var(--line);background:#fff;border-radius:8px;margin-bottom:.8rem;overflow:hidden;box-shadow:0 4px 18px rgba(11,31,22,.05)}
+.faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.3rem 1.8rem;background:none;border:0;font-family:var(--serif);font-size:1.15rem;color:var(--forest);cursor:pointer;text-align:left;font-weight:500}
+.faq-q .ic{font-size:1.2rem;color:var(--honey);transition:transform .35s;flex-shrink:0}
+.faq-item.open .faq-q .ic{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .45s ease}
+.faq-a p{padding:.2rem 1.8rem 1.3rem;color:var(--muted);font-size:.95rem}
+
+/* ---------- TESTIMONIAL SLIDER ---------- */
+.testi{background:var(--cream);text-align:center}
+.testi-slider{max-width:760px;margin:0 auto;position:relative}
+.testi-slide{display:none;animation:fade .6s ease}
+.testi-slide.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.testi .q{font-family:var(--serif);font-style:italic;font-size:clamp(1.3rem,3vw,1.9rem);color:var(--forest)}
+.testi .stars{color:var(--honey);letter-spacing:6px;margin-top:1.6rem;font-size:1rem}
+.testi .who{margin-top:.8rem;font-size:.76rem;letter-spacing:3px;text-transform:uppercase;color:var(--muted)}
+.testi-dots{display:flex;justify-content:center;gap:.5rem;margin-top:2rem}
+.testi-dots button{width:9px;height:9px;border-radius:99px;border:0;background:rgba(201,162,39,.3);cursor:pointer;transition:.3s}
+.testi-dots button.active{background:var(--honey);width:22px}
+.testi-arrow{position:absolute;top:50%;transform:translateY(-50%);background:rgba(201,162,39,.12);border:1px solid var(--line);width:42px;height:42px;border-radius:99px;color:var(--forest);font-size:1.2rem;cursor:pointer;transition:.3s}
+.testi-arrow:hover{background:var(--honey);color:#fff}
+.testi-arrow.prev{left:-70px}
+.testi-arrow.next{right:-70px}
+
+/* ---------- NEWSLETTER ---------- */
+.newsletter{background:var(--cream);text-align:center;padding:4.5rem 0;border-top:1px solid var(--line)}
+.newsletter .form{display:flex;gap:.6rem;justify-content:center;max-width:460px;margin:1.8rem auto 0;flex-wrap:wrap}
+.newsletter input[type=email]{flex:1;min-width:220px;padding:1rem 1.4rem;border:1px solid #ddd2bc;border-radius:99px;font-family:var(--sans);font-size:.95rem;background:#fff;color:var(--ink)}
+.newsletter input:focus{outline:1px solid var(--honey)}
+.newsletter .ok{color:var(--forest);font-family:var(--serif);font-size:1.05rem;margin-top:1.2rem;display:none}
+
+/* ---------- RESERVATION CALENDAR ---------- */
+.cal-wrap{display:flex;gap:1.4rem;flex-wrap:wrap;margin-bottom:1.4rem}
+.cal{flex:1;min-width:250px;background:var(--ivory);border:1px solid #ddd2bc;border-radius:8px;padding:1rem}
+.cal .cal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:.8rem}
+.cal .cal-head button{background:none;border:0;color:var(--honey);font-size:1.2rem;cursor:pointer;padding:0 .4rem}
+.cal .cal-title{font-family:var(--serif);color:var(--forest);font-size:1rem;letter-spacing:.5px}
+.cal .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;text-align:center}
+.cal .cal-grid .dow{font-size:.6rem;letter-spacing:1px;text-transform:uppercase;color:var(--muted);padding:.3rem 0}
+.cal .cal-grid button{position:relative;border:0;background:#fff;color:var(--ink);font-size:.8rem;padding:.5rem 0;border-radius:4px;cursor:pointer;transition:.2s;font-family:var(--sans)}
+.cal .cal-grid button:hover:not(:disabled){background:rgba(201,162,39,.25)}
+.cal .cal-grid button.blank{cursor:default;background:transparent}
+.cal .cal-grid button.arr{background:var(--forest);color:var(--honey-soft);font-weight:600}
+.cal .cal-grid button.dep{background:var(--honey);color:#fff;font-weight:600}
+.cal .cal-grid button.range{background:rgba(201,162,39,.3);color:var(--forest)}
+.cal .cal-grid button:disabled{color:#c9c2b0;background:#fff;cursor:not-allowed}
+.f-date-range{display:flex;gap:.8rem;flex-wrap:wrap;margin-bottom:.8rem}
+.f-date-range label{flex:1;min-width:130px;font-size:.68rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted)}
+.f-date-range input{width:100%;padding:.6rem .8rem;border:1px solid #ddd2bc;border-radius:4px;font-family:var(--sans);font-size:.9rem;margin-top:.3rem;background:var(--ivory)}
 
 /* ---------- LIGHTBOX ---------- */
 .lb{position:fixed;inset:0;background:rgba(8,20,15,.94);z-index:2000;display:none;align-items:center;justify-content:center;padding:4vh 4vw;cursor:zoom-out}
@@ -246,6 +306,7 @@ fbrand .fbrand{font-family:var(--serif);font-size:1.4rem;letter-spacing:3px;colo
     <li><a href="#wellness" data-nav="wellness">Wellness</a></li>
     <li><a href="#gallery" data-nav="gallery">Galerie</a></li>
     <li><a href="#packages" data-nav="packages">Balíčky</a></li>
+    <li><a href="#faq" data-nav="faq">FAQ</a></li>
     <li><a href="#reserve" data-nav="reserve">Rezervace</a></li>
     <li><a href="#contact" data-nav="contact">Kontakt</a></li>
   </ul>
@@ -367,23 +428,30 @@ fbrand .fbrand{font-family:var(--serif);font-size:1.4rem;letter-spacing:3px;colo
   <div class="wrap" style="text-align:center">
     <div class="eyebrow-dark" data-i18n="galEyebrow">Galerie</div>
     <h2 class="title" data-i18n="galTitle">Okamžiky ticha</h2>
+    <div class="gal-filters">
+      <button class="active" data-f="all" data-i18n="gAll">Vše</button>
+      <button data-f="ext" data-i18n="gExt">Exteriér</button>
+      <button data-f="int" data-i18n="gInt">Interiér</button>
+      <button data-f="well" data-i18n="gWell">Wellness</button>
+      <button data-f="nat" data-i18n="gNat">Příroda</button>
+    </div>
   </div>
   <div class="wrap">
     <div class="gal-grid">
-      <div class="g tall rv"><img src="img/dom1.jpg" alt="Cabin exterior"></div>
-      <div class="g rv"><img src="img/loznice.jpg" alt="Bedroom"></div>
-      <div class="g rv"><img src="img/api.jpg" alt="Apitherapy room"></div>
-      <div class="g rv"><img src="img/koupelna1.jpg" alt="Bathroom"></div>
-      <div class="g rv"><img src="img/dom2.jpg" alt="Cabin"></div>
-      <div class="g wide rv"><img src="img/romantika.jpg" alt="Romantic corner"></div>
-      <div class="g rv"><img src="img/koupelna2.jpg" alt="Bathroom"></div>
-      <div class="g rv"><img src="img/dom3.jpg" alt="Cabin evening"></div>
-      <div class="g rv"><img src="img/kupel.jpg" alt="Hot tub"></div>
-      <div class="g tall rv"><img src="img/web.jpg" alt="Cabin in forest"></div>
-      <div class="g rv"><img src="img/koupelna3.jpg" alt="Bathroom detail"></div>
-      <div class="g rv"><img src="img/foto1.jpg" alt="Forest"></div>
-      <div class="g rv"><img src="img/foto2.jpg" alt="Forest detail"></div>
-      <div class="g rv"><img src="img/loznice_rb.jpg" alt="Bedroom with candles"></div>
+      <div class="g tall rv" data-cat="ext"><img src="img/dom1.jpg" alt="Cabin exterior"></div>
+      <div class="g rv" data-cat="int"><img src="img/loznice.jpg" alt="Bedroom"></div>
+      <div class="g rv" data-cat="well"><img src="img/api.jpg" alt="Apitherapy room"></div>
+      <div class="g rv" data-cat="int"><img src="img/koupelna1.jpg" alt="Bathroom"></div>
+      <div class="g rv" data-cat="ext"><img src="img/dom2.jpg" alt="Cabin"></div>
+      <div class="g wide rv" data-cat="well"><img src="img/romantika.jpg" alt="Romantic corner"></div>
+      <div class="g rv" data-cat="int"><img src="img/koupelna2.jpg" alt="Bathroom"></div>
+      <div class="g rv" data-cat="ext"><img src="img/dom3.jpg" alt="Cabin evening"></div>
+      <div class="g rv" data-cat="well"><img src="img/kupel.jpg" alt="Hot tub"></div>
+      <div class="g tall rv" data-cat="ext"><img src="img/web.jpg" alt="Cabin in forest"></div>
+      <div class="g rv" data-cat="int"><img src="img/koupelna3.jpg" alt="Bathroom detail"></div>
+      <div class="g rv" data-cat="nat"><img src="img/foto1.jpg" alt="Forest"></div>
+      <div class="g rv" data-cat="nat"><img src="img/foto2.jpg" alt="Forest detail"></div>
+      <div class="g rv" data-cat="int"><img src="img/loznice_rb.jpg" alt="Bedroom with candles"></div>
     </div>
   </div>
 </section>
@@ -418,6 +486,42 @@ fbrand .fbrand{font-family:var(--serif);font-size:1.4rem;letter-spacing:3px;colo
   </div>
 </section>
 
+<!-- FAQ -->
+<section id="faq" class="faq">
+  <div class="wrap" style="text-align:center">
+    <div class="eyebrow-dark" data-i18n="faqEyebrow">Časté dotazy</div>
+    <h2 class="title" data-i18n="faqTitle">Možná vás zajímá</h2>
+  </div>
+  <div class="wrap">
+    <div class="faq-list rv">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)"><span data-i18n="fa1q">Jak se dostanu ke kabině?</span><span class="ic">+</span></button>
+        <div class="faq-a"><p data-i18n="fa1a">Po rezervaci vám zašleme přesné GPS souřadnice a přístupový kód. Parkovat lze přímo u kabiny, přístup je bezkontaktní.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)"><span data-i18n="fa2q">Je kabina vhodná celoročně?</span><span class="ic">+</span></button>
+        <div class="faq-a"><p data-i18n="fa2a">Ano, kabina je plně izolovaná a vytápěná. Připravená na horká léta i mrazivé zimní noci. Krb a sauna zpříjemní i nejstudenější večery.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)"><span data-i18n="fa3q">Co znamená apiterapie?</span><span class="ic">+</span></button>
+        <div class="faq-a"><p data-i18n="fa3a">Nad postelí jsou umístěny 4 funkční včelí úly. Vzduch procházející úlem je obohacen o propolis a éterické oleje, které mají zklidňující a regenerační účinky.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)"><span data-i18n="fa4q">Je k dispozici elektřina a voda?</span><span class="ic">+</span></button>
+        <div class="faq-a"><p data-i18n="fa4a">Ano, kabina je 100% soběstačná — energie ze slunce (solár + baterie), pitná voda z deště s trojstupňovou filtrací. Stačí si přivézt jen osobní věci.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)"><span data-i18n="fa5q">Můžeme přijet s domácím mazlíčkem?</span><span class="ic">+</span></button>
+        <div class="faq-a"><p data-i18n="fa5a">Ano, malý pes je vítán. Kabina má vlastní oplocenou zahradu. Prosíme jen o ohleduplnost k včelstvům a přírodě.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)"><span data-i18n="fa6q">Jak funguje rezervace a platba?</span><span class="ic">+</span></button>
+        <div class="faq-a"><p data-i18n="fa6a">Vyberte termín v kalendáři a odešlete poptávku přes WhatsApp. Po odsouhlasení termínu zaplatíte zálohu a den předem obdržíte přístupový kód.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- RESERVE -->
 <section id="reserve" class="reserve">
   <div class="wrap" style="text-align:center">
@@ -434,8 +538,21 @@ fbrand .fbrand{font-family:var(--serif);font-size:1.4rem;letter-spacing:3px;colo
           <input type="hidden" id="loc" value="Ústecký kraj">
         </div>
         <div class="f-group">
-          <label data-i18n="fDate">Datum příjezdu</label>
-          <input type="date" id="date">
+          <label data-i18n="fRange">Zvolte termín</label>
+          <div class="cal-wrap">
+            <div class="cal" id="calArr">
+              <div class="cal-head"><button onclick="calMonth(-1)">‹</button><span class="cal-title" id="calArrTitle"></span><button onclick="calMonth(1)">›</button></div>
+              <div class="cal-grid" id="calArrGrid"></div>
+            </div>
+            <div class="cal" id="calDep">
+              <div class="cal-head"><button onclick="calMonth(-1)">‹</button><span class="cal-title" id="calDepTitle"></span><button onclick="calMonth(1)">›</button></div>
+              <div class="cal-grid" id="calDepGrid"></div>
+            </div>
+          </div>
+          <div class="f-date-range">
+            <label data-i18n="fDate">Datum příjezdu<br><input type="date" id="date" readonly></label>
+            <label data-i18n="fDep">Datum odjezdu<br><input type="date" id="dateout" readonly></label>
+          </div>
         </div>
         <div class="f-group">
           <label data-i18n="fNights">Počet nocí</label>
@@ -460,12 +577,41 @@ fbrand .fbrand{font-family:var(--serif);font-size:1.4rem;letter-spacing:3px;colo
   </div>
 </section>
 
-<!-- TESTIMONIAL -->
+<!-- TESTIMONIALS -->
 <section class="testi">
   <div class="wrap">
-    <p class="q rv" data-i18n="q1">"Nejlepší reset mého života. Čisté ticho, příroda a klid — po dvou nocích jsem spal všude lépe."</p>
-    <div class="stars">★★★★★</div>
-    <p class="who" data-i18n="q1w">Host z Německa</p>
+    <div class="eyebrow-dark" style="text-align:center" data-i18n="testiEyebrow">Recenze hostů</div>
+    <h2 class="title" style="text-align:center;margin-bottom:2.5rem" data-i18n="testiTitle">Co o nás říkají</h2>
+    <div class="testi-slider">
+      <button class="testi-arrow prev" onclick="moveT(-1)" aria-label="prev">‹</button>
+      <div class="testi-slide active">
+        <p class="q" data-i18n="q1">"Nejlepší reset mého života. Čisté ticho, příroda a klid — po dvou nocích jsem spal všude lépe."</p>
+        <div class="stars">★★★★★</div>
+        <p class="who" data-i18n="q1w">Lukáš · Praha</p>
+      </div>
+      <div class="testi-slide">
+        <p class="q" data-i18n="q2">"Suď + koupací sud nad úly, to je co mě přesvědčilo. Úžasný romantický víkend pro nás dva."</p>
+        <div class="stars">★★★★★</div>
+        <p class="who" data-i18n="q2w">Anna & Jan · Ústí nad Labem</p>
+      </div>
+      <div class="testi-slide">
+        <p class="q" data-i18n="q3">"Apiterapie je něco, co jinde nenajdete. Vdechování vzduchu z úlu mě naprosto uklidnilo."</p>
+        <div class="stars">★★★★★</div>
+        <p class="who" data-i18n="q3w">Michaela · Teplice</p>
+      </div>
+      <div class="testi-slide">
+        <p class="q" data-i18n="q4">"Dokonalé soukromí. Žádná recepce, jen my dva a les. Hvězdná obloha z postele mě dostala."</p>
+        <div class="stars">★★★★★</div>
+        <p class="who" data-i18n="q4w">Petr · Brno</p>
+      </div>
+      <button class="testi-arrow next" onclick="moveT(1)" aria-label="next">›</button>
+    </div>
+    <div class="testi-dots">
+      <button class="active" onclick="goT(0)"></button>
+      <button onclick="goT(1)"></button>
+      <button onclick="goT(2)"></button>
+      <button onclick="goT(3)"></button>
+    </div>
   </div>
 </section>
 
@@ -479,6 +625,18 @@ fbrand .fbrand{font-family:var(--serif);font-size:1.4rem;letter-spacing:3px;colo
   </div>
 </div>
 
+<!-- NEWSLETTER -->
+<section class="newsletter" id="newsletter">
+  <div class="eyebrow-dark" data-i18n="nlEyebrow">Odběr novinek</div>
+  <h2 class="title" data-i18n="nlTitle">Nenechte si ujít nové lokalitay</h2>
+  <p class="lead" style="margin:1rem auto 0;max-width:520px" data-i18n="nlD">Přihlaste se k odběru. Přihlásíme vás mezi první, kdo se dozví o otevírání nových kabin a sezónních akcích.</p>
+  <form class="form" onsubmit="subscribe(event)">
+    <input type="email" id="nlEmail" placeholder="vas@email.cz" required>
+    <button class="btn btn-gold" type="submit" data-i18n="nlBtn">Odebírat</button>
+  </form>
+  <div class="ok" id="nlOk" data-i18n="nlOk">Děkujeme! Jste přihlášeni k odběru. 🐝</div>
+</section>
+
 <footer>
   <div class="f-grid">
     <div>
@@ -491,6 +649,7 @@ fbrand .fbrand{font-family:var(--serif);font-size:1.4rem;letter-spacing:3px;colo
       <a href="#cabin" data-i18n="cabin">Kabina</a>
       <a href="#wellness" data-i18n="wellness">Wellness</a>
       <a href="#gallery" data-i18n="gallery">Galerie</a>
+      <a href="#faq" data-i18n="faqTitle">FAQ</a>
     </div>
     <div>
       <h4 data-i18n="fRes">Rezervace</h4>
@@ -589,6 +748,40 @@ var EN = {
   fNote:"Base rate 3,300 CZK / night. The booking is sent via WhatsApp or e-mail — we usually reply within 12 hours.",
   l1t:"Ústecký kraj",
   l1d:"Mountain forests on the border of Bohemia and Germany",
+  gAll:"All",
+  gExt:"Exterior",
+  gInt:"Interior",
+  gWell:"Wellness",
+  gNat:"Nature",
+  faqEyebrow:"FAQ",
+  faqTitle:"You might be wondering",
+  fa1q:"How do I get to the cabin?",
+  fa1a:"After booking we send you exact GPS coordinates and an access code. You can park right by the cabin, entry is contactless.",
+  fa2q:"Is the cabin suitable all year round?",
+  fa2a:"Yes, the cabin is fully insulated and heated. Ready for hot summers and freezing winter nights. The fireplace and sauna make even the coldest evenings pleasant.",
+  fa3q:"What does apitherapy mean?",
+  fa3a:"Above the bed there are 4 functional beehives. The air passing through the hive is enriched with propolis and essential oils, which have calming and regenerative effects.",
+  fa4q:"Is electricity and water available?",
+  fa4a:"Yes, the cabin is 100% self-sufficient — energy from the sun (solar + battery), drinking water from rain with triple-stage filtration. Just bring your personal belongings.",
+  fa5q:"Can we come with a pet?",
+  fa5a:"Yes, a small dog is welcome. The cabin has its own fenced garden. We only ask for consideration towards the bees and nature.",
+  fa6q:"How do booking and payment work?",
+  fa6a:"Choose your dates in the calendar and send the request via WhatsApp. After confirming, you pay a deposit and receive the access code a day ahead.",
+  fRange:"Choose your dates",
+  fDep:"Departure date",
+  testiEyebrow:"Guest reviews",
+  testiTitle:"What they say about us",
+  q2:"\"The sauna + hot tub above the hives, that's what convinced me. An amazing romantic weekend for the two of us.\"",
+  q2w:"Anna & Jan · Ústí nad Labem",
+  q3:"\"Apitherapy is something you won't find anywhere else. Breathing air from the hive completely calmed me.\"",
+  q3w:"Michaela · Teplice",
+  q4:"\"Perfect privacy. No reception, just the two of us and the forest. The starlit sky from the bed got me.\"",
+  q4w:"Petr · Brno",
+  nlEyebrow:"Newsletter",
+  nlTitle:"Don't miss new locations",
+  nlD:"Subscribe. We'll make sure you're among the first to hear about new cabins opening and seasonal offers.",
+  nlBtn:"Subscribe",
+  nlOk:"Thank you! You've been subscribed. 🐝",
   q1:"\"The best reset of my life. Pure silence, nature and peace — after two nights I slept better everywhere.\"",
   q1w:"Guest from Germany",
   ctaT:"Your silence is waiting.",
@@ -664,6 +857,105 @@ document.getElementById('sendBtn').addEventListener('click',function(e){
     encodeURIComponent('Rezervace MEDOVÝ KLID — '+loc+' | příjezd: '+d+' | nocí: '+n+' | '+(packs.join(', ')||'bez balíčků')+' | cena: '+document.getElementById('total').textContent);
   window.open('https://wa.me/420724283050?text='+txt,'_blank');
 });
+
+/* ---------- GALLERY FILTER ---------- */
+document.querySelectorAll('.gal-filters button').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    document.querySelectorAll('.gal-filters button').forEach(function(b){b.classList.remove('active');});
+    btn.classList.add('active');
+    var f=btn.getAttribute('data-f');
+    document.querySelectorAll('.gal-grid .g').forEach(function(g){
+      if(f==='all'||g.getAttribute('data-cat')===f){ g.classList.remove('hide'); }
+      else { g.classList.add('hide'); }
+    });
+  });
+});
+
+/* ---------- TESTIMONIAL SLIDER ---------- */
+var T=0,TC=4;
+function showT(i){ T=(i+TC)%TC; var s=document.querySelectorAll('.testi-slide'); s.forEach(function(x,k){x.classList.toggle('active',k===T);}); var d=document.querySelectorAll('.testi-dots button'); d.forEach(function(x,k){x.classList.toggle('active',k===T);}); }
+function moveT(d){ showT(T+d); }
+function goT(i){ showT(i); }
+setInterval(function(){ if(!document.hidden) moveT(1); },6000);
+
+/* ---------- FAQ ---------- */
+function toggleFaq(el){
+  var item=el.closest('.faq-item');
+  var answer=item.querySelector('.faq-a');
+  var open=item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(function(i){ i.classList.remove('open'); i.querySelector('.faq-a').style.maxHeight=null; });
+  if(!open){ item.classList.add('open'); answer.style.maxHeight=answer.scrollHeight+'px'; }
+}
+
+/* ---------- NEWSLETTER ---------- */
+function subscribe(e){
+  e.preventDefault();
+  document.getElementById('nlOk').style.display='block';
+  document.getElementById('nlEmail').value='';
+}
+
+/* ---------- RESERVATION CALENDAR ---------- */
+var calY,calM,arrDate=null,depDate=null;
+var BOOKED=['2026-09-12','2026-09-13','2026-09-19','2026-09-20','2026-09-26','2026-09-27','2026-10-03','2026-10-04'];
+function isoDate(y,m,d){ return y+'-'+String(m+1).padStart(2,'0')+'-'+String(d).padStart(2,'0'); }
+function calInit(){ var n=new Date(); calY=n.getFullYear(); calM=n.getMonth(); renderCals(); }
+function calMonth(dir){ calM+=dir; if(calM<0){calM=11;calY--;} if(calM>11){calM=0;calY++;} renderCals(); }
+function renderCals(){
+  var mo=['Leden','Únor','Březen','Duben','Květen','Červen','Červenec','Srpen','Září','Říjen','Listopad','Prosinec'];
+  var moEN=['January','February','March','April','May','June','July','August','September','October','November','December'];
+  var isEn=localStorage.getItem('mk-lang')==='en';
+  var m2=(calM+1>11)?0:calM+1;
+  var y2=(calM+1>11)?calY+1:calY;
+  document.getElementById('calArrTitle').textContent=(isEn?moEN[calM]:mo[calM])+' '+calY;
+  document.getElementById('calDepTitle').textContent=(isEn?moEN[m2]:mo[m2])+' '+y2;
+  renderCal('calArrGrid',calY,calM,true);
+  renderCal('calDepGrid',y2,m2,false);
+}
+function renderCal(id,y,m,isArr){
+  var g=document.getElementById(id);
+  var html='<span class="dow">Po</span><span class="dow">Út</span><span class="dow">St</span><span class="dow">Čt</span><span class="dow">Pá</span><span class="dow">So</span><span class="dow">Ne</span>';
+  var first=new Date(y,m,1);
+  var lead=(first.getDay()+6)%7;
+  var days=new Date(y,m+1,0).getDate();
+  var today=new Date(); today.setHours(0,0,0,0);
+  for(var i=0;i<lead;i++) html+='<span class="blank">&nbsp;</span>';
+  for(var d=1;d<=days;d++){
+    var dt=isoDate(y,m,d);
+    var dd=new Date(y,m,d);
+    var cls='';
+    var disabled=false;
+    if(dd<today) disabled=true;
+    if(BOOKED.indexOf(dt)>-1) disabled=true;
+    if(arrDate&&dd.getTime()===arrDate.getTime()) cls+=' arr';
+    if(depDate&&dd.getTime()===depDate.getTime()) cls+=' dep';
+    if(arrDate&&depDate&&dd>arrDate&&dd<depDate) cls+=' range';
+    html+='<button class="'+cls.trim()+'" '+(disabled?'disabled':'')+' onclick="pickCal('+d+','+m+','+y+','+(isArr?1:0)+')">'+d+'</button>';
+  }
+  g.innerHTML=html;
+}
+function pickCal(d,m,y,isArr){
+  var dt=new Date(y,m,d);
+  if(isArr){
+    arrDate=dt; depDate=null;
+    setDateInput('date',dt);
+    document.getElementById('dateout').value='';
+    document.getElementById('nights').value='2';
+    calc();
+    renderCals();
+  } else {
+    if(!arrDate){ return; }
+    if(dt<=arrDate){ alert('Odjezd musí být později než příjezd.'); return; }
+    depDate=dt;
+    setDateInput('dateout',dt);
+    var nights=Math.round((depDate-arrDate)/86400000);
+    document.getElementById('nights').value=nights;
+    calc();
+    renderCals();
+  }
+}
+/* init calendar + tie monthly change to both cals */
+calInit();
+
 </script>
 </body>
 </html>
