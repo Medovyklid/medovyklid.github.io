@@ -1,0 +1,364 @@
+﻿<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MEDOVÝ KLID® — Investiční příležitost · Franchisa · 40 lokalit po ČR</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--f:#0b1f16;--f2:#123227;--p:#173d2e;--iv:#f4efe5;--cr:#efe7d6;--sn:#ddd2bc;--h:#c9a227;--hs:#e3c568;--g:#b8933a;--ink:#1c2520;--mu:#6b7368}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Jost',sans-serif;background:var(--iv);color:var(--ink);line-height:1.75;font-weight:300}
+.w{max-width:1100px;margin:0 auto;padding:0 28px}
+.hero{background:var(--f);color:var(--iv);text-align:center;padding:80px 28px 65px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(11,31,22,.95),rgba(23,61,46,.85))}
+.hero .badge{position:relative;display:inline-block;margin-top:0;background:var(--h);color:var(--f);padding:8px 22px;border-radius:99px;font-weight:600;letter-spacing:2.5px;font-size:.72rem;text-transform:uppercase;margin-bottom:20px}
+.hero h1{position:relative;font-family:'Playfair Display',serif;font-weight:500;font-size:clamp(2.2rem,5vw,3.4rem);letter-spacing:2px}
+.hero p{position:relative;margin-top:18px;color:#d7cfbd;max-width:760px;margin-left:auto;margin-right:auto;font-size:1.05rem}
+.hero .hero-stats{position:relative;display:flex;justify-content:center;gap:3rem;margin-top:30px;flex-wrap:wrap}
+.hero .hs{text-align:center}
+.hero .hs b{display:block;font-family:'Playfair Display',serif;font-size:2rem;color:var(--hs)}
+.hero .hs span{font-size:.7rem;letter-spacing:2px;text-transform:uppercase;color:#b0a990}
+.eyebrow{font-size:.68rem;letter-spacing:5px;text-transform:uppercase;color:var(--g);margin-bottom:8px}
+h2{font-family:'Playfair Display',serif;font-weight:500;font-size:clamp(1.6rem,3.5vw,2.2rem);margin-bottom:6px;color:var(--ink)}
+.lead{color:var(--mu);margin-bottom:24px;max-width:700px;font-size:1.02rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin:22px 0}
+.card{background:#fff;border:1px solid var(--sn);border-radius:12px;padding:26px;box-shadow:0 10px 30px rgba(11,31,22,.05);transition:.3s}
+.card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(11,31,22,.1)}
+.card .ic{font-size:1.9rem;margin-bottom:8px}
+.card h3{font-family:'Playfair Display',serif;font-size:1.08rem;margin-bottom:5px;color:var(--f)}
+.card p{font-size:.88rem;color:var(--mu)}
+.badge-eco{display:inline-block;font-size:.6rem;letter-spacing:2px;text-transform:uppercase;color:var(--hs);background:rgba(201,162,39,.12);padding:4px 12px;border-radius:99px;margin-bottom:8px}
+.tbl{width:100%;border-collapse:collapse;margin:18px 0;background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 6px 20px rgba(11,31,22,.05)}
+.tbl th,.tbl td{padding:13px 18px;text-align:left;border-bottom:1px solid #f0ebe0;font-size:.9rem}
+.tbl th{background:var(--f);color:var(--iv);font-weight:500;letter-spacing:.5px;font-size:.78rem;text-transform:uppercase}
+.tbl tr.total td{background:#f7efdb;font-weight:600}
+.tbl tr.highlight-row td{background:rgba(201,162,39,.08)}
+.hl{background:linear-gradient(135deg,rgba(201,162,39,.1),rgba(201,162,39,.05));border-left:4px solid var(--h);padding:20px 24px;border-radius:0 10px 10px 0;margin:24px 0}
+.hl strong{color:var(--f)}
+.price-box{background:linear-gradient(135deg,var(--f),var(--f2));color:var(--iv);border-radius:14px;padding:32px;text-align:center;margin:26px 0}
+.price-box .big{font-family:'Playfair Display',serif;font-size:2.6rem;color:var(--hs);margin:8px 0}
+.price-box .lbl{font-size:.75rem;letter-spacing:2.5px;text-transform:uppercase;color:#b0a990}
+.btn{display:inline-block;background:var(--h);color:var(--f);padding:14px 34px;border-radius:99px;text-decoration:none;font-weight:600;letter-spacing:1px;transition:.3s}
+.btn:hover{background:var(--hs);transform:translateY(-2px)}
+.btn.ghost{background:none;border:1.5px solid var(--h);color:var(--h)}
+.reasons li{margin:.3rem 0 .7rem 1.2rem}
+.reasons b{color:var(--f)}
+.regions{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin:20px 0}
+.reg{background:#fff;border:1px solid var(--sn);border-radius:8px;padding:14px 16px;display:flex;align-items:center;gap:10px;font-size:.88rem}
+.reg .num{width:32px;height:32px;border-radius:99px;background:var(--h);color:var(--f);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.8rem;flex-shrink:0}
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin:20px 0}
+.gallery img{width:100%;height:200px;object-fit:cover;border-radius:10px;border:1px solid var(--sn);transition:.3s}
+.gallery img:hover{transform:scale(1.03);box-shadow:0 10px 30px rgba(0,0,0,.15)}
+.nab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin:20px 0}
+.nab{background:#fff;border:1px solid var(--sn);border-radius:10px;overflow:hidden;transition:.3s}
+.nab:hover{box-shadow:0 10px 30px rgba(11,31,22,.08)}
+.nab img{width:100%;height:220px;object-fit:cover}
+.nab .cap{padding:14px 16px;font-size:.85rem;color:var(--mu)}
+.nab .cap b{color:var(--f);display:block;margin-bottom:3px}
+.footer-band{background:var(--f);color:var(--iv);text-align:center;padding:40px 28px}
+.footer-band a{color:var(--hs);text-decoration:none}
+.foot{text-align:center;color:rgba(244,239,229,.4);font-size:.72rem;padding:20px 28px 30px;background:var(--f)}
+b.k{color:var(--f)}
+.eco-pill{display:inline-flex;align-items:center;gap:6px;background:rgba(76,175,80,.1);color:#2e7d32;padding:5px 14px;border-radius:99px;font-size:.72rem;letter-spacing:1px;text-transform:uppercase;font-weight:500;margin:3px}
+.eco-grid{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.page{padding:50px 0}
+.page:nth-child(even){background:var(--cr)}
+hr.sep{border:0;height:1px;background:linear-gradient(90deg,transparent,var(--sn),transparent);margin:40px 0}
+</style>
+</head>
+<body>
+
+<!-- ===================== HERO ===================== -->
+<div class="hero">
+  <div class="badge">Franchisa · Investice · 54 domků do 5 let</div>
+  <h1>MEDOVÝ&nbsp;KLID<sup style="font-size:.4em">®</sup></h1>
+    <p>Prémiová ekologická wellness franšíza se slaměnými domky bez stavebního povolení. Investujte 1 milion Kč, získejte domek a staňte se součástí sítě 54 lokalit po celé České republice.</p>
+  <div class="hero-stats">
+    <div class="hs"><b>54</b><span>lokalit do 5 let</span></div>
+    <div class="hs"><b>1 M</b><span>vstupní investice</span></div>
+    <div class="hs"><b>8 %</b><span>z obratu · mateřská</span></div>
+    <div class="hs"><b>2,4 r</b><span>návratnost</span></div>
+  </div>
+</div>
+
+<!-- ===================== PROČ TOP ===================== -->
+<div class="page">
+<div class="w">
+  <div class="eyebrow">Proč investovat</div>
+  <h2>Proč je MEDOVÝ KLID TOP investice</h2>
+  <ul class="reasons lead">
+    <li><b class="k">1. Kompletní produkt klíč v ruce</b> — za investici dostanete postavený a plně vybavený wellness domek, ne jen nápad.</li>
+    <li><b class="k">2. Bez stavebního povolení</b> — dřevostavba do 40 m² nepotřebuje stavební povolení, jen ohlášení. Žádné měsíce na úřadech.</li>
+    <li><b class="k">3. Bez stavební parcely</b> — stačí kousek lesa, pole nebo louky s přístupovou cestou. Žádné drahé pozemky ve městě.</li>
+    <li><b class="k">4. Dotace a ekologie</b> — slaměné panely, solární energie, dešťovka, dřevostavba = nárok na zelené dotace a podporu.</li>
+    <li><b class="k">5. Podpora turistiky v regionech</b> — projekt podporuje lokální cestovní ruch a ekonomiku venkova, což je politicky i finančně podporovaný směr.</li>
+    <li><b class="k">6. Soběstačný off-grid</b> — FV panely + baterie + dešťová voda = žádné náklady na energie a vodu z sítě.</li>
+    <li><b class="k">7. Růstový trh</b> — wellness turismus a glamping rostou dvouciferně; apiterapie = exkluzivní konkurenční výhoda.</li>
+    <li><b class="k">8. Jasná návratnost</b> — čisté CF 409 000 Kč/rok, návratnost přibližně 2,4 roku.</li>
+  </ul>
+
+  <div class="eco-grid">
+    <span class="eco-pill">♻️ Slaměné panely</span>
+    <span class="eco-pill">☀️ Solární energie 2 kWp</span>
+    <span class="eco-pill">💧 Dešťová voda 1 000 l</span>
+    <span class="eco-pill">🛖 Dřevostavba do 40 m²</span>
+    <span class="eco-pill">📋 Bez stavebního povolení</span>
+    <span class="eco-pill">🌍 Off-grid soběstačnost</span>
+    <span class="eco-pill">🐝 Apiterapie</span>
+    <span class="eco-pill">🌲 Podpora turistiky v regionech</span>
+  </div>
+
+  <div class="price-box">
+    <div class="lbl">Vstupní investice franšízanta</div>
+    <div class="big">1 000 000 Kč</div>
+    <div class="lbl">Wellness domek + know-how + dodavatelé + centrální web + ochranná známka</div>
+  </div>
+</div>
+</div>
+
+<!-- ===================== CO ZÍSKÁTE ===================== -->
+<div class="page">
+<div class="w">
+  <div class="eyebrow">Obsah investice</div>
+  <h2>Co získáte za 1 milion</h2>
+  <div class="grid">
+    <div class="card"><div class="badge-eco">Ekologie</div><div class="ic">🛖</div><h3>Wellness domek 30,24 m²</h3><p>3,6 × 8,4 m, slaměné panely, smrkové dřevo, hliněné omítky. Dřevostavba do 40 m² — bez stavebního povolení.</p></div>
+    <div class="card"><div class="badge-eco">Off-grid</div><div class="ic">☀️</div><h3>Solární energie</h3><p>FV panely 2 kWp + LiFePO4 baterie 5–7 kWh. TEG modul z kamen. Plná soběstačnost bez napojení na síť.</p></div>
+    <div class="card"><div class="badge-eco">Ekologie</div><div class="ic">💧</div><h3>Dešťová voda</h3><p>Nádrž 1 000 l, 3-stupňová filtrace + UV dezinfekce. Žádné vodné, žádné odpady.</p></div>
+    <div class="card"><div class="ic">🐝</div><h3>Apiterapie</h3><p>4 Flow Hive úly, spánek nad včelami. Propolis, med, terapie — unikátní zážitek, který nikde jinde nenajdete.</p></div>
+    <div class="card"><div class="ic">♨️</div><h3>Wellness zázemí</h3><p>Venkovní sauna CORIA 200×200 cm + koupací sud Lahti L 1 000 l s kamny na dřevo.</p></div>
+    <div class="card"><div class="ic">🔥</div><h3>Topení & TUV</h3><p>Krbová vložka 6–7 kW s výměníkem, akumulační nádrž 300 l, podlahové topení, bojler 80 l.</p></div>
+    <div class="card"><div class="badge-eco">Bez pozemku</div><div class="ic">🌲</div><h3>Žádná stavební parcela</h3><p>Stačí kousek lesa, pole nebo louky s přístupovou cestou. Zemní vruty = žádné základy.</p></div>
+    <div class="card"><div class="ic">🌐</div><h3>Centrální web & rezervace</h3><p>Národní doména MEDOVÝ KLID s online rezervačním systémem. Hosté přicházejí k vám.</p></div>
+    <div class="card"><div class="ic">📚</div><h3>Know-how & dodavatelé</h3><p>Kompletní stavební podklady, manuály provozu, ověření dodavatelé, školení a podpora.</p></div>
+    <div class="card"><div class="ic">⚖️</div><h3>Právní ochrana</h3><p>Franchisová smlouva, ochranná známka EU, patentovatelná konstrukce, NDA.</p></div>
+    <div class="card"><div class="ic">📋</div><h3>Dotace & podpora</h3><p>Ekologická dřevostavba + regionální turistika = nárok na dotace z programů MŽP a EU.</p></div>
+    <div class="card"><div class="ic">🏖️</div><h3>Turistika v regionech</h3><p>Projekt aktivně podporuje cestovní ruch na venkově — politická i finanční podpora státu.</p></div>
+  </div>
+</div>
+</div>
+
+<!-- ===================== FOTOGALERIE ===================== -->
+<div class="page">
+<div class="w">
+  <div class="eyebrow">Vizualizace & fotografie</div>
+  <h2>Jak domek vypadá</h2>
+  <p class="lead">Reálné fotografie a vizualizace wellness domků MEDOVÝ KLID — exteriér, interiér, wellness zázemí, apiterapie.</p>
+  <div class="gallery">
+    <img src="06_Vizualizace/medovyklid_photos/vizualizace domku.png" alt="Domek exteriér" loading="lazy">
+    <img src="06_Vizualizace/medovyklid_photos/vizualizace domku 3.png" alt="Domek večer" loading="lazy">
+    <img src="06_Vizualizace/medovyklid_photos/vizualizace web.png" alt="Domek v lese" loading="lazy">
+    <img src="06_Vizualizace/medovyklid_photos/vizualizace loznice.png" alt="Ložnice" loading="lazy">
+    <img src="06_Vizualizace/medovyklid_photos/vizualizace api mistnost.png" alt="Apiterapie" loading="lazy">
+    <img src="06_Vizualizace/medovyklid_photos/vizualizace koupaci su a sauna.png" alt="Sauna a koupací sud" loading="lazy">
+    <img src="06_Vizualizace/medovyklid_photos/vizualizace koupelna r balicek.png" alt="Koupelna" loading="lazy">
+    <img src="06_Vizualizace/medovyklid_photos/vizualizace romanticky baliček.png" alt="Romantický balíček" loading="lazy">
+    <img src="06_Vizualizace/medovyklid_photos/koupelna.png" alt="Koupelna detail" loading="lazy">
+    <img src="06_Vizualizace/medovyklid_photos/koupelna 2.png" alt="Koupelna 2" loading="lazy">
+    <img src="06_Vizualizace/medovyklid_photos/koupelna3.png" alt="Koupelna 3" loading="lazy">
+    <img src="06_Vizualizace/medovyklid_photos/ložnice romanticky balicek.png" alt="Ložnice romantika" loading="lazy">
+  </div>
+  <div class="gallery" style="margin-top:14px">
+    <img src="06_Vizualizace/medovyklid_photos/IMG_5282.png" alt="Fotografie" loading="lazy" style="height:240px">
+  </div>
+</div>
+</div>
+
+<!-- ===================== CENOVÉ NABÍDKY ===================== -->
+<div class="page">
+<div class="w">
+  <div class="eyebrow">Cenové nabídky dodavatelů</div>
+  <h2>Reálné náklady — ověřené nabídky</h2>
+  <p class="lead">Každá položka rozpočtu je podložená konkrétní cenovou nabídkou od dodavatele. Nic není odhad — vše je reálné a aktuální.</p>
+  <div class="nab-grid">
+    <div class="nab"><img src="03_Cenove_nabidky/nabidka fotovoltaika.png" alt="Fotovoltaika" loading="lazy"><div class="cap"><b>Fotovoltaika + baterie</b>2 kWp panely + LiFePO4 5–7 kWh + měnič + regulátor</div></div>
+    <div class="nab"><img src="03_Cenove_nabidky/nabidka lazensky kamna.png" alt="Kamna" loading="lazy"><div class="cap"><b>Kamna + TUV</b>Krbová vložka s výměníkem, akumulační nádrž, bojler</div></div>
+    <div class="nab"><img src="03_Cenove_nabidky/nabidka sauna.png" alt="Sauna" loading="lazy"><div class="cap"><b>Sauna CORIA</b>Venkovní sauna 200×200 cm, smrkové dřevo, kamna na dřevo</div></div>
+    <div class="nab"><img src="03_Cenove_nabidky/Nabídka koupaci sud.png" alt="Koupací sud" loading="lazy"><div class="cap"><b>Koupací sud Lahti L</b>Dřevěný sud 800–1 000 l, kamna na dřevo, nerez topná spirála</div></div>
+    <div class="nab"><img src="03_Cenove_nabidky/Nabídka ul.png" alt="Úly" loading="lazy"><div class="cap"><b>Flow Hive úly</b>4 kompletní sestavy + včelstva + vybavení + lehátko nad úly</div></div>
+    <div class="nab"><img src="03_Cenove_nabidky/nabidka wc.png" alt="WC" loading="lazy"><div class="cap"><b>WC + odpady</b>Separující splachovací WC, kompostovací box</div></div>
+  </div>
+  <div class="nab-grid" style="margin-top:14px">
+    <div class="nab"><img src="03_Cenove_nabidky/nabidka wc3.png" alt="WC varianta" loading="lazy"><div class="cap"><b>WC — alternativa</b>Další varianta separujícího WC bez chemie</div></div>
+    <div class="nab"><img src="03_Cenove_nabidky/nabidka wc1.png" alt="WC detail" loading="lazy"><div class="cap"><b>WC — detailní nabídka</b>Specifikace a technické parametry WC systému</div></div>
+  </div>
+  <div class="nab-grid" style="margin-top:14px">
+    <div class="nab"><img src="03_Cenove_nabidky/konstrukce.png" alt="Konstrukce 1" loading="lazy"><div class="cap"><b>Konstrukční řešení 1</b>Slaměné panely + dřevěný rám</div></div>
+    <div class="nab"><img src="03_Cenove_nabidky/konstrukce2.png" alt="Konstrukce 2" loading="lazy"><div class="cap"><b>Konstrukční řešení 2</b>Detail spoje a izolace</div></div>
+    <div class="nab"><img src="03_Cenove_nabidky/konstrukce3.png" alt="Konstrukce 3" loading="lazy"><div class="cap"><b>Konstrukční řešení 3</b>Střešní konstrukce</div></div>
+    <div class="nab"><img src="03_Cenove_nabidky/konstrukce4.png" alt="Konstrukce 4" loading="lazy"><div class="cap"><b>Konstrukční řešení 4</b>Podlahový systém</div></div>
+    <div class="nab"><img src="03_Cenove_nabidky/konstrukce5.png" alt="Konstrukce 5" loading="lazy"><div class="cap"><b>Konstrukční řešení 5</b>Hotový modul</div></div>
+  </div>
+</div>
+</div>
+
+<!-- ===================== MODEL FRANCHISY ===================== -->
+<div class="page">
+<div class="w">
+  <div class="eyebrow">Franchisový model</div>
+  <h2>Jak franchisa funguje</h2>
+  <table class="tbl">
+    <tr><th>Parametr</th><th>Hodnota</th></tr>
+    <tr><td>Vstupní investice</td><td>1 000 000 Kč</td></tr>
+    <tr><td>Co investice pokrývá</td><td>Wellness domek komplet + know-how + podklady + dodavatelé + centrální web</td></tr>
+    <tr><td>Poplatek mateřské společnosti</td><td><b>8 % z měsíčního obratu</b></td></tr>
+    <tr><td>Rezervační systém</td><td>Centrální doména MEDOVÝ KLID s online rezervacemi</td></tr>
+    <tr><td>Podpora</td><td>Školení, marketing, dodavatelská síť, audity kvality</td></tr>
+    <tr><td>Značka</td><td>Ochranná známka EU, patentovatelná konstrukce</td></tr>
+    <tr><td>Stavební povolení</td><td>Ne — dřevostavba do 40 m² = ohlášení stavby</td></tr>
+    <tr><td>Pozemek</td><td>Není třeba stavební parcela — stačí přístupová cesta k lesu/luce/pol</td></tr>
+    <tr><td>Energie</td><td>Off-grid: FV + baterie + dešťová voda</td></tr>
+  </table>
+
+  <div class="hl">
+    <strong>Mateřská společnost:</strong> Za franchisingové know-how, centrální rezervace a podporu náleží MEDOVÝ KLID HOLDING s.r.o. <strong>8 % z měsíčního obratu</strong>. Zbytek obratu zůstává franšízantovi.
+  </div>
+</div>
+</div>
+
+<!-- ===================== ROZPOČET 1M ===================== -->
+<div class="page">
+<div class="w">
+  <div class="eyebrow">Investiční rozpočet</div>
+  <h2>Rozpočet 1 domek = 1 000 000 Kč</h2>
+  <table class="tbl">
+    <tr><th>Položka</th><th>Částka (Kč)</th><th>Podíl</th></tr>
+    <tr><td>Stavba a interiér (slaměné panely, dřevo, podlaha, střecha)</td><td>571 000</td><td>57,1 %</td></tr>
+    <tr><td>Sauna + koupací sud</td><td>27 000</td><td>2,7 %</td></tr>
+    <tr><td>Apiterapie (4 Flow Hive úly + vybavení)</td><td>56 000</td><td>5,6 %</td></tr>
+    <tr><td>Kamna + TUV (teplá užitková voda)</td><td>44 000</td><td>4,4 %</td></tr>
+    <tr><td>Fotovoltaika + baterie + TEG</td><td>73 000</td><td>7,3 %</td></tr>
+    <tr><td>Voda + filtrace (dešťová, 3-stupňová + UV)</td><td>29 000</td><td>2,9 %</td></tr>
+    <tr><td>Terasa + exteriér (terasa, ohniště, pergola)</td><td>30 000</td><td>3,0 %</td></tr>
+    <tr><td>Montáž + doprava + logistika</td><td>170 000</td><td>17,0 %</td></tr>
+    <tr class="total"><td><strong>Celková investice</strong></td><td><strong>1 000 000 Kč</strong></td><td><strong>100 %</strong></td></tr>
+  </table>
+</div>
+</div>
+
+<!-- ===================== PROJEKCE ===================== -->
+<div class="page">
+<div class="w">
+  <div class="eyebrow">Finanční projekce</div>
+  <h2>Čísla, která dávají smysl</h2>
+  <table class="tbl">
+    <tr><th>Ukazatel</th><th>Hodnota</th></tr>
+    <tr><td>Cena za noc</td><td>3 300 Kč</td></tr>
+    <tr><td>Předpokládaná obsazenost</td><td>60 % (cca 219 dní / rok)</td></tr>
+    <tr><td>Roční tržby (1 domek)</td><td>cca 780 000 – 900 000 Kč</td></tr>
+    <tr><td>Roční provozní náklady</td><td>cca 145 000 Kč</td></tr>
+    <tr><td>EBITDA</td><td>cca 635 000 Kč</td></tr>
+    <tr><td>Čisté roční cash flow</td><td>cca 409 000 Kč</td></tr>
+    <tr class="total"><td>Návratnost investice</td><td>přibližně 2,4 roku</td></tr>
+  </table>
+
+  <hr class="sep">
+
+  <div class="eyebrow" style="margin-top:20px">Síť 40 lokalit — potenciál</div>
+  <h2>Vize: 54 franšíz po celé ČR</h2>
+  <table class="tbl">
+    <tr><th>Ukazatel</th><th>1 domek</th><th>54 domků (síť)</th></tr>
+    <tr><td>Roční tržby</td><td>780 000 Kč</td><td><b>42 120 000 Kč</b></td></tr>
+    <tr><td>EBITDA franšízanta</td><td>635 000 Kč</td><td>635 000 Kč × 54</td></tr>
+    <tr class="highlight-row"><td>Obrat mateřské (8 %)</td><td>—</td><td><b>cca 3 369 600 Kč / rok</b></td></tr>
+    <tr><td>Čisté CF franšízanta</td><td>409 000 Kč</td><td>409 000 Kč × 54</td></tr>
+    <tr class="total"><td>Celková hodnota sítě</td><td>1 mil.</td><td><strong>54 mil. Kč v majetku</strong></td></tr>
+  </table>
+</div>
+</div>
+
+<!-- ===================== 40 LOKALIT ===================== -->
+<div class="page">
+<div class="w">
+  <div class="eyebrow">Plán expanze</div>
+  <h2>54 domků do 5 let — celá ČR</h2>
+  <p class="lead">Vize: do 5 let vybudovat síť <strong>54 franchisových wellness domků MEDOVÝ KLID®</strong> po celé České republice — 10 pod vlastní správou, 44 franchisových. Centrální web, rezervační systém, jednotná značka. Kompletně vlastní projekt od A po Z — konstrukce, wellness, duševní zdraví, apiterapie, ekologie, dotace.</p>
+
+  <div class="regions">
+    <div class="reg"><div class="num">1</div>Ústecký kraj · Snědovice</div>
+    <div class="reg"><div class="num">2</div>Liberecký kraj · Český ráj</div>
+    <div class="reg"><div class="num">3</div>Karlovarský kraj · Slavkovský les</div>
+    <div class="reg"><div class="num">4</div>Plzeňský kraj · Šumava</div>
+    <div class="reg"><div class="num">5</div>Královéhradecký kraj · Broumovsko</div>
+    <div class="reg"><div class="num">6</div>Pardubický kraj · Železné hory</div>
+    <div class="reg"><div class="num">7</div>Olomoucký kraj · Jeseníky</div>
+    <div class="reg"><div class="num">8</div>Moravskoslezský kraj · Beskydy</div>
+    <div class="reg"><div class="num">9</div>Jihomoravský kraj · Pálava</div>
+    <div class="reg"><div class="num">10</div>Zlínský kraj · Beskydy–Wallachia</div>
+    <div class="reg"><div class="num">11</div>Středočeský kraj · Kokořínsko</div>
+    <div class="reg"><div class="num">12</div>Jihočeský kraj · Šumava–Boubín</div>
+    <div class="reg"><div class="num">13</div>Vysočina · Žďárské vrchy</div>
+    <div class="reg"><div class="num">14</div>Ústecký kraj · České středohoří</div>
+    <div class="reg"><div class="num">15</div>Liberecký kraj · Jizerské hory</div>
+    <div class="reg"><div class="num">16</div>Plzeňský kraj · Manětínsko</div>
+    <div class="reg"><div class="num">17</div>Královéhradecký kraj · Orlické hory</div>
+    <div class="reg"><div class="num">18</div>Olomoucký kraj · Haná</div>
+    <div class="reg"><div class="num">19</div>Středočeský kraj · Posázaví</div>
+    <div class="reg"><div class="num">20</div>Liberecký kraj · Frýdlantsko</div>
+    <div class="reg"><div class="num">21</div>Karlovarský kraj · Ašsko</div>
+    <div class="reg"><div class="num">22</div>Plzeňský kraj · Brdy</div>
+    <div class="reg"><div class="num">23</div>Jihočeský kraj · Třeboňsko</div>
+    <div class="reg"><div class="num">24</div>Středočeský kraj · Polabí</div>
+    <div class="reg"><div class="num">25</div>Královéhradecký kraj · Krkonoše</div>
+    <div class="reg"><div class="num">26</div>Pardubický kraj · Chrudimsko</div>
+    <div class="reg"><div class="num">27</div>Jihomoravský kraj · Moravský kras</div>
+    <div class="reg"><div class="num">28</div>Zlínský kraj · Luhačovické Závrší</div>
+    <div class="reg"><div class="num">29</div>Moravskoslezský kraj · Nízký Jeseník</div>
+    <div class="reg"><div class="num">30</div>Olomoucký kraj · Zábřežsko</div>
+    <div class="reg"><div class="num">31</div>Vysočina · Třebíčsko</div>
+    <div class="reg"><div class="num">32</div>Ústecký kraj · Děčínsko</div>
+    <div class="reg"><div class="num">33</div>Liberecký kraj · Semilsko</div>
+    <div class="reg"><div class="num">34</div>Jihočeský kraj · Blansko</div>
+    <div class="reg"><div class="num">35</div>Středočeský kraj · Berounsko</div>
+    <div class="reg"><div class="num">36</div>Plzeňský kraj · Klatovsko</div>
+    <div class="reg"><div class="num">37</div>Královéhradecký kraj · Náchodsko</div>
+    <div class="reg"><div class="num">38</div>Pardubický kraj · Svitavsko</div>
+    <div class="reg"><div class="num">39</div>Jihomoravský kraj · Hodonínsko</div>
+    <div class="reg"><div class="num">40</div>Zlínský kraj · Vsetínsko</div>
+  </div>
+
+  <div class="hl">
+    <strong>Cíl:</strong> Do 5 let vybudovat síť <strong>54 franchisových wellness domků MEDOVÝ KLID®</strong> po celé České republice — 10 pod vlastní správou, 44 franchisových. Každý domek generuje tržby, mateřská společnost získává <strong>8 % z obratu</strong> = stabilní, pasivní příjem bez provozních nákladů. Při plném rozvoji přesahuje roční cash flow holdingu <strong>6 mil. Kč</strong>.
+  </div>
+
+  <div class="mapa" style="margin-top:24px">
+    <img src="03_Cenove_nabidky/mapa lokalita k smlouve.png" alt="Mapa lokality" style="width:100%;max-width:700px;border-radius:10px;border:1px solid var(--sn)">
+  </div>
+</div>
+</div>
+
+<!-- ===================== ODKAZ NA WEB ===================== -->
+<div class="footer-band">
+  <div class="w">
+    <div class="eyebrow" style="color:var(--hs)">Webové stránky</div>
+    <h2 style="color:var(--iv);margin-bottom:14px">Prohlédněte si projekt online</h2>
+    <div style="display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-bottom:20px">
+      <a class="btn" href="https://medovyklid.github.io/web/" target="_blank">Web pro hosty →</a>
+      <a class="btn ghost" href="https://medovyklid.github.io/banka/" target="_blank">Bankovní podklady →</a>
+      <a class="btn ghost" href="https://medovyklid.github.io/" target="_blank">Investorská prezentace →</a>
+    </div>
+    <p style="color:#b0a990;font-size:.88rem">Všechny weby jsou live, responzivní, s rezervačním kalendářem a dark/light režimem.</p>
+  </div>
+</div>
+
+<!-- ===================== KONTAKT ===================== -->
+<div class="w" style="text-align:center;padding:40px 28px">
+  <div class="eyebrow">Kontakt</div>
+  <h2>Máte zájem o franchisu?</h2>
+  <p class="lead" style="margin:8px auto 24px">Ozvěte se nám. Rádi vám všechno vysvětlíme, ukážeme a připodložíme smlouvou.</p>
+  <div style="display:flex;justify-content:center;gap:14px;flex-wrap:wrap">
+    <a class="btn" href="mailto:honeyedpeace@seznam.cz">📧 honeyedpeace@seznam.cz</a>
+    <a class="btn ghost" href="https://wa.me/420724283050" target="_blank">WhatsApp</a>
+    <a class="btn ghost" href="tel:+420774726995">📞 +420 774 726 995</a>
+  </div>
+</div>
+
+<div class="foot">
+  MEDOVÝ KLID HOLDING s.r.o. &bull; IČO 24506478 &bull; Radimovická 1773/15, Praha 4<br>
+  +420 774 726 995 &bull; +420 724 283 050 &bull; honeyedpeace@seznam.cz<br>
+  Dokument je investiční a franchisová nabídka. Nejedná se o závazné smluvní podmínky.
+</div>
+
+</body>
+</html>

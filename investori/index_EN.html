@@ -1,0 +1,353 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MEDOVÝ KLID® — Investment Opportunity · Franchise · 40 Locations Across Czech Republic</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--f:#0b1f16;--f2:#123227;--p:#173d2e;--iv:#f4efe5;--cr:#efe7d6;--sn:#ddd2bc;--h:#c9a227;--hs:#e3c568;--g:#b8933a;--ink:#1c2520;--mu:#6b7368}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Jost',sans-serif;background:var(--iv);color:var(--ink);line-height:1.75;font-weight:300}
+.w{max-width:1100px;margin:0 auto;padding:0 28px}
+.hero{background:var(--f);color:var(--iv);text-align:center;padding:80px 28px 65px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(11,31,22,.95),rgba(23,61,46,.85))}
+.hero .badge{position:relative;display:inline-block;margin-top:0;background:var(--h);color:var(--f);padding:8px 22px;border-radius:99px;font-weight:600;letter-spacing:2.5px;font-size:.72rem;text-transform:uppercase;margin-bottom:20px}
+.hero h1{position:relative;font-family:'Playfair Display',serif;font-weight:500;font-size:clamp(2.2rem,5vw,3.4rem);letter-spacing:2px}
+.hero p{position:relative;margin-top:18px;color:#d7cfbd;max-width:760px;margin-left:auto;margin-right:auto;font-size:1.05rem}
+.hero .hero-stats{position:relative;display:flex;justify-content:center;gap:3rem;margin-top:30px;flex-wrap:wrap}
+.hero .hs{text-align:center}
+.hero .hs b{display:block;font-family:'Playfair Display',serif;font-size:2rem;color:var(--hs)}
+.hero .hs span{font-size:.7rem;letter-spacing:2px;text-transform:uppercase;color:#b0a990}
+.eyebrow{font-size:.68rem;letter-spacing:5px;text-transform:uppercase;color:var(--g);margin-bottom:8px}
+h2{font-family:'Playfair Display',serif;font-weight:500;font-size:clamp(1.6rem,3.5vw,2.2rem);margin-bottom:6px;color:var(--ink)}
+.lead{color:var(--mu);margin-bottom:24px;max-width:700px;font-size:1.02rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin:22px 0}
+.card{background:#fff;border:1px solid var(--sn);border-radius:12px;padding:26px;box-shadow:0 10px 30px rgba(11,31,22,.05);transition:.3s}
+.card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(11,31,22,.1)}
+.card .ic{font-size:1.9rem;margin-bottom:8px}
+.card h3{font-family:'Playfair Display',serif;font-size:1.08rem;margin-bottom:5px;color:var(--f)}
+.card p{font-size:.88rem;color:var(--mu)}
+.badge-eco{display:inline-block;font-size:.6rem;letter-spacing:2px;text-transform:uppercase;color:var(--hs);background:rgba(201,162,39,.12);padding:4px 12px;border-radius:99px;margin-bottom:8px}
+.tbl{width:100%;border-collapse:collapse;margin:18px 0;background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 6px 20px rgba(11,31,22,.05)}
+.tbl th,.tbl td{padding:13px 18px;text-align:left;border-bottom:1px solid #f0ebe0;font-size:.9rem}
+.tbl th{background:var(--f);color:var(--iv);font-weight:500;letter-spacing:.5px;font-size:.78rem;text-transform:uppercase}
+.tbl tr.total td{background:#f7efdb;font-weight:600}
+.tbl tr.highlight-row td{background:rgba(201,162,39,.08)}
+.hl{background:linear-gradient(135deg,rgba(201,162,39,.1),rgba(201,162,39,.05));border-left:4px solid var(--h);padding:20px 24px;border-radius:0 10px 10px 0;margin:24px 0}
+.hl strong{color:var(--f)}
+.price-box{background:linear-gradient(135deg,var(--f),var(--f2));color:var(--iv);border-radius:14px;padding:32px;text-align:center;margin:26px 0}
+.price-box .big{font-family:'Playfair Display',serif;font-size:2.6rem;color:var(--hs);margin:8px 0}
+.price-box .lbl{font-size:.75rem;letter-spacing:2.5px;text-transform:uppercase;color:#b0a990}
+.btn{display:inline-block;background:var(--h);color:var(--f);padding:14px 34px;border-radius:99px;text-decoration:none;font-weight:600;letter-spacing:1px;transition:.3s}
+.btn:hover{background:var(--hs);transform:translateY(-2px)}
+.btn.ghost{background:none;border:1.5px solid var(--h);color:var(--h)}
+.reasons li{margin:.3rem 0 .7rem 1.2rem}
+.reasons b{color:var(--f)}
+.regions{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin:20px 0}
+.reg{background:#fff;border:1px solid var(--sn);border-radius:8px;padding:14px 16px;display:flex;align-items:center;gap:10px;font-size:.88rem}
+.reg .num{width:32px;height:32px;border-radius:99px;background:var(--h);color:var(--f);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.8rem;flex-shrink:0}
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin:20px 0}
+.gallery img{width:100%;height:200px;object-fit:cover;border-radius:10px;border:1px solid var(--sn);transition:.3s}
+.gallery img:hover{transform:scale(1.03);box-shadow:0 10px 30px rgba(0,0,0,.15)}
+.nab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin:20px 0}
+.nab{background:#fff;border:1px solid var(--sn);border-radius:10px;overflow:hidden;transition:.3s}
+.nab:hover{box-shadow:0 10px 30px rgba(11,31,22,.08)}
+.nab img{width:100%;height:220px;object-fit:cover}
+.nab .cap{padding:14px 16px;font-size:.85rem;color:var(--mu)}
+.nab .cap b{color:var(--f);display:block;margin-bottom:3px}
+.footer-band{background:var(--f);color:var(--iv);text-align:center;padding:40px 28px}
+.footer-band a{color:var(--hs);text-decoration:none}
+.foot{text-align:center;color:rgba(244,239,229,.4);font-size:.72rem;padding:20px 28px 30px;background:var(--f)}
+b.k{color:var(--f)}
+.eco-pill{display:inline-flex;align-items:center;gap:6px;background:rgba(76,175,80,.1);color:#2e7d32;padding:5px 14px;border-radius:99px;font-size:.72rem;letter-spacing:1px;text-transform:uppercase;font-weight:500;margin:3px}
+.eco-grid{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.page{padding:50px 0}
+.page:nth-child(even){background:var(--cr)}
+hr.sep{border:0;height:1px;background:linear-gradient(90deg,transparent,var(--sn),transparent);margin:40px 0}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="badge">Franchise · Investment · 54 Locations Across CZ</div>
+  <h1>MEDOVÝ&nbsp;KLID<sup style="font-size:.4em">®</sup></h1>
+  <p>Premium eco-wellness franchise with straw-panel cabins — no building permit required. Invest 1,000,000 CZK, receive a fully equipped cabin and join a network of 54 locations across the Czech Republic.</p>
+  <div class="hero-stats">
+    <div class="hs"><b>54</b><span>locations in CZ</span></div>
+    <div class="hs"><b>1M</b><span>CZK investment</span></div>
+    <div class="hs"><b>8%</b><span>turnover royalty</span></div>
+    <div class="hs"><b>2.4y</b><span>payback</span></div>
+  </div>
+</div>
+
+<div class="page">
+<div class="w">
+  <div class="eyebrow">Why invest</div>
+  <h2>Why MEDOVÝ KLID is a TOP investment</h2>
+  <ul class="reasons lead">
+    <li><b class="k">1. Complete turn-key product</b> — your investment delivers a built, fully equipped wellness cabin, not just an idea.</li>
+    <li><b class="k">2. No building permit needed</b> — timber construction under 40 m² requires only a notification, not a full building permit. No months of bureaucracy.</li>
+    <li><b class="k">3. No building plot required</b> — a small piece of forest, field or meadow with access road is enough. No expensive urban land.</li>
+    <li><b class="k">4. Subsidies & ecology</b> — straw panels, solar energy, rainwater harvesting = eligibility for green subsidies from MŽP and EU programmes.</li>
+    <li><b class="k">5. Regional tourism support</b> — the project actively supports rural tourism, which receives political and financial backing from the state.</li>
+    <li><b class="k">6. Off-grid self-sufficiency</b> — FV panels + batteries + rainwater = zero utility costs.</li>
+    <li><b class="k">7. Growing market</b> — wellness tourism and glamping grow double-digit; apitherapy is an exclusive competitive edge.</li>
+    <li><b class="k">8. Clear payback</b> — net cash flow ~409,000 CZK/year, payback in approximately 2.4 years.</li>
+  </ul>
+
+  <div class="eco-grid">
+    <span class="eco-pill">♻️ Straw panels</span>
+    <span class="eco-pill">☀️ Solar 2 kWp</span>
+    <span class="eco-pill">💧 Rainwater 1,000 l</span>
+    <span class="eco-pill">🛖 Timber under 40 m²</span>
+    <span class="eco-pill">📋 No building permit</span>
+    <span class="eco-pill">🌍 Off-grid self-sufficiency</span>
+    <span class="eco-pill">🐝 Apitherapy</span>
+    <span class="eco-pill">🌲 Regional tourism support</span>
+  </div>
+
+  <div class="price-box">
+    <div class="lbl">Franchisee investment</div>
+    <div class="big">1,000,000 CZK</div>
+    <div class="lbl">Wellness cabin + know-how + suppliers + central website + trademark</div>
+  </div>
+</div>
+</div>
+
+<div class="page">
+<div class="w">
+  <div class="eyebrow">Investment content</div>
+  <h2>What you get for 1 million</h2>
+  <div class="grid">
+    <div class="card"><div class="badge-eco">Ecology</div><div class="ic">🛖</div><h3>Wellness cabin 30.24 m²</h3><p>3.6 × 8.4 m, straw panels, spruce timber, clay plaster. Under 40 m² — no building permit needed.</p></div>
+    <div class="card"><div class="badge-eco">Off-grid</div><div class="ic">☀️</div><h3>Solar energy</h3><p>FV panels 2 kWp + LiFePO4 battery 5–7 kWh. TEG module from stove. Full self-sufficiency.</p></div>
+    <div class="card"><div class="badge-eco">Ecology</div><div class="ic">💧</div><h3>Rainwater harvesting</h3><p>1,000 l tank, 3-stage filtration + UV disinfection. No water bills, no sewage costs.</p></div>
+    <div class="card"><div class="ic">🐝</div><h3>Apitherapy</h3><p>4 Flow Hive beehives, sleep above bees. Propolis, honey, therapy — a unique experience you won't find elsewhere.</p></div>
+    <div class="card"><div class="ic">♨️</div><h3>Wellness facilities</h3><p>Outdoor CORIA sauna 200×200 cm + Lahti L hot tub 1,000 l with wood-fired stove.</p></div>
+    <div class="card"><div class="ic">🔥</div><h3>Heating & hot water</h3><p>Fireplace 6–7 kW with water exchanger, 300 l accumulator, underfloor heating, 80 l boiler.</p></div>
+    <div class="card"><div class="badge-eco">No land needed</div><div class="ic">🌲</div><h3>No building plot required</h3><p>A small piece of forest, field or meadow with access road. Ground screws = no foundations.</p></div>
+    <div class="card"><div class="ic">🌐</div><h3>Central website & booking</h3><p>National MEDOVÝ KLID domain with online reservation system. Guests come to you.</p></div>
+    <div class="card"><div class="ic">📚</div><h3>Know-how & suppliers</h3><p>Complete construction documents, operation manuals, verified suppliers, training and support.</p></div>
+    <div class="card"><div class="ic">⚖️</div><h3>Legal protection</h3><p>Franchise agreement, EU trademark, patentable construction, NDA.</p></div>
+    <div class="card"><div class="ic">📋</div><h3>Subsidies & support</h3><p>Eco timber + regional tourism = eligibility for MŽP and EU subsidy programmes.</p></div>
+    <div class="card"><div class="ic">🏖️</div><h3>Regional tourism</h3><p>The project actively supports rural tourism — state political and financial backing.</p></div>
+  </div>
+</div>
+</div>
+
+<div class="page">
+<div class="w">
+  <div class="eyebrow">Visualisations & photos</div>
+  <h2>What the cabin looks like</h2>
+  <p class="lead">Real photographs and visualisations of MEDOVÝ KLID wellness cabins — exterior, interior, wellness facilities, apitherapy.</p>
+  <div class="gallery">
+    <img src="06_Vizualizace/medovyklid_photos/vizualizace domku.png" alt="Cabin exterior" loading="lazy">
+    <img src="06_Vizualizace/medovyklid_photos/vizualizace domku 3.png" alt="Cabin evening" loading="lazy">
+    <img src="06_Vizualizace/medovyklid_photos/vizualizace web.png" alt="Cabin in forest" loading="lazy">
+    <img src="06_Vizualizace/medovyklid_photos/vizualizace loznice.png" alt="Bedroom" loading="lazy">
+    <img src="06_Vizualizace/medovyklid_photos/vizualizace api mistnost.png" alt="Apitherapy room" loading="lazy">
+    <img src="06_Vizualizace/medovyklid_photos/vizualizace koupaci su a sauna.png" alt="Sauna and hot tub" loading="lazy">
+    <img src="06_Vizualizace/medovyklid_photos/vizualizace koupelna r balicek.png" alt="Bathroom" loading="lazy">
+    <img src="06_Vizualizace/medovyklid_photos/vizualizace romanticky baliček.png" alt="Romantic package" loading="lazy">
+    <img src="06_Vizualizace/medovyklid_photos/koupelna.png" alt="Bathroom detail" loading="lazy">
+    <img src="06_Vizualizace/medovyklid_photos/koupelna 2.png" alt="Bathroom 2" loading="lazy">
+    <img src="06_Vizualizace/medovyklid_photos/koupelna3.png" alt="Bathroom 3" loading="lazy">
+    <img src="06_Vizualizace/medovyklid_photos/ložnice romanticky balicek.png" alt="Bedroom romantic" loading="lazy">
+  </div>
+  <div class="gallery" style="margin-top:14px">
+    <img src="06_Vizualizace/medovyklid_photos/IMG_5282.png" alt="Photo" loading="lazy" style="height:240px">
+  </div>
+</div>
+</div>
+
+<div class="page">
+<div class="w">
+  <div class="eyebrow">Supplier price offers</div>
+  <h2>Real costs — verified quotes</h2>
+  <p class="lead">Every budget item is backed by a specific supplier quote. Nothing is estimated — everything is real and current.</p>
+  <div class="nab-grid">
+    <div class="nab"><img src="03_Cenove_nabidky/nabidka fotovoltaika.png" alt="Solar PV" loading="lazy"><div class="cap"><b>Solar PV + Battery</b>2 kWp panels + LiFePO4 5–7 kWh + inverter + controller</div></div>
+    <div class="nab"><img src="03_Cenove_nabidky/nabidka lazensky kamna.png" alt="Stove" loading="lazy"><div class="cap"><b>Stove + Hot Water</b>Fireplace with exchanger, accumulator tank, boiler</div></div>
+    <div class="nab"><img src="03_Cenove_nabidky/nabidka sauna.png" alt="Sauna" loading="lazy"><div class="cap"><b>CORIA Sauna</b>Outdoor sauna 200×200 cm, spruce wood, wood-fired</div></div>
+    <div class="nab"><img src="03_Cenove_nabidky/Nabídka koupaci sud.png" alt="Hot tub" loading="lazy"><div class="cap"><b>Lahti L Hot Tub</b>Wooden tub 800–1,000 l, wood-fired, stainless steel heater</div></div>
+    <div class="nab"><img src="03_Cenove_nabidky/Nabídka ul.png" alt="Beehives" loading="lazy"><div class="cap"><b>Flow Hive Beehives</b>4 complete sets + bee colonies + equipment + lounge above hives</div></div>
+    <div class="nab"><img src="03_Cenove_nabidky/nabidka wc.png" alt="Toilet" loading="lazy"><div class="cap"><b>Toilet + Waste</b>Separating flush toilet, composting box</div></div>
+  </div>
+  <div class="nab-grid" style="margin-top:14px">
+    <div class="nab"><img src="03_Cenove_nabidky/nabidka wc3.png" alt="Toilet variant" loading="lazy"><div class="cap"><b>Toilet — alternative</b>Another variant of chemical-free separating toilet</div></div>
+    <div class="nab"><img src="03_Cenove_nabidky/nabidka wc1.png" alt="Toilet detail" loading="lazy"><div class="cap"><b>Toilet — detailed quote</b>Specifications and technical parameters</div></div>
+  </div>
+  <div class="nab-grid" style="margin-top:14px">
+    <div class="nab"><img src="03_Cenove_nabidky/konstrukce.png" alt="Construction 1" loading="lazy"><div class="cap"><b>Construction detail 1</b>Straw panels + timber frame</div></div>
+    <div class="nab"><img src="03_Cenove_nabidky/konstrukce2.png" alt="Construction 2" loading="lazy"><div class="cap"><b>Construction detail 2</b>Joint and insulation detail</div></div>
+    <div class="nab"><img src="03_Cenove_nabidky/konstrukce3.png" alt="Construction 3" loading="lazy"><div class="cap"><b>Construction detail 3</b>Roof structure</div></div>
+    <div class="nab"><img src="03_Cenove_nabidky/konstrukce4.png" alt="Construction 4" loading="lazy"><div class="cap"><b>Construction detail 4</b>Floor system</div></div>
+    <div class="nab"><img src="03_Cenove_nabidky/konstrukce5.png" alt="Construction 5" loading="lazy"><div class="cap"><b>Construction detail 5</b>Finished module</div></div>
+  </div>
+</div>
+</div>
+
+<div class="page">
+<div class="w">
+  <div class="eyebrow">Franchise model</div>
+  <h2>How the franchise works</h2>
+  <table class="tbl">
+    <tr><th>Parameter</th><th>Value</th></tr>
+    <tr><td>Investment</td><td>1,000,000 CZK</td></tr>
+    <tr><td>What it covers</td><td>Complete wellness cabin + know-how + documents + suppliers + central website</td></tr>
+    <tr><td>Royalty to mother company</td><td><b>8% of monthly turnover</b></td></tr>
+    <tr><td>Booking system</td><td>Central MEDOVÝ KLID domain with online reservations</td></tr>
+    <tr><td>Support</td><td>Training, marketing, supplier network, quality audits</td></tr>
+    <tr><td>Brand</td><td>EU trademark, patentable construction</td></tr>
+    <tr><td>Building permit</td><td>Not required — timber under 40 m² = notification only</td></tr>
+    <tr><td>Land</td><td>No building plot needed — access road to forest/meadow/field is enough</td></tr>
+    <tr><td>Energy</td><td>Off-grid: PV + battery + rainwater</td></tr>
+  </table>
+
+  <div class="hl">
+    <strong>Mother company:</strong> For franchise know-how, central bookings and support, MEDOVÝ KLID HOLDING s.r.o. receives <strong>8% of the monthly turnover</strong>. The rest stays with the franchisee.
+  </div>
+</div>
+</div>
+
+<div class="page">
+<div class="w">
+  <div class="eyebrow">Investment budget</div>
+  <h2>Budget 1 cabin = 1,000,000 CZK</h2>
+  <table class="tbl">
+    <tr><th>Item</th><th>Amount (CZK)</th><th>Share</th></tr>
+    <tr><td>Construction & interior (straw panels, timber, floor, roof)</td><td>571,000</td><td>57.1%</td></tr>
+    <tr><td>Sauna + hot tub</td><td>27,000</td><td>2.7%</td></tr>
+    <tr><td>Apitherapy (4 Flow Hive beehives + equipment)</td><td>56,000</td><td>5.6%</td></tr>
+    <tr><td>Stove + hot water (DHW)</td><td>44,000</td><td>4.4%</td></tr>
+    <tr><td>Solar PV + battery + TEG</td><td>73,000</td><td>7.3%</td></tr>
+    <tr><td>Water + filtration (rainwater, 3-stage + UV)</td><td>29,000</td><td>2.9%</td></tr>
+    <tr><td>Terrace + exterior (terrace, firepit, pergola)</td><td>30,000</td><td>3.0%</td></tr>
+    <tr><td>Assembly + transport + logistics</td><td>170,000</td><td>17.0%</td></tr>
+    <tr class="total"><td><strong>Total investment</strong></td><td><strong>1,000,000 CZK</strong></td><td><strong>100%</strong></td></tr>
+  </table>
+</div>
+</div>
+
+<div class="page">
+<div class="w">
+  <div class="eyebrow">Financial projections</div>
+  <h2>Numbers that make sense</h2>
+  <table class="tbl">
+    <tr><th>Indicator</th><th>Value</th></tr>
+    <tr><td>Price per night</td><td>3,300 CZK</td></tr>
+    <tr><td>Estimated occupancy</td><td>60% (~219 days/year)</td></tr>
+    <tr><td>Annual revenue (1 cabin)</td><td>~780,000 – 900,000 CZK</td></tr>
+    <tr><td>Annual operating costs</td><td>~145,000 CZK</td></tr>
+    <tr><td>EBITDA</td><td>~635,000 CZK</td></tr>
+    <tr><td>Net annual cash flow</td><td>~409,000 CZK</td></tr>
+    <tr class="total"><td>Payback of investment</td><td>approximately 2.4 years</td></tr>
+  </table>
+
+  <hr class="sep">
+
+  <div class="eyebrow" style="margin-top:20px">40-location network — potential</div>
+  <h2>Vision: 54 franchises across Czech Republic</h2>
+  <table class="tbl">
+    <tr><th>Indicator</th><th>1 cabin</th><th>54 cabins (network)</th></tr>
+    <tr><td>Annual revenue</td><td>780,000 CZK</td><td><b>42,120,000 CZK</b></td></tr>
+    <tr><td>Franchisee EBITDA</td><td>635,000 CZK</td><td>635,000 × 54</td></tr>
+    <tr class="highlight-row"><td>Mother company turnover (8%)</td><td>—</td><td><b>~3,369,600 CZK / year</b></td></tr>
+    <tr><td>Net CF franchisee</td><td>409,000 CZK</td><td>409,000 × 54</td></tr>
+    <tr class="total"><td>Total network value</td><td>1M</td><td><strong>54M CZK in assets</strong></td></tr>
+  </table>
+</div>
+</div>
+
+<div class="page">
+<div class="w">
+  <div class="eyebrow">Expansion plan</div>
+  <h2>54 cabins in 5 years — all of Czech Republic</h2>
+  <p class="lead">Vision: within 5 years, build a network of <strong>54 MEDOVÝ KLID® franchise wellness cabins</strong> across the Czech Republic — 10 company-owned, 44 franchised. Central website, reservation system, unified brand. Fully original project from A to Z — construction, wellness, mental health, apitherapy, ecology, subsidies.</p>
+
+  <div class="regions">
+    <div class="reg"><div class="num">1</div>Ústecký kraj · Snědovice</div>
+    <div class="reg"><div class="num">2</div>Liberecký kraj · Český ráj</div>
+    <div class="reg"><div class="num">3</div>Karlovarský kraj · Slavkovský les</div>
+    <div class="reg"><div class="num">4</div>Plzeňský kraj · Šumava</div>
+    <div class="reg"><div class="num">5</div>Královéhradecký kraj · Broumovsko</div>
+    <div class="reg"><div class="num">6</div>Pardubický kraj · Železné hory</div>
+    <div class="reg"><div class="num">7</div>Olomoucký kraj · Jeseníky</div>
+    <div class="reg"><div class="num">8</div>Moravskoslezský kraj · Beskydy</div>
+    <div class="reg"><div class="num">9</div>Jihomoravský kraj · Pálava</div>
+    <div class="reg"><div class="num">10</div>Zlínský kraj · Beskydy–Wallachia</div>
+    <div class="reg"><div class="num">11</div>Středočeský kraj · Kokořínsko</div>
+    <div class="reg"><div class="num">12</div>Jihočeský kraj · Šumava–Boubín</div>
+    <div class="reg"><div class="num">13</div>Vysočina · Žďárské vrchy</div>
+    <div class="reg"><div class="num">14</div>Ústecký kraj · České středohoří</div>
+    <div class="reg"><div class="num">15</div>Liberecký kraj · Jizerské hory</div>
+    <div class="reg"><div class="num">16</div>Plzeňský kraj · Manětínsko</div>
+    <div class="reg"><div class="num">17</div>Královéhradecký kraj · Orlické hory</div>
+    <div class="reg"><div class="num">18</div>Olomoucký kraj · Haná</div>
+    <div class="reg"><div class="num">19</div>Středočeský kraj · Posázaví</div>
+    <div class="reg"><div class="num">20</div>Liberecký kraj · Frýdlantsko</div>
+    <div class="reg"><div class="num">21</div>Karlovarský kraj · Ašsko</div>
+    <div class="reg"><div class="num">22</div>Plzeňský kraj · Brdy</div>
+    <div class="reg"><div class="num">23</div>Jihočeský kraj · Třeboňsko</div>
+    <div class="reg"><div class="num">24</div>Středočeský kraj · Polabí</div>
+    <div class="reg"><div class="num">25</div>Královéhradecký kraj · Krkonoše</div>
+    <div class="reg"><div class="num">26</div>Pardubický kraj · Chrudimsko</div>
+    <div class="reg"><div class="num">27</div>Jihomoravský kraj · Moravský kras</div>
+    <div class="reg"><div class="num">28</div>Zlínský kraj · Luhačovické Závrší</div>
+    <div class="reg"><div class="num">29</div>Moravskoslezský kraj · Nízký Jeseník</div>
+    <div class="reg"><div class="num">30</div>Olomoucký kraj · Zábřežsko</div>
+    <div class="reg"><div class="num">31</div>Vysočina · Třebíčsko</div>
+    <div class="reg"><div class="num">32</div>Ústecký kraj · Děčínsko</div>
+    <div class="reg"><div class="num">33</div>Liberecký kraj · Semilsko</div>
+    <div class="reg"><div class="num">34</div>Jihočeský kraj · Blansko</div>
+    <div class="reg"><div class="num">35</div>Středočeský kraj · Berounsko</div>
+    <div class="reg"><div class="num">36</div>Plzeňský kraj · Klatovsko</div>
+    <div class="reg"><div class="num">37</div>Královéhradecký kraj · Náchodsko</div>
+    <div class="reg"><div class="num">38</div>Pardubický kraj · Svitavsko</div>
+    <div class="reg"><div class="num">39</div>Jihomoravský kraj · Hodonínsko</div>
+    <div class="reg"><div class="num">40</div>Zlínský kraj · Vsetínsko</div>
+  </div>
+
+  <div class="hl">
+    <strong>Goal:</strong> Within 5 years, build a network of <strong>54 MEDOVÝ KLID® franchise wellness cabins</strong> across the Czech Republic — 10 company-owned, 44 franchised. Each cabin generates revenue, the mother company earns <strong>8% turnover royalty</strong> = stable, passive income with zero operating costs. Full network cash flow exceeds <strong>6M CZK/year</strong>.
+  </div>
+
+  <div style="margin-top:24px">
+    <img src="03_Cenove_nabidky/mapa lokalita k smlouve.png" alt="Location map" style="width:100%;max-width:700px;border-radius:10px;border:1px solid var(--sn)">
+  </div>
+</div>
+</div>
+
+<div class="footer-band">
+  <div class="w">
+    <div class="eyebrow" style="color:var(--hs)">Websites</div>
+    <h2 style="color:var(--iv);margin-bottom:14px">Explore the project online</h2>
+    <div style="display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-bottom:20px">
+      <a class="btn" href="https://medovyklid.github.io/web/" target="_blank">Guest website →</a>
+      <a class="btn ghost" href="https://medovyklid.github.io/banka/" target="_blank">Bank documents →</a>
+      <a class="btn ghost" href="https://medovyklid.github.io/" target="_blank">Investor presentation →</a>
+    </div>
+    <p style="color:#b0a990;font-size:.88rem">All websites are live, responsive, with reservation calendar and dark/light mode.</p>
+  </div>
+</div>
+
+<div class="w" style="text-align:center;padding:40px 28px">
+  <div class="eyebrow">Contact</div>
+  <h2>Interested in a franchise?</h2>
+  <p class="lead" style="margin:8px auto 24px">Reach out to us. We'll explain everything, show you the details and back it up with a contract.</p>
+  <div style="display:flex;justify-content:center;gap:14px;flex-wrap:wrap">
+    <a class="btn" href="mailto:honeyedpeace@seznam.cz">📧 honeyedpeace@seznam.cz</a>
+    <a class="btn ghost" href="https://wa.me/420724283050" target="_blank">WhatsApp</a>
+    <a class="btn ghost" href="tel:+420774726995">📞 +420 774 726 995</a>
+  </div>
+</div>
+
+<div class="foot">
+  MEDOVÝ KLID HOLDING s.r.o. · Reg. No. 24506478 · Radimovská 1773/15, Prague 4<br>
+  +420 774 726 995 · +420 724 283 050 · honeyedpeace@seznam.cz<br>
+  This document is an investment and franchise offer. It does not create binding contractual terms.
+</div>
+
+</body>
+</html>
