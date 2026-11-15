@@ -5,10 +5,67 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MEDOVÝ KLID® — Soukromá wellness kabina v lese</title>
 <meta name="description" content="MEDOVÝ KLID® — modulární ekologická wellness kabina pro dva uprostřed lesa. Spánek nad včelími úly, sauna, koupací sud, apiterapie. 100% soběstačnost.">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐝</text></svg>">
+<meta name="keywords" content="wellness kabina, glamping, apiterapie, sauna, koupací sud, ubytování pro dva, Snědovice, Ústecký kraj, MEDOVÝ KLID">
+<meta name="author" content="MEDOVÝ KLID HOLDING s.r.o.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://medovyklid.github.io/web/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="MEDOVÝ KLID®">
+<meta property="og:locale" content="cs_CZ">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:title" content="MEDOVÝ KLID® — Soukromá wellness kabina v lese">
+<meta property="og:description" content="Soukromá ekologická kabina pro dva uprostřed lesa. Spánek nad živými včelími úly, dřevěná sauna, koupací sud a ticho, které léčí.">
+<meta property="og:url" content="https://medovyklid.github.io/web/">
+<meta property="og:image" content="https://medovyklid.github.io/web/img/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="MEDOVÝ KLID — wellness kabina uprostřed lesa">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="MEDOVÝ KLID® — Soukromá wellness kabina v lese">
+<meta name="twitter:description" content="Soukromá ekologická kabina pro dva uprostřed lesa. Apiterapie, sauna, koupací sud.">
+<meta name="twitter:image" content="https://medovyklid.github.io/web/img/og-image.jpg">
+<meta name="theme-color" content="#0b1f16">
+<meta name="format-detection" content="telephone=no">
+<link rel="icon" href="img/icons/icon-192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="img/icons/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="dns-prefetch" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LodgingBusiness",
+  "name": "MEDOVÝ KLID®",
+  "description": "Soukromá ekologická wellness kabina pro dva uprostřed lesa s apiterapií, saunou a koupacím sudem.",
+  "url": "https://medovyklid.github.io/web/",
+  "image": "https://medovyklid.github.io/web/img/og-image.jpg",
+  "email": "honeyedpeace@seznam.cz",
+  "telephone": "+420724283050",
+  "priceRange": "3300 CZK",
+  "currenciesAccepted": "CZK",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Radimovická 1773/15",
+    "addressLocality": "Praha 4 - Chodov",
+    "postalCode": "149 00",
+    "addressCountry": "CZ"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": 50.504563, "longitude": 14.385309 },
+  "amenityFeature": [
+    { "@type": "LocationFeatureSpecification", "name": "Sauna", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Koupací sud", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Apiterapie", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Parkování", "value": true }
+  ],
+  "parentOrganization": {
+    "@type": "Organization",
+    "name": "MEDOVÝ KLID HOLDING s.r.o.",
+    "taxID": "24506478"
+  }
+}
+</script>
 <style>
 :root{
   --forest:#0b1f16;
@@ -54,6 +111,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:
 img{display:block;max-width:100%}
 a{color:inherit}
 ::selection{background:var(--honey);color:#fff}
+html,body{overflow-x:clip}
 ::-webkit-scrollbar{width:9px}
 ::-webkit-scrollbar-track{background:var(--forest)}
 ::-webkit-scrollbar-thumb{background:var(--honey);border-radius:4px}
@@ -258,7 +316,13 @@ img.lzy.loaded{opacity:1}
 .hero-slide-dots button.active{background:var(--honey);width:22px}
 .loc-map{position:relative;overflow:hidden;border-radius:10px;border:1px solid var(--section-line);box-shadow:0 16px 40px var(--shadow)}
 .loc-map iframe{width:100%;height:340px;border:0;display:block}
-.loc-map .badge{position:absolute;left:1.2rem;bottom:1.2rem;background:rgba(11,31,22,.9);color:var(--honey-soft);padding:.5rem 1.2rem;border-radius:99px;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;border:1px solid var(--honey)}
+.loc-map .badge{position:absolute;left:1.2rem;bottom:1.2rem;background:rgba(11,31,22,.9);color:var(--honey-soft);padding:.5rem 1.2rem;border-radius:99px;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;border:1px solid var(--honey);z-index:2}
+.map-consent{height:340px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;text-align:center;padding:2rem;background:var(--bg-alt);color:var(--text-soft)}
+.map-consent p{max-width:420px;font-size:.88rem;line-height:1.7}
+.map-consent .btn{cursor:pointer}
+.skip-link{position:absolute;left:-9999px;top:0;background:var(--honey);color:var(--forest);padding:.7rem 1.2rem;z-index:10000;font-weight:600}
+.skip-link:focus{left:1rem;top:1rem}
+:focus-visible{outline:2px solid var(--honey);outline-offset:3px}
 
 /* ---------- PAYMENT ---------- */
 .pay{margin-top:1.5rem;border-top:1px solid var(--card-line);padding-top:1.4rem}
@@ -275,7 +339,8 @@ img.lzy.loaded{opacity:1}
 .pay-m .sub{display:block;font-size:.66rem;color:var(--text-soft);letter-spacing:.5px}
 .pay-transfer{margin-top:.9rem;border:1px dashed var(--card-line);border-radius:8px;padding:1.1rem 1.2rem;display:none}
 .pay-transfer.show{display:block}
-.pay-transfer .qr{width:150px;height:150px;margin:0 auto 1rem;border-radius:8px;background:var(--bg-alt);border:1px solid var(--card-line);display:flex;align-items:center;justify-content:center;color:var(--text-soft);font-size:.72rem;text-align:center;letter-spacing:1px}
+.pay-transfer .qr{width:220px;max-width:100%;min-height:150px;margin:0 auto 1rem;border-radius:8px;background:var(--bg-alt);border:1px solid var(--card-line);display:flex;align-items:center;justify-content:center;color:var(--text-soft);font-size:.72rem;text-align:center;letter-spacing:1px;padding:8px}
+.pay-transfer .qr img,.pay-transfer .qr canvas{display:block;max-width:100%;height:auto}
 .pay-transfer .acc{font-family:var(--sans);font-size:.85rem;color:var(--text-soft);text-align:center}
 .pay-transfer .acc b{color:var(--text)}
 .pay-transfer .vs{text-align:center;font-size:.72rem;color:var(--text-soft);margin-top:.4rem;letter-spacing:1px}
@@ -318,6 +383,7 @@ img.lzy.loaded{opacity:1}
 .testi-arrow:hover{background:var(--honey);color:#fff}
 .testi-arrow.prev{left:-70px}
 .testi-arrow.next{right:-70px}
+@media(max-width:1000px){.testi-arrow{display:none}}
 
 /* ---------- NEWSLETTER ---------- */
 .newsletter{background:var(--bg-alt);text-align:center;padding:4.5rem 0;border-top:1px solid var(--section-line)}
@@ -382,20 +448,22 @@ img.lzy.loaded{opacity:1}
 </style>
 </head>
 <body id="top">
+<a class="skip-link" href="#main">Přeskočit na obsah</a>
 
 <!-- NAV -->
 <nav class="nav" id="nav">
   <a href="#top" class="logo">MEDOVÝ KLID<span data-i18n="logoline">® · wellness kabina</span></a>
   <ul class="nav-links" id="navLinks">
-    <li><a href="#philos" data-nav="about">O nás</a></li>
-    <li><a href="#cabin" data-nav="cabin">Kabina</a></li>
-    <li><a href="#wellness" data-nav="wellness">Wellness</a></li>
-    <li><a href="#gallery" data-nav="gallery">Galerie</a></li>
-    <li><a href="#packages" data-nav="packages">Balíčky</a></li>
-    <li><a href="#faq" data-nav="faq">FAQ</a></li>
-    <li><a href="#trips" data-nav="trips">Výlety</a></li>
-    <li><a href="#reserve" data-nav="reserve">Rezervace</a></li>
-    <li><a href="#contact" data-nav="contact">Kontakt</a></li>
+    <li><a href="#philos" data-nav="about" data-i18n="about" data-cz="O nás">O nás</a></li>
+    <li><a href="#cabin" data-nav="cabin" data-i18n="cabin" data-cz="Kabina">Kabina</a></li>
+    <li><a href="#wellness" data-nav="wellness" data-i18n="wellness" data-cz="Wellness">Wellness</a></li>
+    <li><a href="#gallery" data-nav="gallery" data-i18n="gallery" data-cz="Galerie">Galerie</a></li>
+    <li><a href="#packages" data-nav="packages" data-i18n="packages" data-cz="Balíčky">Balíčky</a></li>
+    <li><a href="#faq" data-nav="faq" data-i18n="faq" data-cz="FAQ">FAQ</a></li>
+    <li><a href="#trips" data-nav="trips" data-i18n="trips" data-cz="Výlety">Výlety</a></li>
+    <li><a href="fransiza/" style="color:var(--honey-soft)" data-i18n="navFranchise" data-cz="Franšíza">Franšíza</a></li>
+    <li><a href="#reserve" data-nav="reserve" data-i18n="fRes" data-cz="Rezervace">Rezervace</a></li>
+    <li><a href="#contact" data-nav="contact" data-i18n="fContact" data-cz="Kontakt">Kontakt</a></li>
   </ul>
   <div class="nav-actions">
     <div class="lang">
@@ -408,6 +476,7 @@ img.lzy.loaded{opacity:1}
 </nav>
 
 <!-- HERO -->
+<main id="main">
 <header class="hero" id="hero">
   <div class="slide-imgs">
     <img class="active lzy" src="img/dom1.jpg" data-src="img/dom1.jpg" alt="MEDOVÝ KLID cabin in forest">
@@ -707,10 +776,8 @@ img.lzy.loaded{opacity:1}
           </div>
         </div>
         <div class="f-group">
-          <label data-i18n="fNights">Počet nocí</label>
-          <select id="nights">
-            <option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option>
-          </select>
+          <label for="nights" data-i18n="fNights">Počet nocí</label>
+          <input type="number" id="nights" min="1" max="30" step="1" value="2" inputmode="numeric">
         </div>
         <div>
           <label style="display:block;font-size:.68rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:.6rem" data-i18n="fPack">Balíčky na přání</label>
@@ -719,7 +786,26 @@ img.lzy.loaded{opacity:1}
           <label class="chk"><input type="checkbox" id="cp3" data-price="5500"><span data-i18n="cb3">✨ All inclusive — 5 500 CZK</span></label>
         </div>
         <div class="tot"><span data-i18n="fTotal">Celkem</span><b id="total">0 CZK</b></div>
-        <div style="margin-top:1.6rem"><a href="#" id="sendBtn" class="btn btn-gold" style="width:100%;text-align:center" data-i18n="fSend">Odeslat rezervaci</a></div>
+        <div class="f-group" style="margin-top:1.2rem">
+          <label for="bName" data-i18n="fName">Jméno a příjmení</label>
+          <input type="text" id="bName" name="name" autocomplete="name" required placeholder="Jan Novák">
+        </div>
+        <div class="f-group">
+          <label for="bEmail" data-i18n="fEmail">E-mail</label>
+          <input type="email" id="bEmail" name="email" autocomplete="email" required placeholder="vas@email.cz">
+        </div>
+        <div class="f-group">
+          <label for="bPhone" data-i18n="fPhone">Telefon (nepovinné)</label>
+          <input type="tel" id="bPhone" name="phone" autocomplete="tel" placeholder="+420 777 123 456">
+        </div>
+        <label class="chk" for="bConsent" style="align-items:flex-start;margin-bottom:.4rem">
+          <input type="checkbox" id="bConsent" required style="margin-top:4px">
+          <span data-i18n="fConsent" style="font-size:.82rem;line-height:1.5">Souhlasím se zpracováním osobních údajů za účelem vyřízení rezervace.</span>
+        </label>
+        <div style="margin-top:1.2rem;display:flex;gap:.6rem;flex-wrap:wrap">
+          <a href="#" id="sendBtn" class="btn btn-gold" style="flex:1 1 200px;text-align:center" data-i18n="fSend">Odeslat rezervaci</a>
+          <a href="#" id="sendMailBtn" class="btn btn-ghost" style="flex:1 1 160px;text-align:center" data-i18n="fSendMail">Poslat e-mailem</a>
+        </div>
         <div class="pay">
           <label class="pay-label" data-i18n="payLabel">Způsob platby</label>
           <div class="pay-methods">
@@ -735,8 +821,8 @@ img.lzy.loaded{opacity:1}
             </label>
           </div>
           <div class="pay-transfer" id="payTransfer">
-            <div class="qr" data-i18n="payQr">QR kód zde<br>(doplníme později)</div>
-            <p class="acc" data-i18n="payAccPre">Číslo účtu: <b data-i18n="payAccNum">— doplníme později —</b></p>
+            <div class="qr" id="qrBox"></div>
+            <p class="acc"><span data-i18n="payAccPre">Číslo účtu:</span> <b id="accNum">— doplníme později —</b></p>
             <p class="vs" data-i18n="payVs">VS: Vaše rezervace · přidejte poznámku s jménem a termínem</p>
           </div>
           <p class="pay-info" data-i18n="payInfo">Kartou, Google Pay či Apple Pay zaplatíte okamžitě a zabezpečeně. U bankovního převodu potvrdíme rezervaci po přijetí platby.</p>
@@ -747,7 +833,10 @@ img.lzy.loaded{opacity:1}
       <div class="r-side">
         <div class="loc rv"><div class="pin">🌲</div><div><b data-i18n="l1t">Ústecký kraj — Snědovice</b><span data-i18n="l1d">Tiché lesy mezi řekou Labem a skalnatým Kokořínskem</span></div></div>
         <div class="loc-map rv" style="margin-top:1.4rem">
-          <iframe loading="lazy" src="https://www.google.com/maps?q=50.504563,14.385309&z=13&output=embed" title="Mapa lokality MEDOVÝ KLID — Snědovice"></iframe>
+          <div class="map-consent" id="mapConsent">
+            <p data-i18n="mapConsentText">Mapa se načte z Google Maps. Načtením souhlasíte s podmínkami Google a zpracováním cookies třetí stranou.</p>
+            <button type="button" class="btn btn-gold" onclick="loadMap()" data-i18n="mapConsentBtn">Zobrazit mapu</button>
+          </div>
           <div class="badge" data-i18n="mapBadge">Snědovice · Ústecký kraj</div>
         </div>
       </div>
@@ -820,12 +909,15 @@ function shareCopy(e){e.preventDefault();navigator.clipboard&&navigator.clipboar
   <div class="eyebrow-dark" data-i18n="nlEyebrow">Odběr novinek</div>
   <h2 class="title" data-i18n="nlTitle">Nenechte si ujít nové lokalitay</h2>
   <p class="lead" style="margin:1rem auto 0;max-width:520px" data-i18n="nlD">Přihlaste se k odběru. Přihlásíme vás mezi první, kdo se dozví o otevírání nových kabin a sezónních akcích.</p>
-  <form class="form" onsubmit="subscribe(event)">
-    <input type="email" id="nlEmail" placeholder="vas@email.cz" required>
+  <form class="form" onsubmit="subscribe(event)" novalidate>
+    <input type="email" id="nlEmail" name="email" placeholder="vas@email.cz" aria-label="Váš e-mail" autocomplete="email" required>
     <button class="btn btn-gold" type="submit" data-i18n="nlBtn">Odebírat</button>
   </form>
-  <div class="ok" id="nlOk" data-i18n="nlOk">Děkujeme! Jste přihlášeni k odběru. 🐝</div>
+  <p style="font-size:.72rem;color:var(--muted);margin-top:.8rem" data-i18n="nlConsent">Odesláním souhlasíte se zpracováním e-mailu pro účely zasílání novinek. Odhlásit se můžete kdykoli.</p>
+  <div class="ok" id="nlOk" role="status" aria-live="polite" data-i18n="nlOk">Děkujeme! Jste přihlášeni k odběru. 🐝</div>
 </section>
+
+</main>
 
 <footer>
   <div class="f-grid">
@@ -840,6 +932,7 @@ function shareCopy(e){e.preventDefault();navigator.clipboard&&navigator.clipboar
       <a href="#wellness" data-i18n="wellness">Wellness</a>
       <a href="#gallery" data-i18n="gallery">Galerie</a>
       <a href="#faq" data-i18n="faqTitle">FAQ</a>
+      <a href="fransiza/" style="color:var(--honey-soft)">Franšíza</a>
     </div>
     <div>
       <h4 data-i18n="fRes">Rezervace</h4>
@@ -851,10 +944,17 @@ function shareCopy(e){e.preventDefault();navigator.clipboard&&navigator.clipboar
       <h4 data-i18n="fContact">Kontakt</h4>
       <p>+420 774 726 995<br>+420 724 283 050</p>
       <p style="margin-top:.5rem">🛖 Snědovice, Ústecký kraj<br>souřadnice 50.5046, 14.3853</p>
-      <p style="margin-top:.5rem">MEDOVÝ KLID HOLDING s.r.o.<br>Radimovická 1773/15, Praha 4<br>IČO 24506478</p>
+      <p style="margin-top:.5rem">MEDOVÝ KLID HOLDING s.r.o.<br>Radimovická 1773/15, Chodov<br>149 00 Praha 4 · IČO 24506478<br>spisová značka C 442402/MSPH</p>
+    </div>
+    <div>
+      <h4 data-i18n="fLegal">Právní informace</h4>
+      <a href="obchodni-podminky/" data-i18n="fTerms">Obchodní podmínky</a>
+      <a href="ochrana-osobnich-udaju/" data-i18n="fPrivacy">Ochrana osobních údajů</a>
+      <a href="cookies/" data-i18n="fCookies">Cookies</a>
+      <a href="reklamace/" data-i18n="fClaims">Reklamace</a>
     </div>
   </div>
-  <div class="f-bottom">© 2026 MEDOVÝ KLID<sup>®</sup> · Všechna práva vyhrazena</div>
+  <div class="f-bottom">© 2026 MEDOVÝ KLID<sup>®</sup> HOLDING s.r.o. · Všechna práva vyhrazena · <a href="ochrana-osobnich-udaju/" style="color:inherit">GDPR</a></div>
 </footer>
 
 <!-- LIGHTBOX -->
@@ -863,8 +963,51 @@ function shareCopy(e){e.preventDefault();navigator.clipboard&&navigator.clipboar
   <button onclick="closeLb()">✕</button>
 </div>
 
+<script src="js/qrcode.min.js"></script>
 <script>
-/* ---------- I18N ---------- */
+/* ============================================================
+   MEDOVÝ KLID® — konfigurace
+   Sem doplňte platební odkaz a bankovní účet, až je budete mít.
+   Po vyplnění se QR platba a platební tlačítko aktivují samy.
+   ============================================================ */
+var MK_CONFIG = {
+  company: {
+    name: "Medový klid holding s.r.o.",
+    ico: "24506478",
+    dic: "",
+    vatPayer: false,
+    address: "Radimovická 1773/15, Chodov, 149 00 Praha 4",
+    file: "C 442402/MSPH"
+  },
+  contact: {
+    email: "honeyedpeace@seznam.cz",
+    phone: "+420774726995",
+    phone2: "+420724283050",
+    whatsapp: "420724283050",
+    bookingEmail: "honeyedpeace@seznam.cz"
+  },
+  bank: {
+    account: "",        // např. "123456789/0100"
+    iban: "",           // např. "CZ6501000000001234567890"
+    bankName: "",       // např. "Komerční banka"
+    accountName: "Medový klid holding s.r.o."
+  },
+  payments: {
+    // Platební odkaz (Stripe Payment Link, Comgate, GoPay…). Prázdné = karta se nenabízí.
+    cardLink: "",
+    cardProvider: "Stripe"
+  },
+  booking: {
+    // Endpoint pro příjem rezervací (Formspree, vlastní API…). Prázdné = WhatsApp/e-mail.
+    endpoint: "",
+    bookingsUrl: "bookings.json"
+  },
+  newsletter: {
+    // Endpoint pro přihlášení k odběru. Prázdné = e-mailová poptávka.
+    endpoint: ""
+  }
+};
+
 var EN = {
   logoline:"® · wellness cabin",
   bookNow:"Book now",
@@ -1013,7 +1156,34 @@ var EN = {
   payAccPre:"Account number:",
   payAccNum:"— to be added later —",
   payVs:"VS: your booking · add your name and dates as note",
-  payInfo:"Pay instantly and securely by card, Google Pay or Apple Pay. For bank transfer we confirm the booking once the payment arrives."
+  payInfo:"Pay instantly and securely by card, Google Pay or Apple Pay. For bank transfer we confirm the booking once the payment arrives.",
+  fName:"Full name",
+  fEmail:"E-mail",
+  fPhone:"Phone (optional)",
+  fConsent:"I agree to the processing of personal data for the purpose of handling my booking.",
+  fSendMail:"Send by e-mail",
+  fErrName:"Please enter your full name.",
+  fErrEmail:"Please enter a valid e-mail address.",
+  fErrDate:"Please choose arrival and departure dates.",
+  fErrConsent:"Please agree to the processing of personal data.",
+  fOkWa:"Booking prepared — continue in WhatsApp.",
+  fOkMail:"Booking prepared — send it from your e-mail app.",
+  nlConsent:"By submitting you agree to the processing of your e-mail for the purpose of receiving news. You can unsubscribe at any time.",
+  mapConsentText:"The map is loaded from Google Maps. By loading it you agree to Google's terms and third-party cookie processing.",
+  mapConsentBtn:"Show map",
+  fLegal:"Legal information",
+  fTerms:"Terms of service",
+  fPrivacy:"Privacy policy",
+  fCookies:"Cookies",
+  fClaims:"Complaints",
+  payQrEmpty:"QR code will appear once the account number is filled in",
+  payCardSoon:"Online card payment will be available soon. Send the booking and we will contact you with payment details.",
+  payQrNote:"Scan the QR code in your banking app — the amount and booking note are pre-filled.",
+  payInfoTransfer:"Payment is made by bank transfer to the account shown below. Scan the QR code in your banking app — amount and note are pre-filled. We confirm the booking once the payment arrives.",
+  packages:"Packages",
+  faq:"FAQ",
+  trips:"Trips",
+  navFranchise:"Franchise"
 };
 
 function setLang(lang){
@@ -1027,6 +1197,8 @@ function setLang(lang){
   });
   document.documentElement.lang = lang==='en'?'en':'cs';
   localStorage.setItem('mk-lang',lang);
+  try{ if(document.getElementById('accNum')) refreshPayUI(); }catch(e){}
+  try{ if(typeof calY!=='undefined' && calY!==undefined) renderCals(); }catch(e){}
 }
 function saveCZ(el){
   if(!el.getAttribute('data-cz')) el.setAttribute('data-cz', el.innerHTML);
@@ -1051,80 +1223,197 @@ document.querySelectorAll('.gal-grid img').forEach(function(img){
 });
 document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeLb(); });
 
+/* ---------- HELPERS ---------- */
+function isEN(){ return localStorage.getItem('mk-lang')==='en'; }
+function t(cs,en){ return isEN()?en:cs; }
+function validEmail(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(String(v||'').trim()); }
+function padNum(s,len){ s=String(s); while(s.length<len) s='0'+s; return s; }
+function czAccountToIban(acc){
+  var m=String(acc).replace(/\s+/g,'').match(/^([0-9]{1,6}-)?([0-9]{2,10})\/([0-9]{4})$/);
+  if(!m) return '';
+  var prefix=m[1]?m[1].replace('-',''):'000000';
+  var bban=m[3]+padNum(prefix,6)+padNum(m[2],10);
+  var rearr=bban+'123500';
+  var mod=0;
+  for(var i=0;i<rearr.length;i++){ mod=(mod*10+parseInt(rearr.charAt(i),10))%97; }
+  return 'CZ'+padNum(String(98-mod),2)+bban;
+}
+
 /* ---------- PRICE CALC ---------- */
 var PRICE=3300;
-function calc(){
+function currentAmount(){
   var n=parseInt(document.getElementById('nights').value,10)||1;
-  var t=PRICE*n;
-  ['cp1','cp2','cp3'].forEach(function(id){ if(document.getElementById(id).checked) t+=parseInt(document.getElementById(id).getAttribute('data-price'),10); });
-  document.getElementById('total').textContent=t.toLocaleString('cs-CZ')+' CZK';
+  var total=PRICE*n;
+  ['cp1','cp2','cp3'].forEach(function(id){ if(document.getElementById(id).checked) total+=parseInt(document.getElementById(id).getAttribute('data-price'),10); });
+  return total;
 }
-['nights','cp1','cp2','cp3'].forEach(function(id){ document.getElementById(id).addEventListener('change',calc); });
+function calc(){
+  document.getElementById('total').textContent=currentAmount().toLocaleString('cs-CZ')+' CZK';
+  refreshPayUI();
+}
+['nights','cp1','cp2','cp3'].forEach(function(id){
+  document.getElementById(id).addEventListener('change',function(){ syncDeparture(); calc(); });
+});
 calc();
+
+/* ---------- PAYMENT UI ---------- */
+function bankAccountLabel(){
+  var b=MK_CONFIG.bank;
+  if(b.account) return b.account+(b.bankName?' · '+b.bankName:'');
+  if(b.iban) return b.iban+(b.bankName?' · '+b.bankName:'');
+  return t('— doplníme později —','— to be added later —');
+}
+function accountIban(){
+  var b=MK_CONFIG.bank;
+  if(b.iban) return b.iban.replace(/\s+/g,'').toUpperCase();
+  if(b.account) return czAccountToIban(b.account);
+  return '';
+}
+function spdPayload(){
+  var iban=accountIban();
+  if(!iban) return '';
+  var nameEl=document.getElementById('bName');
+  var name=nameEl?nameEl.value.trim():'';
+  var msg=('MEDOVY KLID rezervace '+(name?name+' ':'')).trim();
+  var parts=['SPD*1.0','ACC:'+iban,'AM:'+currentAmount().toFixed(2),'CC:CZK','MSG:'+msg.replace(/\*/g,'').slice(0,60)];
+  return parts.join('*');
+}
+function refreshPayUI(){
+  var acc=document.getElementById('accNum');
+  if(acc) acc.textContent=bankAccountLabel();
+  var box=document.getElementById('qrBox');
+  if(!box) return;
+  var payload=spdPayload();
+  if(!payload || typeof QRCode==='undefined'){
+    box.innerHTML='<span>'+t('QR kód se zobrazí po vyplnění čísla účtu','QR code will appear once the account number is filled in')+'</span>';
+    return;
+  }
+  box.innerHTML='';
+  try{
+    new QRCode(box,{text:payload,width:220,height:220,correctLevel:QRCode.CorrectLevel.M});
+  }catch(e){
+    box.innerHTML='<span>'+t('QR kód se nepodařilo vytvořit','Could not generate the QR code')+'</span>';
+  }
+}
+
 /* ---------- PAYMENT METHOD TOGGLE ---------- */
 document.querySelectorAll('input[name="pay"]').forEach(function(r){
   r.addEventListener('change',function(){
     document.querySelectorAll('.pay-m').forEach(function(l){l.classList.remove('sel');});
     if(r.checked) r.closest('.pay-m') && r.closest('.pay-m').classList.add('sel');
     document.getElementById('payTransfer').classList.toggle('show', document.getElementById('pmTransfer').checked);
+    if(document.getElementById('pmTransfer').checked) setTimeout(refreshPayUI,0);
   });
 });
-(function(){ document.getElementById('pmCard').closest('.pay-m').classList.add('sel'); })();
+(function(){
+  var card=document.getElementById('pmCard'), tr=document.getElementById('pmTransfer');
+  var useCard=!!MK_CONFIG.payments.cardLink;
+  card.checked=useCard; tr.checked=!useCard;
+  (useCard?card:tr).closest('.pay-m').classList.add('sel');
+  if(!useCard){
+    card.closest('.pay-m').style.opacity='.55';
+    document.getElementById('payTransfer').classList.add('show');
+    var info=document.querySelector('.pay-info');
+    if(info){
+      var cs='Platba probíhá bankovním převodem na účet uvedený níže. QR kód naskenujete v bankovní aplikaci — částka i poznámka jsou předvyplněné. Rezervaci potvrdíme po přijetí platby.';
+      info.setAttribute('data-i18n','payInfoTransfer');
+      info.setAttribute('data-cz',cs);
+      info.textContent=t(cs,'Payment is made by bank transfer to the account shown below. Scan the QR code in your banking app — amount and note are pre-filled. We confirm the booking once the payment arrives.');
+    }
+  }
+  refreshPayUI();
+})();
 
-function payStatusOk(t){
-  var s=document.getElementById('payStatus'); s.className='pay-status ok'; s.textContent=t;
+function payStatusOk(txt){
+  var s=document.getElementById('payStatus'); s.className='pay-status ok'; s.textContent=txt;
 }
-function payStatusErr(t){
-  var s=document.getElementById('payStatus'); s.className='pay-status err'; s.textContent=t;
+function payStatusErr(txt){
+  var s=document.getElementById('payStatus'); s.className='pay-status err'; s.textContent=txt;
 }
 
-document.getElementById('sendBtn').addEventListener('click',function(e){
-  e.preventDefault();
-  var loc=document.getElementById('loc').value;
-  var d=document.getElementById('date').value||'';
-  var n=document.getElementById('nights').value;
-  var total=document.getElementById('total').textContent;
+/* ---------- BOOKING ---------- */
+function bookingData(){
   var packs=[];
   if(document.getElementById('cp1').checked)packs.push('Apiterapie 1500');
   if(document.getElementById('cp2').checked)packs.push('Romantic 2500');
   if(document.getElementById('cp3').checked)packs.push('All inclusive 5500');
-  var isEn=localStorage.getItem('mk-lang')==='en';
-  var waMsg = isEn
-    ? encodeURIComponent('MEDOVÝ KLID booking — '+loc+' | from: '+d+' | nights: '+n+' | '+(packs.join(', ')||'no packages')+' | total: '+total)
-    : encodeURIComponent('Rezervace MEDOVÝ KLID — '+loc+' | příjezd: '+d+' | nocí: '+n+' | '+(packs.join(', ')||'bez balíčků')+' | cena: '+total);
+  return {
+    name:document.getElementById('bName').value.trim(),
+    email:document.getElementById('bEmail').value.trim(),
+    phone:document.getElementById('bPhone').value.trim(),
+    location:document.getElementById('loc').value,
+    dateIn:document.getElementById('date').value||'',
+    dateOut:document.getElementById('dateout').value||'',
+    nights:parseInt(document.getElementById('nights').value,10)||1,
+    packages:packs,
+    total:currentAmount(),
+    consent:document.getElementById('bConsent').checked,
+    lang:isEN()?'en':'cs'
+  };
+}
+function validateBooking(d){
+  if(!d.name || d.name.length<2) return t('Zadejte prosím jméno a příjmení.','Please enter your full name.');
+  if(!validEmail(d.email)) return t('Zadejte prosím platný e-mail.','Please enter a valid e-mail address.');
+  if(!d.dateIn || !d.dateOut) return t('Zvolte prosím termín příjezdu i odjezdu.','Please choose arrival and departure dates.');
+  if(d.dateOut<=d.dateIn) return t('Odjezd musí být později než příjezd.','Departure must be after arrival.');
+  if(!d.consent) return t('Potvrďte prosím souhlas se zpracováním osobních údajů.','Please agree to the processing of personal data.');
+  return '';
+}
+function bookingText(d){
+  var L=[];
+  L.push(t('Rezervace MEDOVÝ KLID','MEDOVÝ KLID booking'));
+  L.push(t('Jméno: ','Name: ')+d.name);
+  L.push(t('E-mail: ','E-mail: ')+d.email);
+  if(d.phone) L.push(t('Telefon: ','Phone: ')+d.phone);
+  L.push(t('Lokalita: ','Location: ')+d.location);
+  L.push(t('Příjezd: ','Arrival: ')+d.dateIn);
+  L.push(t('Odjezd: ','Departure: ')+d.dateOut);
+  L.push(t('Nocí: ','Nights: ')+d.nights);
+  L.push(t('Balíčky: ','Packages: ')+(d.packages.length?d.packages.join(', '):t('žádné','none')));
+  L.push(t('Celkem: ','Total: ')+d.total+' CZK');
+  return L.join('\n');
+}
+function sendWhatsApp(text){
+  window.open('https://wa.me/'+MK_CONFIG.contact.whatsapp+'?text='+encodeURIComponent(text),'_blank');
+  payStatusOk(t('Rezervace připravena — dokončete ji ve WhatsApp.','Booking prepared — continue in WhatsApp.'));
+}
 
-  var viaCard = document.getElementById('pmCard').checked;
+document.getElementById('sendBtn').addEventListener('click',function(e){
+  e.preventDefault();
+  var d=bookingData();
+  var err=validateBooking(d);
+  if(err){ payStatusErr(err); return; }
+  var text=bookingText(d);
+  var viaCard=document.getElementById('pmCard').checked;
 
-  function doneNote(pm){
-    waMsg = waMsg + encodeURIComponent(' | platba: ' + pm);
-    window.open('https://wa.me/420724283050?text='+waMsg,'_blank');
-  }
-
-  if(!viaCard){
-    document.getElementById('payTransfer').classList.add('show');
-    payStatusOk(isEn ? 'Zvolili jste bankovní převod. QR kód a číslo účtu doplníme brzy — rezervaci jsme prozatím odeslali přes WhatsApp.' : 'You chose bank transfer. QR code and account number will be added soon — we have emailed/WhatsApped your booking for now.');
-    doneNote('bank transfer (QR)');
+  if(viaCard && MK_CONFIG.payments.cardLink){
+    var url=MK_CONFIG.payments.cardLink;
+    url+=(url.indexOf('?')>-1?'&':'?')+'client_reference_id='+encodeURIComponent(d.dateIn+'_'+d.email);
+    window.open(url,'_blank');
+    payStatusOk(t('Přesměrováváme na zabezpečenou platbu…','Redirecting to secure payment…'));
     return;
   }
+  if(viaCard){
+    payStatusOk(t('Online platba kartou bude brzy dostupná. Rezervaci odešlete a platební údaje vám zašleme.','Online card payment will be available soon. Send the booking and we will contact you with payment details.'));
+  } else {
+    document.getElementById('payTransfer').classList.add('show');
+    refreshPayUI();
+    payStatusOk(accountIban()
+      ? t('Rezervaci odešlete níže. QR platbu naskenujte v bankovní aplikaci.','Send the booking below. Scan the QR payment in your banking app.')
+      : t('Rezervaci odešlete níže. Číslo účtu doplníme brzy — ozveme se vám s platebními údaji.','Send the booking below. The account number will be added soon — we will contact you with payment details.'));
+  }
+  sendWhatsApp(text);
+});
 
-  if(!window.PaymentRequest){ payStatusErr(isEn?'Payments not supported in this browser.':'Platby nejsou v tomto prohlížeči podporovány.'); return; }
-
-  var amount = parseFloat(String(total).replace(/[^0-9.]/g,''))||0;
-  if(amount<=0){ payStatusErr(isEn?'Please select dates first.':'Nejdříve zvolte termín.'); return; }
-
-  var methodData=[{supportedMethods:'basic-card', data:{supportedNetworks:['visa','mastercard','maestro','amex']}}];
-  if(window.ApplePaySession){ methodData.push({supportedMethods:'https://apple.com/apple-pay', data:{version:3, merchantIdentifier:'merchant.medovyklid', supportedNetworks:['visa','mastercard'], countryCode:'CZ', currencyCode:'CZK'}}); }
-  var details={total:{label:'MEDOVÝ KLID', amount:{currency:'CZK', value:amount.toFixed(2)}}};
-  var pr=new PaymentRequest(methodData, details);
-  pr.show().then(function(result){
-    return result.complete('success').then(function(){ return result; });
-  }).then(function(result){
-    payStatusOk(isEn?'Payment successful! Booking sent via WhatsApp.':'Platba proběhla úspěšně! Rezervaci jsme odeslali přes WhatsApp.');
-    doneNote(result.methodName||'card');
-  }).catch(function(err){
-    if(err && err.name==='AbortError'){ return; }
-    payStatusErr(isEn?('Payment cancelled/failed: '+err.message):('Platba zrušena nebo selhala: '+err.message));
-  });
+document.getElementById('sendMailBtn').addEventListener('click',function(e){
+  e.preventDefault();
+  var d=bookingData();
+  var err=validateBooking(d);
+  if(err){ payStatusErr(err); return; }
+  var subject=t('Rezervace MEDOVÝ KLID','MEDOVÝ KLID booking')+' — '+d.dateIn;
+  var url='mailto:'+encodeURIComponent(MK_CONFIG.contact.bookingEmail)+'?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(bookingText(d));
+  window.location.href=url;
+  payStatusOk(t('Otevřeli jsme váš e-mailový klient — zprávu odešlete.','We opened your e-mail client — please send the message.'));
 });
 
 /* ---------- GALLERY FILTER ---------- */
@@ -1159,8 +1448,50 @@ function toggleFaq(el){
 /* ---------- NEWSLETTER ---------- */
 function subscribe(e){
   e.preventDefault();
-  document.getElementById('nlOk').style.display='block';
+  var email=document.getElementById('nlEmail').value.trim();
+  var ok=document.getElementById('nlOk');
+  ok.style.display='block';
+  if(!validEmail(email)){
+    ok.textContent=t('Zadejte prosím platný e-mail.','Please enter a valid e-mail address.');
+    return;
+  }
   document.getElementById('nlEmail').value='';
+  if(MK_CONFIG.newsletter.endpoint){
+    ok.textContent=t('Odesíláme…','Sending…');
+    fetch(MK_CONFIG.newsletter.endpoint,{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({email:email,consent:true,source:'medovyklid.github.io'})
+    }).then(function(r){
+      if(!r.ok) throw new Error('HTTP '+r.status);
+      ok.textContent=t('Děkujeme! Jste přihlášeni k odběru. 🐝','Thank you! You have been subscribed. 🐝');
+    }).catch(function(){
+      mailtoSubscribe(email);
+    });
+    return;
+  }
+  mailtoSubscribe(email);
+}
+function mailtoSubscribe(email){
+  var ok=document.getElementById('nlOk');
+  ok.style.display='block';
+  ok.textContent=t('Otevřeli jsme váš e-mail — potvrďte prosím odběr odesláním zprávy.','We opened your e-mail — please confirm the subscription by sending the message.');
+  var url='mailto:'+encodeURIComponent(MK_CONFIG.contact.email)
+    +'?subject='+encodeURIComponent(t('Odběr novinek MEDOVÝ KLID','MEDOVÝ KLID newsletter'))
+    +'&body='+encodeURIComponent(t('Přihlaste mě prosím k odběru novinek.\n\nE-mail: ','Please subscribe me to the newsletter.\n\nE-mail: ')+email);
+  window.location.href=url;
+}
+
+/* ---------- MAP CONSENT ---------- */
+function loadMap(){
+  var c=document.getElementById('mapConsent');
+  if(!c) return;
+  var iframe=document.createElement('iframe');
+  iframe.loading='lazy';
+  iframe.src='https://www.google.com/maps?q=50.504563,14.385309&z=13&output=embed';
+  iframe.title='Mapa lokality MEDOVÝ KLID — Snědovice';
+  iframe.setAttribute('referrerpolicy','no-referrer-when-downgrade');
+  c.parentNode.replaceChild(iframe,c);
 }
 
 /* ---------- RESERVATION CALENDAR ---------- */
@@ -1173,8 +1504,14 @@ function renderCals(){
   var mo=['Leden','Únor','Březen','Duben','Květen','Červen','Červenec','Srpen','Září','Říjen','Listopad','Prosinec'];
   var moEN=['January','February','March','April','May','June','July','August','September','October','November','December'];
   var isEn=localStorage.getItem('mk-lang')==='en';
-  var m2=(calM+1>11)?0:calM+1;
-  var y2=(calM+1>11)?calY+1:calY;
+  var m2, y2;
+  if(arrDate){
+    m2=arrDate.getMonth(); y2=arrDate.getFullYear();
+    if(calY*12+calM > y2*12+m2){ m2=calM; y2=calY; }
+  } else {
+    m2=(calM+1>11)?0:calM+1;
+    y2=(calM+1>11)?calY+1:calY;
+  }
   document.getElementById('calArrTitle').textContent=(isEn?moEN[calM]:mo[calM])+' '+calY;
   document.getElementById('calDepTitle').textContent=(isEn?moEN[m2]:mo[m2])+' '+y2;
   renderCal('calArrGrid',calY,calM,true);
@@ -1202,18 +1539,22 @@ function renderCal(id,y,m,isArr){
   }
   g.innerHTML=html;
 }
+function setDateInput(id,dt){
+  var el=document.getElementById(id);
+  if(!el) return;
+  el.value=isoDate(dt.getFullYear(),dt.getMonth(),dt.getDate());
+}
 function pickCal(d,m,y,isArr){
   var dt=new Date(y,m,d);
   if(isArr){
     arrDate=dt; depDate=null;
     setDateInput('date',dt);
-    document.getElementById('dateout').value='';
     document.getElementById('nights').value='2';
+    syncDeparture();
     calc();
-    renderCals();
   } else {
     if(!arrDate){ return; }
-    if(dt<=arrDate){ alert('Odjezd musí být později než příjezd.'); return; }
+    if(dt<=arrDate){ alert(t('Odjezd musí být později než příjezd.','Departure must be after arrival.')); return; }
     depDate=dt;
     setDateInput('dateout',dt);
     var nights=Math.round((depDate-arrDate)/86400000);
@@ -1222,8 +1563,26 @@ function pickCal(d,m,y,isArr){
     renderCals();
   }
 }
-/* init calendar + tie monthly change to both cals */
+function syncDeparture(){
+  if(!arrDate) return;
+  var n=Math.max(1,Math.min(30,parseInt(document.getElementById('nights').value,10)||1));
+  var dep=new Date(arrDate.getTime()+n*86400000);
+  depDate=dep;
+  setDateInput('dateout',dep);
+  renderCals();
+}
+/* init calendar + load availability */
 calInit();
+(function loadBookings(){
+  var url=MK_CONFIG.booking.bookingsUrl;
+  if(!url || typeof fetch!=='function') return;
+  fetch(url,{cache:'no-store'}).then(function(r){ return r.ok?r.json():null; }).then(function(data){
+    if(!data) return;
+    var arr=Array.isArray(data)?data:(Array.isArray(data.booked)?data.booked:[]);
+    arr.forEach(function(x){ if(typeof x==='string' && BOOKED.indexOf(x)===-1) BOOKED.push(x); });
+    renderCals();
+  }).catch(function(){});
+})();
 
 /* ---------- THEME TOGGLE ---------- */
 function toggleTheme(){
@@ -1255,6 +1614,13 @@ window.addEventListener('scroll',function(){
   });},{rootMargin:'200px'});
   document.querySelectorAll('img.lzy').forEach(function(img){lio.observe(img);});
 })();
+/* hero slides must always have a real src */
+window.addEventListener('load',function(){
+  document.querySelectorAll('#hero .slide-imgs img').forEach(function(img){
+    if(img.getAttribute('data-src')){ img.src=img.getAttribute('data-src'); img.removeAttribute('data-src'); }
+    img.classList.add('loaded');
+  });
+});
 
 /* ---------- HERO SLIDES ---------- */
 var H=0, HT=3, HTimer=null;

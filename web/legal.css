@@ -1,0 +1,40 @@
+/* MEDOVÝ KLID® — společné styly právních stránek */
+:root{
+  --forest:#0b1f16;--forest-2:#123227;--ivory:#f4efe5;--cream:#efe7d6;
+  --sand:#ddd2bc;--honey:#c9a227;--honey-soft:#e3c568;--gold:#b8933a;
+  --ink:#1c2520;--muted:#6b7368;--line:#ddd2bc;
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'Jost',-apple-system,'Segoe UI',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--ivory);color:var(--ink);line-height:1.8;font-weight:300;-webkit-font-smoothing:antialiased}
+a{color:var(--gold);text-decoration:none}
+a:hover{text-decoration:underline}
+.top{background:var(--forest);color:var(--ivory);padding:1rem 1.5rem;position:sticky;top:0;z-index:10;box-shadow:0 4px 20px rgba(0,0,0,.25)}
+.top .in{max-width:960px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.brand{font-family:var(--serif);font-size:1.05rem;letter-spacing:2px;color:var(--ivory);text-decoration:none}
+.brand span{color:var(--honey-soft);font-size:.72rem;letter-spacing:2px;font-family:var(--sans);text-transform:uppercase;margin-left:.4rem}
+.back{font-size:.78rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--honey-soft)}
+.hero{background:var(--forest);color:var(--ivory);padding:3.2rem 1.5rem 3.6rem;text-align:center}
+.hero .eyebrow{font-size:.68rem;letter-spacing:5px;text-transform:uppercase;color:var(--honey);margin-bottom:.8rem}
+.hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(1.8rem,4vw,2.7rem);letter-spacing:1px}
+.hero p{color:#c9c1ad;margin-top:.9rem;font-size:.95rem}
+main{max-width:860px;margin:0 auto;padding:3rem 1.5rem 4rem}
+h2{font-family:var(--serif);font-weight:500;font-size:1.45rem;color:var(--forest);margin:2.4rem 0 .8rem}
+h2:first-child{margin-top:0}
+h3{font-family:var(--serif);font-weight:500;font-size:1.1rem;color:var(--forest);margin:1.6rem 0 .5rem}
+p{margin-bottom:1rem;color:#2a332d}
+ul,ol{margin:0 0 1.2rem 1.3rem}
+li{margin-bottom:.45rem}
+strong{font-weight:500;color:var(--forest)}
+.box{background:#fff;border:1px solid var(--line);border-left:4px solid var(--honey);border-radius:0 10px 10px 0;padding:1.2rem 1.5rem;margin:1.4rem 0}
+.box p{margin-bottom:.4rem;font-size:.92rem}
+table{width:100%;border-collapse:collapse;margin:1.2rem 0;background:#fff;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+th,td{padding:.75rem 1rem;text-align:left;border-bottom:1px solid var(--line);font-size:.9rem}
+th{background:var(--forest);color:var(--ivory);font-weight:500;font-size:.78rem;letter-spacing:1px;text-transform:uppercase}
+.note{font-size:.8rem;color:var(--muted);margin-top:2rem;border-top:1px solid var(--line);padding-top:1rem}
+footer{background:var(--forest);color:#c9c1ad;text-align:center;padding:2rem 1.5rem;font-size:.8rem;line-height:1.9}
+footer a{color:var(--honey-soft)}
+footer .links{margin-bottom:.6rem}
+@media(max-width:600px){table{font-size:.82rem}th,td{padding:.6rem .7rem}}

@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MEDOVÝ KLID Assistant</title>
+    <title>MEDOVÝ KLID Assistant — interní nástroj</title>
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="theme-color" content="#0a1f18">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Outfit:wght@300;400;500;600&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
@@ -654,7 +656,7 @@
                         <div class="form-group">
                             <label>Rozměr</label>
                             <select id="cabinSize">
-                                <option>3.6 × 8.4 m (~30,24 m²) - 796 000 Kč</option>
+                                <option>3.6 × 8.4 m (~30,24 m²) - 1 000 000 Kč</option>
                                 <option>4.0 × 10.0 m (55 m²) - 1 150 000 Kč</option>
                             </select>
                         </div>
@@ -876,7 +878,7 @@
             if (msg.includes('roi') || msg.includes('návratnost')) return 'Pro výpočet ROI použij sekci "Kalkulačky"!';
             if (msg.includes('marketing') || msg.includes('text')) return 'Použij sekci "Marketing" pro generování textů.';
             if (msg.includes('lokace')) return 'Jdi do sekce "Lokace" pro hodnocení pozemků.';
-            if (msg.includes('cena') || msg.includes('kabina')) return 'Cena standardní kabiny: 796 000 Kč (30.24m²).';
+            if (msg.includes('cena') || msg.includes('kabina')) return 'Cena standardní kabiny: 1 000 000 Kč (30.24m²).';
             return 'Rozumím! Použij menu pro navigaci nebo se zeptej na konkrétní téma.';
         }
 
@@ -1089,15 +1091,15 @@
 
         // Documents
         function showProjectIntent() {
-            alert('PROJEKTOVÝ ZÁMĚR\n\nMEDOVÝ KLID® - Ekologický wellness domek s apiterapií\n\nProjekt představuje koncept malého ekologického wellness domku v přírodním prostředí pro odpočinek a regeneraci. Malokapacitní objekt pro 2 osoby, princip tichého turismu.\n\nRozměr: 3,6 × 8,4m (~30.24m²)\nCena: 796 000 Kč');
+            alert('PROJEKTOVÝ ZÁMĚR\n\nMEDOVÝ KLID® - Ekologický wellness domek s apiterapií\n\nProjekt představuje koncept malého ekologického wellness domku v přírodním prostředí pro odpočinek a regeneraci. Malokapacitní objekt pro 2 osoby, princip tichého turismu.\n\nRozměr: 3,6 × 8,4m (~30.24m²)\nCena: 1 000 000 Kč');
         }
 
         function showTechSpecs() {
-            alert('TECHNICKÉ SPECIFIKACE\n\nRozměry: 3,6 × 8,4m, výška 3,4m\nKonstrukce: Modulární panely, slaměné stěny 24cm\n\nMístnosti:\n- Ložnice 4×3,6m (postel 2×2m)\n- Apiterapie 2,4×3,6m\n- Koupelna s mlhovou sprchou\n- Kompostovací WC\n\nEnergie: Solár 2kWp, Baterie 5kWh, Kamna, Tepelné úložiště 200l\nVoda: 1000l podzemní, 3-stupňová filtrace, UV\n\nCENA: 796 000 Kč (cca 32 000 €)');
+            alert('TECHNICKÉ SPECIFIKACE\n\nRozměry: 3,6 × 8,4m, výška 3,4m\nKonstrukce: Modulární panely, slaměné stěny 24cm\n\nMístnosti:\n- Ložnice 4×3,6m (postel 2×2m)\n- Apiterapie 2,4×3,6m\n- Koupelna s mlhovou sprchou\n- Kompostovací WC\n\nEnergie: Solár 2kWp, Baterie 5kWh, Kamna, Tepelné úložiště 200l\nVoda: 1000l podzemní, 3-stupňová filtrace, UV\n\nCENA: 1 000 000 Kč (cca 38 000 €)');
         }
 
         function showBusinessPlan() {
-            alert('BUSINESS PLAN\n\nInvestice: 796 000 Kč\nOčekávané tržby: 1 800 000 Kč/rok\nNáklady: 600 000 Kč/rok\nČistý zisk: 1 200 000 Kč/rok\nROI: 150%\nDoba návratnosti: 8 měsíců');
+            alert('BUSINESS PLAN\n\nInvestice: 1 000 000 Kč\nOčekávané tržby: 780 000 Kč/rok\nNáklady: 145 000 Kč/rok\nČistý zisk: 409 000 Kč/rok\nROI: 40,9%\nDoba návratnosti: cca 2,4 roku');
         }
 
         function showBrandSystem() {
@@ -1133,14 +1135,14 @@ TECHNICKÉ SPECIFIKACE
 - Konstrukce: Dřevo + slaměné balíky + hliněné omítky
 - Energie: Solár 2kWp + baterie 5kWh + kamna
 - Voda: 1000l podzemní + filtrace + UV
-- Cena: 796 000 Kč
+- Cena: 1 000 000 Kč
 
 BISNUES MODEL
-- Investice: 796 000 Kč
-- Roční tržby: 1 800 000 Kč
-- Roční náklady: 600 000 Kč
-- Čistý zisk: 1 200 000 Kč/rok
-- ROI: 150%
+- Investice: 1 000 000 Kč
+- Roční tržby: 780 000 Kč
+- Roční náklady: 145 000 Kč
+- Čistý zisk: 409 000 Kč/rok
+- ROI: 40,9%
             `;
             const blob = new Blob([content], { type: 'text/plain' });
             const url = URL.createObjectURL(blob);

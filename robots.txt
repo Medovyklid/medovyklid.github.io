@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Interní podklady – neindexovat
+Disallow: /banka/
+Disallow: /asistent/
+Disallow: /nahled/
+
+Sitemap: https://medovyklid.github.io/sitemap.xml
