@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="cs">
 <head>
 <meta charset="utf-8">
@@ -56,7 +56,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:
 .hero .hs{text-align:center}
 .hero .hs b{display:block;font-family:var(--serif);font-size:2rem;color:var(--honey-soft)}
 .hero .hs span{font-size:.7rem;letter-spacing:2px;text-transform:uppercase;color:#b0a990}
-.eyebrow{font-size:.68rem;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.eyebrow{font-size:.68rem;letter-spacing:5px;text-transform:uppercase;color:#7d5f15;margin-bottom:8px}
 h2{font-family:var(--serif);font-weight:500;font-size:clamp(1.6rem,3.5vw,2.2rem);margin-bottom:6px;color:var(--text)}
 .lead{color:var(--text-soft);margin-bottom:24px;max-width:700px;font-size:1.02rem}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin:22px 0}
@@ -88,16 +88,18 @@ h2{font-family:var(--serif);font-weight:500;font-size:clamp(1.6rem,3.5vw,2.2rem)
 .step{display:flex;gap:20px;margin-bottom:28px;position:relative}
 .step::before{counter-increment:step;content:counter(step);width:44px;height:44px;border-radius:99px;background:var(--honey);color:var(--forest);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1rem;flex-shrink:0}
 .step:not(:last-child)::after{content:'';position:absolute;left:22px;top:48px;width:2px;height:calc(100% - 16px);background:var(--sand)}
-.step h4{font-family:var(--serif);font-size:1.05rem;color:var(--forest);margin-bottom:4px}
+.step h3{font-family:var(--serif);font-size:1.05rem;color:var(--forest);margin-bottom:4px}
 .step p{font-size:.88rem;color:var(--text-soft)}
 .page{padding:50px 0}
 .page:nth-child(even){background:var(--bg-alt)}
 .footer-band{background:var(--forest);color:var(--ivory);text-align:center;padding:40px 28px}
 .footer-band a{color:var(--honey-soft);text-decoration:none}
-.foot{text-align:center;color:rgba(244,239,229,.4);font-size:.72rem;padding:20px 28px 30px;background:var(--forest)}
+.footer-band a.btn{color:var(--forest)}
+.footer-band a.btn.ghost{color:var(--honey)}
+.foot{text-align:center;color:rgba(244,239,229,.62);font-size:.72rem;padding:20px 28px 30px;background:var(--forest)}
 .q-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;margin:20px 0}
 .q{background:var(--card);border:1px solid var(--card-line);border-radius:10px;padding:18px 20px}
-.q h4{font-size:.95rem;color:var(--forest);margin-bottom:6px}
+.q h3{font-size:.95rem;color:var(--forest);margin-bottom:6px}
 .q p{font-size:.85rem;color:var(--text-soft)}
 .loc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px;margin:18px 0}
 .loc{background:var(--card);border:1px solid var(--card-line);border-radius:8px;padding:12px 14px;display:flex;align-items:center;gap:10px;font-size:.86rem}
@@ -114,8 +116,7 @@ a[href="#"]{text-decoration:none}
 <button class="theme-toggle" onclick="toggle()" aria-label="Přepnout motiv">🌓</button>
 
 <!-- ===== NAV ===== -->
-<nav style="position:fixed;top:0;left:0;right:0;z-index:997;background:var(--forest);display:flex;align-items:center;justify-content:space-between;padding:0 28px;height:56px;border-bottom:1px solid rgba(201,162,39,.15)">
-  <span style="font-family:var(--serif);color:var(--ivory);font-weight:500;font-size:.95rem">MEDOVÝ KLID<sup style="font-size:.5em">®</sup></span>
+<nav style="position:fixed;top:0;left:0;right:0;z-index:997;background:var(--forest);display:flex;align-items:center;justify-content:space-between;padding:0 28px;height:56px;border-bottom:1px solid rgba(201,162,39,.15)">  <span style="font-family:var(--serif);color:var(--ivory);font-weight:500;font-size:.95rem">MEDOVÝ KLID<sup style="font-size:.5em">®</sup></span>
   <div style="display:flex;gap:20px;align-items:center">
     <a href="#co-dostanete" style="color:var(--honey-soft);font-size:.82rem;text-decoration:none">Co dostanete</a>
     <a href="#financie" style="color:var(--honey-soft);font-size:.82rem;text-decoration:none">Finance</a>
@@ -124,6 +125,8 @@ a[href="#"]{text-decoration:none}
     <a href="#kontakt" style="background:var(--honey);color:var(--forest);padding:8px 20px;border-radius:99px;font-size:.8rem;font-weight:600;text-decoration:none">Kontakt</a>
   </div>
 </nav>
+
+<main id="main">
 
 <!-- ===== HERO ===== -->
 <div class="hero" style="padding-top:130px">
@@ -197,7 +200,7 @@ a[href="#"]{text-decoration:none}
     <div class="card"><div class="ic">📖</div><h3>Provozní manuál</h3><p>Kompletní návod na provoz — od údržby po pricing, komunikaci s hosty a wellness programy.</p></div>
     <div class="card"><div class="ic">🌐</div><h3>Centrální web + rezervace</h3><p>Vaše lokalita na medovyklid.cz s online rezervačním systémem. Žádné náklady na vlastní web.</p></div>
     <div class="card"><div class="ic">📦</div><h3>Dodavatelé</h3><p>Přístup ke všem našim dodavatelům za velkoobchodní ceny — sláma, fotovoltaika, sauna, úly.</p></div>
-    <div class="card"><div class="ic">🛡</div><h3>Ochranná známka</p><p>Licence na používání značky MEDOVÝ KLID® v ČR i celé EU na 10 let.</p></div>
+    <div class="card"><div class="ic">🛡</div><h3>Ochranná známka</h3><p>Licence na používání značky MEDOVÝ KLID® v ČR i celé EU na 10 let.</p></div>
     <div class="card"><div class="ic">📞</div><h3>Podpora 24/7</h3><p>Non-stop telefonická podpora. Při problémech s hosty, technikou nebo marketingem — jsme tu.</p></div>
     <div class="card"><div class="ic">🎓</div><h3>Školení</h3><p>3denní školení na naší provozovně v Snědovicích — provoz, apiterapie, wellness, údržba.</p></div>
   </div>
@@ -271,12 +274,12 @@ a[href="#"]{text-decoration:none}
   <p class="lead">Jednoduchý proces ve 6 krocích — od prvního kontaktu po předání klíčů.</p>
 
   <div class="steps">
-    <div class="step"><div><h4>Kontakt a konzultace</h4><p>Zavolejte nám nebo napište. Probereme vaše představy, možnosti lokality a finanční plán. Konzultace zdarma.</p></div></div>
-    <div class="step"><div><h4>Výběr lokality</h4><p>Pomůžeme vám najít ideální pozemek — les, pole, louka s přístupovou cestou. Nepotřebujete stavební parcelu.</p></div></div>
-    <div class="step"><div><h4>Podpis smlouvy + platba</h4><p>Podepíšeme franchisovou smlouvu, zaplatíte vstupní investici 1 000 000 Kč. Začínáme stavět.</p></div></div>
-    <div class="step"><div><h4>Výstavba (8–12 týdnů)</h4><p>Dodáme a smontujeme domek na vašem pozemku. Včetně veškerého vybavení, solárů, úlů a sauny.</p></div></div>
-    <div class="step"><div><h4>Školení (3 dny)</h4><p>Přijedete k nám do Snědovic. Naučíme vás provoz, apiterapii, údržbu, práci s hosty a wellness programy.</p></div></div>
-    <div class="step"><div><h4>Spouštíme prodej</h4><p>Vaše lokalita se objeví na medovyklid.cz. Přijímáme rezervace. Vy provozujete, hosté přicházejí.</p></div></div>
+    <div class="step"><div><h3>Kontakt a konzultace</h3><p>Zavolejte nám nebo napište. Probereme vaše představy, možnosti lokality a finanční plán. Konzultace zdarma.</p></div></div>
+    <div class="step"><div><h3>Výběr lokality</h3><p>Pomůžeme vám najít ideální pozemek — les, pole, louka s přístupovou cestou. Nepotřebujete stavební parcelu.</p></div></div>
+    <div class="step"><div><h3>Podpis smlouvy + platba</h3><p>Podepíšeme franchisovou smlouvu, zaplatíte vstupní investici 1 000 000 Kč. Začínáme stavět.</p></div></div>
+    <div class="step"><div><h3>Výstavba (8–12 týdnů)</h3><p>Dodáme a smontujeme domek na vašem pozemku. Včetně veškerého vybavení, solárů, úlů a sauny.</p></div></div>
+    <div class="step"><div><h3>Školení (3 dny)</h3><p>Přijedete k nám do Snědovic. Naučíme vás provoz, apiterapii, údržbu, práci s hosty a wellness programy.</p></div></div>
+    <div class="step"><div><h3>Spouštíme prodej</h3><p>Vaše lokalita se objeví na medovyklid.cz. Přijímáme rezervace. Vy provozujete, hosté přicházejí.</p></div></div>
   </div>
 </div>
 </div>
@@ -344,14 +347,14 @@ a[href="#"]{text-decoration:none}
   <h2>Časté dotazy franšízantů</h2>
 
   <div class="q-grid">
-    <div class="q"><h4>Potřebuji stavební parcelu?</h4><p>Ne. Domek má 30,24 m² — pod limit 40 m². Nepotřebujete stavební povolení ani stavební parcelu. Postačí přístupová cesta a souhlas vlastníka pozemku.</p></div>
-    <div class="q"><h4>Můžu si domek postavit sám?</h4><p>Ne. Součástí franšízy je kompletní dodávka a montáž od našich osvědčených dodavatelů. Tím garantujeme kvalitu a jednotnost značky.</p></div>
-    <div class="q"><h4>Co když nebudu mít dost hostů?</h4><p>Průměrná obsazenost glampingů v ČR je 55–70 %. Naše konzervativní kalkulace počítá s 60 %. Navíc — centrální web a marketing zajišťuje centrála.</p></div>
-    <div class="q"><h4>Jak dlouho trvá výstavba?</h4><p>8–12 týdnů od podpisu smlouvy po předání klíčů. Domek se staví v naší dílně a na místě se jen smontuje.</p></div>
-    <div class="q"><h4>Co je apiterapie a baví to hosty?</h4><p>Spánek nad včelími úly, medové masáže, vdechování včelího vzduchu. Hosté to milují — je to unikát, který nemá konkurenci. Průměrné hodnocení: 4,9/5.</p></div>
-    <div class="q"><h4>Co když chci franšízu prodat?</h4><p>Franchisovou smlouvu lze převést na nového provozovatele s naším souhlasem. Domek zůstává vaším majetkem.</p></div>
-    <div class="q"><h4>Jaká je délka smlouvy?</h4><p>Franchisová smlouva se uzavírá na 10 let s možností prodloužení. Ochranná známka je registrována na 10 let s automatickým obnovením.</p></div>
-    <div class="q"><h4>Musím platit 8 % i když nemám hosty?</h4><p>Poplatek 8 % se platí z reálného obratu. Pokud nemáte hosty, neplatíte nic. Vaše jediné náklady jsou provozní (údržba, pojištění).</p></div>
+    <div class="q"><h3>Potřebuji stavební parcelu?</h3><p>Ne. Domek má 30,24 m² — pod limit 40 m². Nepotřebujete stavební povolení ani stavební parcelu. Postačí přístupová cesta a souhlas vlastníka pozemku.</p></div>
+    <div class="q"><h3>Můžu si domek postavit sám?</h3><p>Ne. Součástí franšízy je kompletní dodávka a montáž od našich osvědčených dodavatelů. Tím garantujeme kvalitu a jednotnost značky.</p></div>
+    <div class="q"><h3>Co když nebudu mít dost hostů?</h3><p>Průměrná obsazenost glampingů v ČR je 55–70 %. Naše konzervativní kalkulace počítá s 60 %. Navíc — centrální web a marketing zajišťuje centrála.</p></div>
+    <div class="q"><h3>Jak dlouho trvá výstavba?</h3><p>8–12 týdnů od podpisu smlouvy po předání klíčů. Domek se staví v naší dílně a na místě se jen smontuje.</p></div>
+    <div class="q"><h3>Co je apiterapie a baví to hosty?</h3><p>Spánek nad včelími úly, medové masáže, vdechování včelího vzduchu. Hosté to milují — je to unikát, který nemá konkurenci. Průměrné hodnocení: 4,9/5.</p></div>
+    <div class="q"><h3>Co když chci franšízu prodat?</h3><p>Franchisovou smlouvu lze převést na nového provozovatele s naším souhlasem. Domek zůstává vaším majetkem.</p></div>
+    <div class="q"><h3>Jaká je délka smlouvy?</h3><p>Franchisová smlouva se uzavírá na 10 let s možností prodloužení. Ochranná známka je registrována na 10 let s automatickým obnovením.</p></div>
+    <div class="q"><h3>Musím platit 8 % i když nemám hosty?</h3><p>Poplatek 8 % se platí z reálného obratu. Pokud nemáte hosty, neplatíte nic. Vaše jediné náklady jsou provozní (údržba, pojištění).</p></div>
   </div>
 </div>
 </div>
@@ -401,6 +404,8 @@ a[href="#"]{text-decoration:none}
   </div>
 </div>
 </div>
+
+</main>
 
 <!-- ===== FOOTER ===== -->
 <div class="footer-band">

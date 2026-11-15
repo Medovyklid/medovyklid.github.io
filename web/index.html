@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="cs">
 <head>
 <meta charset="UTF-8">
@@ -78,7 +78,7 @@
   --honey-soft:#e3c568;
   --gold:#b8933a;
   --ink:#1c2520;
-  --muted:#6b7368;
+  --muted:#5a6257;
   --line:rgba(201,162,39,.28);
   --serif:'Playfair Display',Georgia,serif;
   --sans:'Jost',-apple-system,Segoe UI,sans-serif;
@@ -90,7 +90,7 @@
   --card:#ffffff;
   --card-line:#ddd2bc;
   --text:#1c2520;
-  --text-soft:#6b7368;
+  --text-soft:#5a6257;
   --section-line:rgba(201,162,39,.28);
   --shadow:rgba(11,31,22,.08);
 }
@@ -102,6 +102,7 @@
   --card-line:#2c3a32;
   --text:#e9e4d8;
   --text-soft:#a8b2a6;
+  --muted:#9aa79b;
   --section-line:rgba(201,162,39,.35);
   --shadow:rgba(0,0,0,.5);
 }
@@ -157,7 +158,7 @@ html,body{overflow-x:clip}
 /* ---------- LAYOUT ---------- */
 .wrap{max-width:1160px;margin:0 auto;padding:0 4vw}
 section{padding:6.5rem 0}
-.eyebrow-dark{font-size:.7rem;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
+.eyebrow-dark{font-size:.7rem;letter-spacing:5px;text-transform:uppercase;color:#7d5f15;margin-bottom:1rem}
 h2.title{font-family:var(--serif);font-weight:500;font-size:clamp(2rem,4.5vw,3.2rem);color:var(--text);line-height:1.15;letter-spacing:1px}
 h2.title em{font-style:italic}
 .lead{color:var(--muted);max-width:640px;font-size:1.02rem}
@@ -183,6 +184,9 @@ h2.title em{font-style:italic}
 
 /* ---------- CABIN ---------- */
 .cabin{background:var(--forest);color:var(--ivory)}
+.cabin h2.title,.packages h2.title{color:var(--ivory)}
+.cabin .lead,.packages .lead{color:rgba(244,239,229,.78)}
+.cabin .eyebrow-dark,.packages .eyebrow-dark{color:var(--honey-soft)}
 .cabin-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:3.5rem;margin-top:3rem;align-items:center}
 .cabin-img{position:relative}
 .cabin-img img{width:100%;height:600px;object-fit:cover;border-radius:4px}
@@ -271,12 +275,12 @@ h2.title em{font-style:italic}
 /* ---------- FOOTER ---------- */
 footer{background:var(--forest);color:var(--sand);padding:4.5rem 5vw 2rem;border-top:1px solid var(--line)}
 .f-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:2.5rem;max-width:1160px;margin:0 auto}
-.f-grid h4{font-family:var(--serif);font-weight:500;color:var(--honey-soft);letter-spacing:1px;margin-bottom:1rem;font-size:1.05rem}
+.f-grid h3{font-family:var(--serif);font-weight:500;color:var(--honey-soft);letter-spacing:1px;margin-bottom:1rem;font-size:1.05rem}
 .f-grid a{display:block;text-decoration:none;color:var(--sand);font-size:.9rem;padding:.25rem 0;transition:.3s}
 .f-grid a:hover{color:var(--honey-soft)}
 .f-grid p{font-size:.9rem}
 fbrand .fbrand{font-family:var(--serif);font-size:1.4rem;letter-spacing:3px;color:var(--honey-soft)}
-.f-bottom{border-top:1px solid rgba(244,239,229,.1);margin-top:3rem;padding-top:1.8rem;text-align:center;font-size:.74rem;letter-spacing:2px;text-transform:uppercase;color:rgba(244,239,229,.4)}
+.f-bottom{border-top:1px solid rgba(244,239,229,.1);margin-top:3rem;padding-top:1.8rem;text-align:center;font-size:.74rem;letter-spacing:2px;text-transform:uppercase;color:rgba(244,239,229,.62)}
 
 /* ---------- THEME TOGGLE ---------- */
 .toggle-wrap{position:fixed;right:1.4rem;bottom:4.6rem;z-index:1001}
@@ -312,8 +316,8 @@ img.lzy.loaded{opacity:1}
 .hero .slide-imgs img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.6s ease;transform:scale(1.05)}
 .hero .slide-imgs img.active{opacity:1}
 .hero-slide-dots{position:absolute;bottom:12vh;left:50%;transform:translateX(-50%);z-index:3;display:flex;gap:.5rem}
-.hero-slide-dots button{width:8px;height:8px;border-radius:99px;border:0;background:rgba(244,239,229,.4);cursor:pointer;transition:.3s}
-.hero-slide-dots button.active{background:var(--honey);width:22px}
+.hero-slide-dots button{width:8px;height:8px;padding:8px;box-sizing:content-box;background-clip:content-box;border-radius:99px;border:0;background-color:rgba(244,239,229,.4);cursor:pointer;transition:.3s}
+.hero-slide-dots button.active{background-color:var(--honey);width:22px}
 .loc-map{position:relative;overflow:hidden;border-radius:10px;border:1px solid var(--section-line);box-shadow:0 16px 40px var(--shadow)}
 .loc-map iframe{width:100%;height:340px;border:0;display:block}
 .loc-map .badge{position:absolute;left:1.2rem;bottom:1.2rem;background:rgba(11,31,22,.9);color:var(--honey-soft);padding:.5rem 1.2rem;border-radius:99px;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;border:1px solid var(--honey);z-index:2}
@@ -377,8 +381,8 @@ img.lzy.loaded{opacity:1}
 .testi .stars{color:var(--honey);letter-spacing:6px;margin-top:1.6rem;font-size:1rem}
 .testi .who{margin-top:.8rem;font-size:.76rem;letter-spacing:3px;text-transform:uppercase;color:var(--muted)}
 .testi-dots{display:flex;justify-content:center;gap:.5rem;margin-top:2rem}
-.testi-dots button{width:9px;height:9px;border-radius:99px;border:0;background:rgba(201,162,39,.3);cursor:pointer;transition:.3s}
-.testi-dots button.active{background:var(--honey);width:22px}
+.testi-dots button{width:9px;height:9px;padding:8px;box-sizing:content-box;background-clip:content-box;border-radius:99px;border:0;background-color:rgba(201,162,39,.35);cursor:pointer;transition:.3s}
+.testi-dots button.active{background-color:var(--honey);width:22px}
 .testi-arrow{position:absolute;top:50%;transform:translateY(-50%);background:rgba(201,162,39,.12);border:1px solid var(--section-line);width:42px;height:42px;border-radius:99px;color:var(--text);font-size:1.2rem;cursor:pointer;transition:.3s}
 .testi-arrow:hover{background:var(--honey);color:#fff}
 .testi-arrow.prev{left:-70px}
@@ -483,7 +487,7 @@ img.lzy.loaded{opacity:1}
     <img class="lzy" data-src="img/dom2.jpg" alt="MEDOVÝ KLID cabin twilight">
     <img class="lzy" data-src="img/web.jpg" alt="MEDOVÝ KLID cabin view">
   </div>
-  <div class="hero-slide-dots" id="heroDots"><button class="active" onclick="goH(0)"></button><button onclick="goH(1)"></button><button onclick="goH(2)"></button></div>
+  <div class="hero-slide-dots" id="heroDots"><button class="active" aria-label="Snímek 1" onclick="goH(0)"></button><button aria-label="Snímek 2" onclick="goH(1)"></button><button aria-label="Snímek 3" onclick="goH(2)"></button></div>
   <div class="hero-inner">
     <div class="eyebrow" data-i18n="heroEyebrow">Privátní wellness kabina · les · včely</div>
     <h1>MEDOVÝ&nbsp;KLID<span style="font-size:.45em">®</span></h1>
@@ -874,10 +878,10 @@ img.lzy.loaded{opacity:1}
       <button class="testi-arrow next" onclick="moveT(1)" aria-label="next">›</button>
     </div>
     <div class="testi-dots">
-      <button class="active" onclick="goT(0)"></button>
-      <button onclick="goT(1)"></button>
-      <button onclick="goT(2)"></button>
-      <button onclick="goT(3)"></button>
+      <button class="active" aria-label="Reference 1" onclick="goT(0)"></button>
+      <button aria-label="Reference 2" onclick="goT(1)"></button>
+      <button aria-label="Reference 3" onclick="goT(2)"></button>
+      <button aria-label="Reference 4" onclick="goT(3)"></button>
     </div>
   </div>
 </section>
@@ -926,7 +930,7 @@ function shareCopy(e){e.preventDefault();navigator.clipboard&&navigator.clipboar
       <p style="margin-top:.8rem" data-i18n="fAbout">Soukromé ekologické wellness kabiny s apiterapií. Postaveno z přírody, provozováno v tichu.</p>
     </div>
     <div>
-      <h4 data-i18n="fMenu">Menu</h4>
+      <h3 data-i18n="fMenu">Menu</h3>
       <a href="#philos" data-i18n="about">O nás</a>
       <a href="#cabin" data-i18n="cabin">Kabina</a>
       <a href="#wellness" data-i18n="wellness">Wellness</a>
@@ -935,19 +939,19 @@ function shareCopy(e){e.preventDefault();navigator.clipboard&&navigator.clipboar
       <a href="fransiza/" style="color:var(--honey-soft)">Franšíza</a>
     </div>
     <div>
-      <h4 data-i18n="fRes">Rezervace</h4>
+      <h3 data-i18n="fRes">Rezervace</h3>
       <a href="#reserve" data-i18n="bookNow">Rezervovat</a>
       <a href="mailto:honeyedpeace@seznam.cz">honeyedpeace@seznam.cz</a>
       <a href="https://wa.me/420724283050" target="_blank">WhatsApp</a>
     </div>
     <div>
-      <h4 data-i18n="fContact">Kontakt</h4>
+      <h3 data-i18n="fContact">Kontakt</h3>
       <p>+420 774 726 995<br>+420 724 283 050</p>
       <p style="margin-top:.5rem">🛖 Snědovice, Ústecký kraj<br>souřadnice 50.5046, 14.3853</p>
       <p style="margin-top:.5rem">MEDOVÝ KLID HOLDING s.r.o.<br>Radimovická 1773/15, Chodov<br>149 00 Praha 4 · IČO 24506478<br>spisová značka C 442402/MSPH</p>
     </div>
     <div>
-      <h4 data-i18n="fLegal">Právní informace</h4>
+      <h3 data-i18n="fLegal">Právní informace</h3>
       <a href="obchodni-podminky/" data-i18n="fTerms">Obchodní podmínky</a>
       <a href="ochrana-osobnich-udaju/" data-i18n="fPrivacy">Ochrana osobních údajů</a>
       <a href="cookies/" data-i18n="fCookies">Cookies</a>

@@ -2,15 +2,16 @@
 :root{
   --forest:#0b1f16;--forest-2:#123227;--ivory:#f4efe5;--cream:#efe7d6;
   --sand:#ddd2bc;--honey:#c9a227;--honey-soft:#e3c568;--gold:#b8933a;
-  --ink:#1c2520;--muted:#6b7368;--line:#ddd2bc;
+  --ink:#1c2520;--muted:#5a6257;--line:#ddd2bc;
   --serif:'Playfair Display',Georgia,serif;
   --sans:'Jost',-apple-system,'Segoe UI',sans-serif;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{font-family:var(--sans);background:var(--ivory);color:var(--ink);line-height:1.8;font-weight:300;-webkit-font-smoothing:antialiased}
-a{color:var(--gold);text-decoration:none}
+a{color:#7d5f15;text-decoration:none}
 a:hover{text-decoration:underline}
+main a,.box a{text-decoration:underline;text-underline-offset:2px}
 .top{background:var(--forest);color:var(--ivory);padding:1rem 1.5rem;position:sticky;top:0;z-index:10;box-shadow:0 4px 20px rgba(0,0,0,.25)}
 .top .in{max-width:960px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
 .brand{font-family:var(--serif);font-size:1.05rem;letter-spacing:2px;color:var(--ivory);text-decoration:none}
