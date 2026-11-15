@@ -963,7 +963,7 @@ function shareCopy(e){e.preventDefault();navigator.clipboard&&navigator.clipboar
 
 <!-- LIGHTBOX -->
 <div class="lb" id="lb" onclick="closeLb()">
-  <img id="lbImg" src="" alt="">
+  <img id="lbImg" alt="Náhled fotografie">
   <button onclick="closeLb()">✕</button>
 </div>
 
@@ -1382,6 +1382,21 @@ function sendWhatsApp(text){
   payStatusOk(t('Rezervace připravena — dokončete ji ve WhatsApp.','Booking prepared — continue in WhatsApp.'));
 }
 
+function submitBooking(d,text){
+  if(!MK_CONFIG.booking.endpoint){ sendWhatsApp(text); return; }
+  payStatusOk(t('Odesíláme rezervaci…','Sending your booking…'));
+  fetch(MK_CONFIG.booking.endpoint,{
+    method:'POST',
+    headers:{'Content-Type':'application/json','Accept':'application/json'},
+    body:JSON.stringify(d)
+  }).then(function(r){
+    if(!r.ok) throw new Error('HTTP '+r.status);
+    payStatusOk(t('Děkujeme! Rezervaci jsme přijali — potvrzení pošleme e-mailem.','Thank you! We received your booking — confirmation follows by e-mail.'));
+  }).catch(function(){
+    sendWhatsApp(text);
+  });
+}
+
 document.getElementById('sendBtn').addEventListener('click',function(e){
   e.preventDefault();
   var d=bookingData();
@@ -1406,7 +1421,7 @@ document.getElementById('sendBtn').addEventListener('click',function(e){
       ? t('Rezervaci odešlete níže. QR platbu naskenujte v bankovní aplikaci.','Send the booking below. Scan the QR payment in your banking app.')
       : t('Rezervaci odešlete níže. Číslo účtu doplníme brzy — ozveme se vám s platebními údaji.','Send the booking below. The account number will be added soon — we will contact you with payment details.'));
   }
-  sendWhatsApp(text);
+  submitBooking(d,text);
 });
 
 document.getElementById('sendMailBtn').addEventListener('click',function(e){
@@ -1500,7 +1515,7 @@ function loadMap(){
 
 /* ---------- RESERVATION CALENDAR ---------- */
 var calY,calM,arrDate=null,depDate=null;
-var BOOKED=['2026-09-12','2026-09-13','2026-09-19','2026-09-20','2026-09-26','2026-09-27','2026-10-03','2026-10-04'];
+var BOOKED=[];
 function isoDate(y,m,d){ return y+'-'+String(m+1).padStart(2,'0')+'-'+String(d).padStart(2,'0'); }
 function calInit(){ var n=new Date(); calY=n.getFullYear(); calM=n.getMonth(); renderCals(); }
 function calMonth(dir){ calM+=dir; if(calM<0){calM=11;calY--;} if(calM>11){calM=0;calY++;} renderCals(); }
